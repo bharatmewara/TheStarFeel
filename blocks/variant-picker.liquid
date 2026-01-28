@@ -8,7 +8,14 @@
 -%}
 
 {% unless product_resource == blank %}
-  {% render 'variant-main-picker', product_resource: product_resource %}
+  <div
+    class="lux-variant-wrapper"
+    data-edge-style="sharp"
+    data-animate="true"
+    data-effect="invert"
+  >
+    {% render 'variant-main-picker', product_resource: product_resource %}
+  </div>
 {% endunless %}
 
 {% schema %}

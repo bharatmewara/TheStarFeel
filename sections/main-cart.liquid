@@ -1,0 +1,467 @@
+{% comment %}
+  StarFeel Premium Cart Page
+  Includes: Shipping Bar, Countdown, and 3D Featured Cards Upsells
+{% endcomment %}
+
+{{ 'section-main-cart.css' | asset_url | stylesheet_tag }}
+{{ 'section-featured-cards.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* --- LOCAL CSS FOR CART LAYOUT --- */
+  :root {
+    --cart-gold: #c6a87c;
+    --cart-black: #0b0b0b;
+    --cart-card: #141414;
+    --cart-border: #222;
+    --cart-text: #fff;
+  }
+
+  .premium-cart-wrapper {
+    background-color: var(--cart-black);
+    color: var(--cart-text);
+    min-height: 80vh;
+  }
+
+  .cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--cart-border);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .cart-heading {
+    font-family: "Playfair Display", serif;
+    font-size: 2.2rem;
+    color: var(--cart-gold);
+    margin: 0;
+  }
+
+  /* COUNTDOWN TIMER */
+  .cart-timer {
+    background: rgba(198, 168, 124, 0.1);
+    border: 1px solid var(--cart-gold);
+    color: var(--cart-gold);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* LAYOUT GRID */
+  .cart-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 40px;
+    align-items: start; /* Aligns sidebar to top */
+  }
+
+  /* FREE SHIPPING BAR */
+  .shipping-bar-container {
+    background: var(--cart-card);
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid var(--cart-border);
+  }
+  .shipping-text { margin-bottom: 10px; font-size: 0.9rem; }
+  .progress-bg { height: 6px; background: #333; border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--cart-gold); transition: width 1s ease; }
+
+  /* CART ITEMS */
+  .cart-item-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px 100px;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--cart-border);
+    align-items: center;
+  }
+  .cart-img { width: 100%; border-radius: 4px; object-fit: cover; aspect-ratio: 1; }
+  .cart-item-info h3 { margin: 0 0 5px; font-size: 1.1rem; }
+  .cart-item-info h3 a { color: #fff; text-decoration: none; }
+  .cart-item-price { color: var(--cart-gold); }
+
+  /* QTY SELECTOR */
+  .qty-wrapper {
+    display: flex;
+    border: 1px solid #333;
+    border-radius: 4px;
+    width: fit-content;
+  }
+  .qty-btn { background: transparent; border: none; color: #fff; padding: 5px 10px; cursor: pointer; }
+  .qty-input { background: transparent; border: none; color: #fff; width: 30px; text-align: center; }
+  
+  /* SUMMARY SIDEBAR */
+  .cart-sidebar {
+    position: sticky;
+    top: 20px;
+  }
+  .cart-summary {
+    background: var(--cart-card);
+    padding: 30px;
+    border-radius: 4px;
+    border: 1px solid var(--cart-border);
+  }
+  .summary-row { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 1rem; }
+  .total-row { border-top: 1px solid #333; padding-top: 15px; margin-top: 15px; font-size: 1.2rem; font-weight: 700; color: var(--cart-gold); }
+  
+  .checkout-btn {
+    width: 100%;
+    background: var(--cart-gold);
+    color: #000;
+    border: none;
+    padding: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+  }
+  .checkout-btn:hover { background: #fff; }
+
+  /* --- UPSELL OVERRIDES (Featured Cards Integration) --- */
+  .cart-upsells-wrapper {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--cart-border);
+  }
+  
+  /* Force the featured cards grid to fit cleanly */
+  .cart-upsells-wrapper .fc-grid {
+    padding-bottom: 40px; /* Space for 3D hover effect */
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .cart-grid { grid-template-columns: 1fr; }
+    .cart-item-row { grid-template-columns: 80px 1fr; grid-template-rows: auto auto; }
+    .qty-wrapper, .cart-final-price { grid-column: 2; }
+  }
+{%- endstyle -%}
+
+<div class="premium-cart-wrapper section-{{ section.id }}-padding">
+  <div class="page-width">
+    
+    <div class="cart-header">
+      <h1 class="cart-heading">Your Collection</h1>
+      {% if cart.item_count > 0 %}
+        <div class="cart-timer" id="cart-timer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Cart Reserved: <span id="timer-display">10:00</span>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if cart.item_count > 0 %}
+      <div class="cart-grid">
+        <div class="cart-main">
+          
+          {% assign threshold = section.settings.free_shipping_threshold | times: 100 %}
+          {% assign percentage = cart.total_price | times: 100 | divided_by: threshold %}
+          {% if percentage > 100 %}{% assign percentage = 100 %}{% endif %}
+          
+          <div class="shipping-bar-container">
+            <div class="shipping-text">
+              {% if cart.total_price >= threshold %}
+                <span style="color: var(--cart-gold);">Congratulations! You've unlocked Free Premium Shipping.</span>
+              {% else %}
+                {% assign remaining = threshold | minus: cart.total_price %}
+                Add <strong>{{ remaining | money }}</strong> to unlock Free Premium Shipping.
+              {% endif %}
+            </div>
+            <div class="progress-bg">
+              <div class="progress-fill" style="width: {{ percentage }}%;"></div>
+            </div>
+          </div>
+
+          <form action="{{ routes.cart_url }}" method="post" id="cart">
+            {% for item in cart.items %}
+              <div class="cart-item-row">
+                <a href="{{ item.url }}">
+                  {% if item.image %}
+                    <img src="{{ item.image | image_url: width: 300 }}" alt="{{ item.title }}" class="cart-img" loading="lazy">
+                  {% endif %}
+                </a>
+                
+                <div class="cart-item-info">
+                  <h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
+                  {% unless item.product.has_only_default_variant %}
+                    <p style="color: #888; font-size: 0.9rem;">{{ item.variant.title }}</p>
+                  {% endunless %}
+                  <a href="{{ item.url_to_remove }}" style="font-size: 0.8rem; text-decoration: underline; color: #666; margin-top: 5px; display: block;">Remove</a>
+                </div>
+
+                <div class="qty-wrapper">
+                  <button type="button" class="qty-btn js-qty-adjust" data-key="{{ item.key }}" data-action="minus">-</button>
+                  <input type="text" value="{{ item.quantity }}" class="qty-input" readonly>
+                  <button type="button" class="qty-btn js-qty-adjust" data-key="{{ item.key }}" data-action="plus">+</button>
+                </div>
+
+                <div class="cart-final-price">
+                  {{ item.final_line_price | money }}
+                </div>
+              </div>
+            {% endfor %}
+          </form>
+
+          {% if section.settings.upsell_collection != blank %}
+            <div class="cart-upsells-wrapper">
+              <div class="fc-header">
+                <h2 class="fc-heading" style="font-size: 1.8rem;">Complete The Look</h2>
+                <div class="fc-nav-controls">
+                  <button class="fc-nav-arrow fc-prev" aria-label="Previous">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                  </button>
+                  <button class="fc-nav-arrow fc-next" aria-label="Next">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="fc-grid" id="fc-carousel-cart">
+                {% for product in section.settings.upsell_collection.products limit: 8 %}
+                  {% unless cart.item_product_ids contains product.id %}
+                    <div class="fc-card">
+                      
+                      <div class="fc-top-elements">
+                        <button class="fc-quick-view" aria-label="Quick view">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                        {% if product.compare_at_price > product.price %}
+                          {% assign savings = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round %}
+                          <span class="fc-badge">-{{ savings }}%</span>
+                        {% endif %}
+                      </div>
+
+                      <a href="{{ product.url }}" class="fc-media">
+                        {% if product.featured_image != blank %}
+                          {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'fc-img' }}
+                        {% else %}
+                          {{ 'product-1' | placeholder_svg_tag: 'fc-img' }}
+                        {% endif %}
+                      </a>
+
+                      <div class="fc-content">
+                        <div class="fc-info">
+                          <a href="{{ product.url }}" class="fc-title">{{ product.title | truncate: 20 }}</a>
+                          <div class="fc-price-box">
+                            <span class="fc-price">{{ product.price | money }}</span>
+                            {% if product.compare_at_price > product.price %}
+                              <span class="fc-compare-price">{{ product.compare_at_price | money }}</span>
+                            {% endif %}
+                          </div>
+                        </div>
+                        
+                        <form method="post" action="/cart/add">
+                          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                          <button type="submit" class="fc-add-to-cart" aria-label="Add to cart">
+                            <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.87 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z"></path></svg>
+                          </button>
+                        </form>
+                      </div>
+
+                    </div>
+                  {% endunless %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="cart-sidebar">
+          <div class="cart-summary">
+            <h3 style="margin-bottom: 20px; font-family: 'Playfair Display', serif;">Order Summary</h3>
+            
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span>{{ cart.total_price | money }}</span>
+            </div>
+            
+            {% if cart.total_discounts > 0 %}
+            <div class="summary-row" style="color: var(--cart-gold);">
+              <span>Savings</span>
+              <span>-{{ cart.total_discounts | money }}</span>
+            </div>
+            {% endif %}
+
+            <div class="summary-row">
+              <span>Shipping</span>
+              <span style="font-size: 0.8rem; color: #888;">Calculated at checkout</span>
+            </div>
+
+            <div class="summary-row total-row">
+              <span>Total</span>
+              <span>{{ cart.total_price | money }}</span>
+            </div>
+
+            <button type="submit" name="checkout" form="cart" class="checkout-btn">
+              Proceed to Checkout
+            </button>
+            
+            <div style="margin-top: 15px; display: flex; justify-content: center; gap: 10px; opacity: 0.7;">
+               {%- render 'icon-visa' -%}
+               {%- render 'icon-mastercard' -%}
+               {%- render 'icon-amex' -%}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {% else %}
+      <div style="text-align: center; padding: 100px 0;">
+        <h2 style="color: #fff; margin-bottom: 20px;">Your cart is empty</h2>
+        <a href="{{ routes.all_products_collection_url }}" class="checkout-btn" style="display: inline-block; width: auto; text-decoration: none;">Continue Shopping</a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. UPDATED: Quantity Buttons Logic
+    const qtyButtons = document.querySelectorAll('.js-qty-adjust');
+    qtyButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const key = this.dataset.key;
+        const action = this.dataset.action;
+        const input = this.parentElement.querySelector('input');
+        let currentQty = parseInt(input.value);
+
+        let newQty = currentQty;
+        if(action === 'plus') {
+          newQty = currentQty + 1;
+        } else if (action === 'minus') {
+          newQty = currentQty - 1;
+        }
+
+        if (newQty < 0) newQty = 0;
+
+        // Optimistic UI update
+        input.value = newQty;
+
+        // AJAX update
+        fetch('/cart/change.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: key, quantity: newQty })
+        })
+        .then(response => {
+           // Reload page to refresh shipping bar, totals, etc.
+           window.location.reload(); 
+        })
+        .catch(error => console.error('Error:', error));
+      });
+    });
+
+    // 2. Session Timer Logic
+    const timerDisplay = document.getElementById('timer-display');
+    if(timerDisplay) {
+      let timeLeft = sessionStorage.getItem('starfeel_cart_timer');
+      if (!timeLeft) {
+        timeLeft = 600; // 10 minutes
+      } else {
+        timeLeft = parseInt(timeLeft);
+      }
+
+      const interval = setInterval(() => {
+        if (timeLeft <= 0) {
+          clearInterval(interval);
+          timerDisplay.innerText = "00:00";
+          return;
+        }
+        timeLeft--;
+        sessionStorage.setItem('starfeel_cart_timer', timeLeft);
+        
+        const m = Math.floor(timeLeft / 60);
+        const s = timeLeft % 60;
+        timerDisplay.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+      }, 1000);
+    }
+
+    // 3. Upsell Carousel Logic
+    const section = document.querySelector('#fc-carousel-cart');
+    if (section) {
+      const prevBtn = section.parentElement.querySelector('.fc-prev');
+      const nextBtn = section.parentElement.querySelector('.fc-next');
+      const scrollAmount = 300; 
+
+      if(prevBtn && nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          section.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+        
+        prevBtn.addEventListener('click', () => {
+          section.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+      }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Cart Page (Premium)",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Free Shipping Bar"
+    },
+    {
+      "type": "number",
+      "id": "free_shipping_threshold",
+      "label": "Free Shipping Threshold ($)",
+      "default": 200
+    },
+    {
+      "type": "header",
+      "content": "Suggested Products"
+    },
+    {
+      "type": "collection",
+      "id": "upsell_collection",
+      "label": "Upsell Collection"
+    }
+  ]
+}
+{% endschema %}

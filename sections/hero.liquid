@@ -1,0 +1,321 @@
+{% comment %}
+  StarFeel Luxury Hero Section
+  Cinematic hero with background slideshow
+{% endcomment %}
+
+<section class="starfeel-hero" id="hero-section">
+  <div class="starfeel-hero-slideshow">
+    <div class="starfeel-slide active">
+      <img
+        src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=1920&h=1080&fit=crop"
+        alt="Cosmic Art 1"
+        loading="lazy"
+      >
+    </div>
+    <div class="starfeel-slide">
+      <img
+        src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1920&h=1080&fit=crop"
+        alt="Cosmic Art 2"
+        loading="lazy"
+      >
+    </div>
+    <div class="starfeel-slide">
+      <img
+        src="https://media.istockphoto.com/id/180721578/photo/indian-sari.webp?w=1920&h=1080&fit=crop"
+        alt="Cosmic Art 3"
+        loading="lazy"
+      >
+    </div>
+    <div class="starfeel-slide">
+      <img
+        src="https://plus.unsplash.com/premium_photo-1677442898876-cb04de283bed?w=1920&h=1080&fit=crop"
+        alt="Cosmic Art 4"
+        loading="lazy"
+      >
+    </div>
+    <div class="starfeel-hero-overlay"></div>
+  </div>
+
+  <div class="starfeel-container">
+    <div class="starfeel-hero-content">
+      <p class="starfeel-hero-subtitle-top">{{ section.settings.hero_subtitle_top | default: 'GET YOUR OWN' }}</p>
+
+      <h1 class="starfeel-hero-title">
+        {{ section.settings.hero_title | default: 'Custom Artwork' }}
+      </h1>
+
+      <div class="starfeel-hero-actions">
+        <a
+          href="{{ section.settings.primary_button_link | default: '/collections/all' }}"
+          class="starfeel-btn starfeel-btn-primary"
+        >
+          {{ section.settings.primary_button_text | default: 'GET STARTED' }}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="starfeel-scroll-indicator">
+    <div class="starfeel-scroll-mouse">
+      <div class="starfeel-scroll-wheel"></div>
+    </div>
+    <p>Scroll to explore</p>
+  </div>
+</section>
+
+<style>
+  .starfeel-hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0;
+  }
+
+  .starfeel-hero-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+  }
+
+  .starfeel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+  }
+
+  .starfeel-slide.active {
+    opacity: 1;
+  }
+
+  .starfeel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .starfeel-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(10, 10, 15, 0.7) 0%,
+      rgba(10, 10, 15, 0.5) 50%,
+      rgba(10, 10, 15, 0.7) 100%
+    );
+    z-index: -1;
+  }
+
+  .starfeel-hero-content {
+    text-align: left;
+    z-index: 10;
+    max-width: 600px;
+    margin-left: 0;
+  }
+
+  .starfeel-hero-subtitle-top {
+    font-size: 1rem;
+    color: var(--starfeel-grey-light);
+    margin-bottom: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.3s forwards;
+  }
+
+  .starfeel-hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.6s forwards;
+    color: var(--starfeel-text);
+    line-height: 1.1;
+  }
+
+  .starfeel-hero-actions {
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.9s forwards;
+  }
+
+  .starfeel-btn-primary {
+    background: transparent;
+    border: 2px solid var(--starfeel-text);
+    color: var(--starfeel-text);
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: var(--starfeel-transition);
+  }
+
+  .starfeel-btn-primary:hover {
+    background: var(--starfeel-text);
+    color: var(--starfeel-black);
+  }
+
+  .starfeel-scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--starfeel-grey-light);
+    opacity: 0;
+    animation: fadeInUp 1s ease 1.2s forwards;
+  }
+
+  .starfeel-scroll-mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid var(--starfeel-text);
+    border-radius: 12px;
+    margin: 0 auto 0.5rem;
+    position: relative;
+  }
+
+  .starfeel-scroll-wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--starfeel-text);
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 2s infinite;
+  }
+
+  @keyframes scrollWheel {
+    0% {
+      top: 6px;
+      opacity: 1;
+    }
+    100% {
+      top: 20px;
+      opacity: 0;
+    }
+  }
+
+  .starfeel-scroll-indicator p {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .starfeel-hero-content {
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .starfeel-hero-title {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+<script>
+  // Background slideshow
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.starfeel-slide');
+    let currentSlide = 0;
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+
+    // Change slide every 5 seconds
+    setInterval(nextSlide, 5000);
+  });
+
+  // Auto-hide scroll indicator
+  window.addEventListener('scroll', function () {
+    const scrollIndicator = document.querySelector('.starfeel-scroll-indicator');
+    if (scrollIndicator) {
+      const opacity = Math.max(0, 1 - window.pageYOffset / 300);
+      scrollIndicator.style.opacity = opacity;
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "StarFeel Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_subtitle_top",
+      "label": "Top Subtitle",
+      "default": "GET YOUR OWN"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Custom Artwork"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "label": "Primary Button Text",
+      "default": "GET STARTED"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary Button Link",
+      "default": "/collections/all"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "StarFeel Hero"
+    }
+  ]
+}
+{% endschema %}

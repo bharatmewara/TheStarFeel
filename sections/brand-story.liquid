@@ -1,0 +1,188 @@
+{% schema %}
+{
+  "name": "Brand Story",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Story Image"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Our Journey"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Crafting Excellence Since 1990"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>We started with a simple mission: to bring the most exquisite art to discerning collectors around the world.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Read Our Story"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Story Style"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="brand-story-section page-width">
+  <div class="brand-story-image premium-card">
+    {% if section.settings.image != blank %}
+      {{
+        section.settings.image
+        | image_url: width: 800
+        | image_tag: loading: 'lazy', class: 'brand-story-img'
+      }}
+    {% else %}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'brand-story-img' }}
+    {% endif %}
+  </div>
+  <div class="brand-story-content">
+    <div class="brand-story-subheading">{{ section.settings.subheading }}</div>
+    <h2 class="brand-story-heading">{{ section.settings.heading }}</h2>
+    <div class="brand-story-richtext">{{ section.settings.content }}</div>
+    {% if section.settings.button_label != blank %}
+      <a
+        href="{{ section.settings.button_link }}"
+        class="brand-story-btn button button--primary"
+      >
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
+  </div>
+</div>
+<style>
+.brand-story-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  background: linear-gradient(135deg, #111 80%, #bfa14a 100%);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.45);
+  padding: 3.5rem 2.5rem;
+  margin: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.brand-story-section:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 2rem;
+  border: 2px solid #bfa14a;
+  pointer-events: none;
+  opacity: 0.18;
+}
+.brand-story-image.premium-card {
+  flex: 1 1 350px;
+  max-width: 420px;
+  background: rgba(30, 30, 30, 0.7);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(191,161,74,0.18);
+  border: 2px solid #bfa14a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.brand-story-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px 0 rgba(191,161,74,0.12);
+  border: 1.5px solid #bfa14a;
+  background: #181818;
+}
+.brand-story-content {
+  flex: 2 1 400px;
+  color: #e6e1d5;
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.brand-story-subheading {
+  color: #bfa14a;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  font-family: var(--font-heading-family, 'Montserrat', serif);
+}
+.brand-story-heading {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-heading-family, 'Montserrat', serif);
+  color: #fffbe6;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 12px #bfa14a33;
+}
+.brand-story-richtext {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: #e6e1d5;
+  margin-bottom: 2.2rem;
+  font-family: var(--font-body-family, 'Lora', serif);
+  background: rgba(30, 30, 30, 0.5);
+  border-radius: 0.7rem;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid #bfa14a;
+}
+.brand-story-btn {
+  background: linear-gradient(90deg, #bfa14a 60%, #fffbe6 100%);
+  color: #181818 !important;
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.95rem 2.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 2px 12px 0 #bfa14a44;
+  letter-spacing: 1.5px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.brand-story-btn:hover {
+  background: linear-gradient(90deg, #fffbe6 0%, #bfa14a 100%);
+  color: #111 !important;
+  box-shadow: 0 4px 24px 0 #bfa14a88;
+}
+@media (max-width: 900px) {
+  .brand-story-section {
+    flex-direction: column;
+    padding: 2.2rem 1.2rem;
+    gap: 2rem;
+  }
+  .brand-story-content {
+    padding-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+  .brand-story-image.premium-card {
+    max-width: 100%;
+    padding: 1rem;
+  }
+}
+</style>

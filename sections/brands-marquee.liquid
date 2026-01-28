@@ -1,0 +1,75 @@
+{% schema %}
+{
+  "name": "Trusted Brands Marquee",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trusted by"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trusted Brands Marquee",
+      "blocks": [
+        {
+          "type": "brand"
+        },
+        {
+          "type": "brand"
+        },
+        {
+          "type": "brand"
+        },
+        {
+          "type": "brand"
+        },
+        {
+          "type": "brand"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div style="background: var(--color-rich-black); padding: 2rem 0; overflow: hidden; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+  {% if section.settings.heading != blank %}
+    <p style="text-align: center; color: var(--color-gold); letter-spacing: 2px; text-transform: uppercase; font-family: var(--font-heading-family);">
+      {{ section.settings.heading }}
+    </p>
+  {% endif %}
+
+  <div class="logo-marquee">
+    <div class="logo-track">
+      {% for i in (1..4) %}
+        {% comment %} Repeat 4 times for smooth loop {% endcomment %}
+        {% for block in section.blocks %}
+          <div class="logo-item" {{ block.shopify_attributes }}>
+            {% if block.settings.logo != blank %}
+              {{ block.settings.logo | image_url: height: 50 | image_tag: loading: 'lazy' }}
+            {% else %}
+              <span style="font-size: 1.5rem; font-weight: bold; color: var(--color-gold-light);"
+                >BRAND {{ forloop.index -}}
+              </span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

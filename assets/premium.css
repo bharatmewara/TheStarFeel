@@ -1,0 +1,487 @@
+/* Premium Theme Enhancements */
+
+:root {
+    /* Luxury Gold & Black Palette */
+    --color-gold: #D4AF37;
+    --color-gold-light: #F1D780;
+    --color-gold-dark: #8F6F1E;
+    --color-rich-black: #050505;
+    --color-charcoal: #121212;
+    --color-grey-dark: #222222;
+    --color-cream: #E8E3D9;
+
+    /* Glassmorphism Dark Mode */
+    --glass-bg: rgba(20, 20, 20, 0.7);
+    --glass-border: rgba(212, 175, 55, 0.2);
+    /* Gold border trace */
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+
+    /* Animations */
+    --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: 0.6s var(--ease-premium);
+    --transition-fast: 0.3s var(--ease-premium);
+
+    /* Overrides for Default Theme Variables (to force dark mode feel) */
+    --color-base-text: 235, 235, 235;
+    /* Light text */
+    --color-base-background-1: 5, 5, 5;
+    /* Black bg */
+    --color-base-solid-button-labels: 0, 0, 0;
+    --color-base-outline-button-labels: 212, 175, 55;
+}
+
+/* Global Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-rich-black) !important;
+    color: var(--color-gold-light) !important;
+    font-family: 'Inter', sans-serif;
+    /* Setup in settings but enforced fallback here */
+}
+
+/* Luxury Typography Enhancements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    color: var(--color-gold);
+    letter-spacing: 0.05em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+p,
+.rte {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+/* 3D Tilt Effect Utility */
+.premium-card {
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.premium-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+/* Painting Grid Styles (Restored) */
+.painting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.painting-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    aspect-ratio: 3/4;
+}
+
+.painting-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-premium);
+}
+
+.painting-item:hover img {
+    transform: scale(1.1);
+}
+
+.painting-title {
+    color: var(--color-gold);
+    font-family: var(--font-heading-family);
+    font-size: 1.5rem;
+    transform: translateY(20px);
+    transition: transform var(--transition-fast);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.painting-item:hover .painting-title {
+    transform: translateY(0);
+}
+
+.painting-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+}
+
+.painting-item:hover .painting-overlay {
+    opacity: 1;
+}
+
+/* New Product List Grid Styles */
+.product-list-layout-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 990px) {
+    .product-list-layout-wrapper {
+        grid-template-columns: 1fr 2fr;
+        /* 1/3 Left, 2/3 Right */
+        gap: 3rem;
+    }
+}
+
+/* Exclusive Offer Card */
+.exclusive-offer-container {
+    background: var(--color-rich-black);
+    border: 1px solid var(--color-gold);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    height: fit-content;
+    top: 2rem;
+    /* Sticky offset if we add position: sticky */
+    display: flex;
+    flex-direction: column;
+}
+
+.offer-image-wrapper {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+}
+
+.offer-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+.exclusive-offer-container:hover .offer-image {
+    transform: scale(1.05);
+}
+
+.offer-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--color-gold);
+    color: black;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+}
+
+.offer-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.offer-subheading {
+    color: var(--color-gold-light);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+}
+
+.offer-heading {
+    color: var(--color-gold);
+    font-family: var(--font-heading-family);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.offer-description {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.offer-button {
+    width: 100%;
+    background-color: var(--color-gold);
+    color: black;
+    border: 1px solid var(--color-gold);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.offer-button:hover {
+    background-color: transparent;
+    color: var(--color-gold);
+}
+
+/* Right Side Grid for Product List */
+.product-list-grid-right {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* 3D Painting Card */
+.painting-card-3d {
+    perspective: 1000px;
+    position: relative;
+}
+
+.painting-card-inner {
+    display: block;
+    position: relative;
+    background: var(--color-grey-dark);
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transform-style: preserve-3d;
+    height: 100%;
+}
+
+.painting-card-3d:hover .painting-card-inner {
+    transform: translateY(-10px) rotateX(2deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--color-gold);
+}
+
+.painting-card-front {
+    position: relative;
+}
+
+.painting-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+}
+
+.painting-info {
+    padding: 1.5rem;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--color-grey-dark), #000);
+}
+
+.painting-name {
+    color: var(--color-gold);
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+    font-family: var(--font-heading-family);
+}
+
+.painting-artist {
+    color: #888;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.painting-price {
+    color: var(--color-gold-light);
+    font-weight: bold;
+}
+
+.painting-card-hover-actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-gold);
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.painting-card-inner:hover .painting-card-hover-actions {
+    transform: translateY(0);
+}
+
+.painting-card-hover-actions .btn-text {
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Testimonials Styles */
+.premium-testimonials {
+    padding: 6rem 2rem;
+    background: var(--color-rich-black);
+    color: var(--color-cream);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.testimonial-quote {
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    font-family: var(--font-heading-family);
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Brand Story Styles */
+.brand-story-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 5%;
+    gap: 4rem;
+    background-color: #fff;
+}
+
+.brand-story-content {
+    flex: 1;
+}
+
+.brand-story-image {
+    flex: 1;
+    position: relative;
+}
+
+.brand-story-image::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--color-gold);
+    z-index: -1;
+}
+
+/* Marquee Brands */
+.logo-marquee {
+    overflow: hidden;
+    padding: 3rem 0;
+    white-space: nowrap;
+    position: relative;
+    background: transparent;
+    border-top: 1px solid var(--color-grey-dark);
+    border-bottom: 1px solid var(--color-grey-dark);
+}
+
+.logo-track {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+}
+
+.logo-item {
+    display: inline-block;
+    margin: 0 4rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    /* Filter to convert black to Gold (#D4AF37) */
+    filter: brightness(0) saturate(100%) invert(68%) sepia(54%) saturate(718%) hue-rotate(3deg) brightness(95%) contrast(89%);
+}
+
+.logo-item:hover {
+    opacity: 1;
+    filter: none;
+    /* Show original colors on hover */
+}
+
+.logo-item img {
+    height: 50px;
+    width: auto;
+}
+
+/* Force Header & Footer to Black/Gold */
+.header-wrapper,
+.header,
+header,
+.footer-wrapper,
+.footer,
+footer,
+.announcement-bar,
+.utility-bar {
+    background-color: var(--color-rich-black) !important;
+    color: var(--color-gold-light) !important;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.header-wrapper *,
+.footer-wrapper *,
+.announcement-bar * {
+    color: var(--color-gold-light) !important;
+}
+
+.header__heading-link .h2,
+.header__menu-item,
+.list-menu__item {
+    color: var(--color-gold) !important;
+}
+
+.footer__content-top,
+.footer__content-bottom {
+    background-color: transparent !important;
+}
+
+/* Ensure SVG icons in header/footer are visible (gold) */
+.header .icon,
+.footer .icon {
+    color: var(--color-gold) !important;
+    fill: var(--color-gold) !important;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

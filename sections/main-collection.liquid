@@ -1,0 +1,232 @@
+<script
+  src="{{ 'results-list.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% javascript %}
+  const url = new URL(window.location.href);
+  if (url.hash) {
+    document.addEventListener(
+      'DOMContentLoaded',
+      () => {
+        const card = document.getElementById(url.hash.slice(1));
+        if (card) {
+          card.scrollIntoView({ behavior: 'instant' });
+        }
+      },
+      { once: true }
+    );
+  }
+{% endjavascript %}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<results-list
+  class="section product-grid-container color-{{ section.settings.color_scheme }}"
+  style="--padding-block-start: {{ section.settings.padding-block-start }}px; --padding-block-end: {{ section.settings.padding-block-end }}px;"
+  section-id="{{ section.id }}"
+  infinite-scroll="{{ section.settings.enable_infinite_scroll }}"
+>
+  {% render 'skip-to-content-link', href: '#ResultsList', text: 'accessibility.skip_to_results_list' %}
+
+  <div class="collection-wrapper sidebar-layout grid gap-style">
+    
+    <div class="collection-sidebar">
+      {% content_for 'block',
+        type: 'filters',
+        id: 'filters',
+        results: collection,
+        results_size: collection.products_count
+      %}
+    </div>
+
+    <div class="collection-main">
+      {% assign products_per_page = 24 %}
+      {% if section.settings.enable_infinite_scroll == false %}
+        {% assign products_per_page = section.settings.products_per_page %}
+      {% endif %}
+
+      {% paginate collection.products by products_per_page %}
+        <ul id="product-grid" data-id="{{ section.id }}" class="product-grid-list">
+          {% for product in collection.products %}
+            <li
+              id="{{ section.id }}-{{ product.id }}"
+              class="product-grid__item product-grid__item--{{ forloop.index0 }}"
+              style="--animation-order: {{ forloop.index0 }};"
+              data-page="{{ paginate.current_page }}"
+              data-product-id="{{ product.id }}"
+            >
+              {% content_for 'block', type: '_product-card', id: 'product-card', closest.product: product %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% render 'product-grid',
+          section: section,
+          children: children,
+          products: collection.products,
+          paginate: paginate,
+          enable_infinite_scroll: section.settings.enable_infinite_scroll
+        %}
+      {% endpaginate %}
+    </div>
+
+  </div>
+</results-list>
+
+{% stylesheet %}
+  /* --- LAYOUT CONFIGURATION --- */
+  
+  /* Mobile Layout (Default) - Stacked */
+  .collection-wrapper.sidebar-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--page-margin, 20px);
+  }
+
+  .product-grid-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cols on mobile */
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Desktop Layout (750px+) - Sidebar + Grid */
+  @media screen and (min-width: 750px) {
+    .collection-wrapper.sidebar-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr; /* Fixed sidebar, Fluid content */
+      align-items: start;
+      max-width: var(--page-width);
+      margin: 0 auto;
+    }
+
+    /* Sticky Sidebar Logic */
+    .collection-sidebar {
+      position: sticky;
+      top: 20px; /* Sticks to top when scrolling */
+      z-index: 2;
+      height: fit-content;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding-right: 20px; /* Breathing room for scrollbar */
+    }
+
+    /* Product Grid Logic */
+    .product-grid-list {
+      grid-template-columns: repeat(3, 1fr); /* 3 cols on desktop */
+      gap: 30px;
+    }
+  }
+
+  /* Large Screens (1400px+) */
+  @media screen and (min-width: 1400px) {
+    .product-grid-list {
+      grid-template-columns: repeat(4, 1fr); /* 4 cols on wide screens */
+    }
+  }
+
+  /* --- PREMIUM ANIMATIONS --- */
+
+  @keyframes fadeInUpPremium {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .product-grid__item {
+    opacity: 0; /* Initially hidden */
+    animation: fadeInUpPremium 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: calc(var(--animation-order) * 0.05s); /* Stagger effect */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 8px;
+    background: transparent;
+  }
+
+  /* Hover Lift Effect */
+  .product-grid__item:hover {
+    transform: translateY(-8px);
+    z-index: 5;
+  }
+  
+  /* Ensure images fill cards properly */
+  .product-grid__item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.collection_container",
+  "enabled_on": {
+    "templates": ["collection"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.layout"
+    },
+    {
+      "type": "paragraph",
+      "content": "Layout is set to: Sidebar (Left) + Products (Right)"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "t:settings.products_per_page",
+      "min": 8,
+      "max": 36,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_infinite_scroll",
+      "label": "t:settings.auto_load_products",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:content.section_layout"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top_padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom_padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": []
+}
+{% endschema %}

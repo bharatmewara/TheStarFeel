@@ -1,0 +1,204 @@
+/* --- STARFEEL TESTIMONIALS (Overlap Fixed Version) --- */
+:root {
+  --testi-bg: #000000;
+  --testi-gold: #c6a87c;
+  --testi-text: #ffffff;
+  --testi-text-muted: #888888;
+  --testi-font-heading: "Playfair Display", serif;
+  --testi-transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.starfeel-testimonials-section {
+  background-color: var(--testi-bg);
+  padding: 80px 0;
+  overflow: hidden;
+  color: var(--testi-text);
+  position: relative;
+}
+
+.starfeel-testimonials-section::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 60%; height: 60%;
+  background: radial-gradient(circle, rgba(198, 168, 124, 0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.starfeel-testi-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* --- HEADER --- */
+.starfeel-testi-heading {
+  font-family: var(--testi-font-heading);
+  font-size: 2.5rem;
+  color: var(--testi-text);
+  margin-bottom: 50px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+/* --- 3D CAROUSEL WRAPPER --- */
+.starfeel-carousel-stage {
+  position: relative;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px; /* Increased space between images and text */
+  perspective: 1000px;
+}
+
+.starfeel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--testi-gold);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 20;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--testi-transition);
+}
+.starfeel-nav-btn:hover {
+  background: var(--testi-gold);
+  color: #000;
+}
+.starfeel-prev { left: 10px; }
+.starfeel-next { right: 10px; }
+
+/* Image Cards */
+.starfeel-testi-image-card {
+  position: absolute;
+  width: 160px; height: 160px;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: var(--testi-transition);
+  opacity: 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.starfeel-testi-image-card img { width: 100%; height: 100%; object-fit: cover; }
+
+.starfeel-testi-image-card.active {
+  width: 220px; height: 220px;
+  opacity: 1; z-index: 10;
+  transform: translateX(0) scale(1);
+  border-color: var(--testi-gold);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 20px rgba(198, 168, 124, 0.2);
+}
+.starfeel-testi-image-card.prev {
+  opacity: 0.6; z-index: 5;
+  transform: translateX(-180px) scale(0.8);
+  filter: grayscale(0.5) brightness(0.7);
+}
+.starfeel-testi-image-card.next {
+  opacity: 0.6; z-index: 5;
+  transform: translateX(180px) scale(0.8);
+  filter: grayscale(0.5) brightness(0.7);
+}
+.starfeel-testi-image-card.prev-2 { opacity: 0.3; z-index: 2; transform: translateX(-320px) scale(0.6); }
+.starfeel-testi-image-card.next-2 { opacity: 0.3; z-index: 2; transform: translateX(320px) scale(0.6); }
+
+
+/* --- TEXT CONTENT AREA (FIXED) --- */
+.starfeel-content-stage {
+  /* Increased height to prevent clipping if content stacks high */
+  min-height: 250px; 
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.starfeel-text-block {
+  position: absolute;
+  top: 0; left: 0; width: 100%;
+  
+  /* FLEXBOX FIX: This forces vertical stacking, preventing overlap */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden; /* Hides inactive blocks completely from clicks/selection */
+  transition: var(--testi-transition);
+  pointer-events: none;
+}
+
+.starfeel-text-block.active {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Stars */
+.starfeel-stars {
+  color: var(--testi-gold);
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+  line-height: 1; /* Reset line-height to prevent tall hidden boxes */
+  margin: 0; /* Let Flex gap handle the spacing */
+  padding-bottom: 5px; /* Tiny extra buffer */
+}
+
+/* Quote */
+.starfeel-quote {
+  font-family: var(--testi-font-heading);
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-style: italic;
+  margin-top: 40px; 
+  padding: 0 10px;
+  position: relative;
+  display: block; /* Ensure it behaves as a block */
+}
+.starfeel-quote::before { content: "“"; color: var(--testi-gold); margin-right: 5px; }
+.starfeel-quote::after { content: "”"; color: var(--testi-gold); margin-left: 5px; }
+
+/* Author */
+.starfeel-author {
+  font-size: 0.9rem;
+  color: var(--testi-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin: 0; /* Reset margins */
+}
+
+.starfeel-author-role {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--testi-text-muted);
+  margin-top: 5px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .starfeel-testi-heading { font-size: 1.8rem; margin-bottom: 20px; }
+  .starfeel-carousel-stage { height: 220px; }
+  .starfeel-testi-image-card.active { width: 160px; height: 160px; }
+  .starfeel-testi-image-card.prev { transform: translateX(-110px) scale(0.7); }
+  .starfeel-testi-image-card.next { transform: translateX(110px) scale(0.7); }
+  .starfeel-testi-image-card.prev-2, .starfeel-testi-image-card.next-2 { opacity: 0; }
+  
+  .starfeel-quote { font-size: 1.1rem; }
+  .starfeel-text-block { gap: 15px; } /* Slightly tighter gap on mobile */
+}

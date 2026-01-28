@@ -1,0 +1,287 @@
+/* --- FEATURED CARDS (Premium 3D Gold Edition) --- */
+:root {
+  --fc-bg-section: #0b0b0b;   /* Deep Black Background */
+  --fc-bg-card: #141414;      /* Dark Grey Card Base */
+  --fc-text: #ffffff;
+  --fc-text-muted: #a0a0a0;
+  --fc-gold: #c6a87c;         /* Luxury Gold */
+  --fc-gold-glow: rgba(198, 168, 124, 0.4); /* For glowing edges */
+  --fc-border-radius: 6px;    /* slightly softer corners */
+  /* A spring-like physics ease for premium feel */
+  --fc-transition: cubic-bezier(0.34, 1.56, 0.64, 1); 
+}
+
+.featured-cards-section {
+  padding: 80px 0;
+  background-color: var(--fc-bg-section);
+  /* Subtle premium texture overlay */
+  background-image: radial-gradient(circle at top right, rgba(30,30,30,0.5), transparent 40%);
+  overflow: hidden;
+  border-top: 1px solid #1a1a1a;
+}
+
+.fc-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- HEADER & NAVIGATION --- */
+.fc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.fc-heading {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--fc-gold);
+  margin: 0;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.fc-nav-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.fc-nav-arrow {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #333;
+  background: rgba(20,20,20,0.8);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.fc-nav-arrow:hover {
+  border-color: var(--fc-gold);
+  color: var(--fc-gold);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--fc-gold-glow);
+}
+
+.fc-nav-arrow svg { width: 20px; height: 20px; }
+
+/* --- GRID CAROUSEL --- */
+.fc-grid {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 30px 10px; /* Extra padding for 3D movement space */
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  perspective: 2000px; /* Establishes 3D space for children */
+}
+.fc-grid::-webkit-scrollbar { display: none; }
+
+/* --- PREMIUM 3D CARD STYLE --- */
+.fc-card {
+  flex: 0 0 280px;
+  position: relative;
+  background: var(--fc-bg-card);
+  border-radius: var(--fc-border-radius);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #222;
+  
+  /* The Core 3D Setup */
+  transform-style: preserve-3d; /* Allows children to exist in 3D space */
+  transition: transform 0.6s var(--fc-transition), box-shadow 0.6s ease, border-color 0.6s ease;
+  box-shadow: 
+    0 5px 15px rgba(0,0,0,0.4), /* Base shadow */
+    inset 0 0 0 1px transparent; /* inner glow placeholder */
+}
+
+/* THE 3D HOVER EFFECT */
+.fc-card:hover {
+  /* Lift up, slight tilt back, scale up slightly */
+  transform: translateY(-15px) rotateX(3deg) scale(1.02);
+  border-color: var(--fc-gold);
+  /* Deep, multi-layered premium shadow + Gold inner glow */
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.6), /* Deep distant shadow */
+    0 0 0 1px var(--fc-gold), /* Sharp gold border */
+    inset 0 0 20px rgba(198, 168, 124, 0.1); /* Inner gold ambiance */
+  z-index: 10;
+}
+
+/* --- IMAGE AREA (The Canvas) --- */
+.fc-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 18px;
+  overflow: hidden;
+  background: #0a0a0a;
+  border-radius: 4px;
+  /* Push image slightly back in Z-space to enhance depth of elements above it */
+  transform: translateZ(0px); 
+  transition: transform 0.6s var(--fc-transition);
+}
+.fc-card:hover .fc-media {
+   transform: translateZ(10px); /* Slight lift on hover */
+}
+
+.fc-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.8s var(--fc-transition);
+  /* Subtle dark vignette to focus attention */
+  filter: brightness(0.95);
+}
+
+/* Slow, smooth zoom */
+.fc-card:hover .fc-img {
+  transform: scale(1.1);
+  filter: brightness(1.05);
+}
+
+/* --- LAYERED 3D ELEMENTS (Popping Out) --- */
+
+/* Common transition for floating elements */
+.fc-top-elements, .fc-content, .fc-add-to-cart {
+    transition: transform 0.6s var(--fc-transition), opacity 0.6s ease;
+}
+
+
+/* 1. Top Badges & Quick View */
+.fc-top-elements {
+  position: absolute;
+  top: 15px; left: 15px; right: 15px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 5;
+  pointer-events: none;
+  /* Float slightly above background by default */
+  transform: translateZ(20px);
+}
+
+/* On Hover: Pop out further */
+.fc-card:hover .fc-top-elements {
+  transform: translateZ(40px);
+}
+
+.fc-badge {
+  background: var(--fc-gold);
+  color: #000;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.fc-quick-view {
+  width: 36px; height: 36px;
+  background: rgba(20,20,20,0.8);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  border: 1px solid var(--fc-gold);
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: auto;
+  cursor: pointer;
+  color: var(--fc-gold);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  opacity: 0; /* Hidden by default for cleaner look */
+  transform: translateX(10px);
+}
+/* Show quick view on hover */
+.fc-card:hover .fc-quick-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fc-quick-view:hover {
+  background: var(--fc-gold);
+  color: #000;
+  transform: scale(1.1) !important; /* Override the translateZ for a moment */
+}
+
+/* 2. Bottom Content (Text & Price) */
+.fc-content {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  z-index: 4;
+  /* Float above background */
+  transform: translateZ(20px); 
+  padding: 0 5px;
+}
+/* On Hover: Pop out */
+.fc-card:hover .fc-content {
+   transform: translateZ(35px);
+}
+
+.fc-title {
+  font-family: sans-serif;
+  font-size: 1rem;
+  color: var(--fc-text);
+  margin: 0 0 6px 0;
+  text-decoration: none;
+  display: block;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.fc-price-box {
+  display: flex; align-items: center; gap: 10px; font-size: 0.95rem;
+}
+
+.fc-price { color: var(--fc-gold); font-weight: 600; letter-spacing: 0.5px; }
+.fc-compare-price { color: var(--fc-text-muted); text-decoration: line-through; font-size: 0.85rem; }
+
+/* 3. Add To Cart Button (Highest Layer) */
+.fc-add-to-cart {
+  width: 42px; height: 42px;
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  border: 1px solid #333;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  /* Sit highest in 3D space */
+  transform: translateZ(30px); 
+}
+
+/* On Hover: Pop out most and glow */
+.fc-card:hover .fc-add-to-cart {
+  transform: translateZ(50px) scale(1.05); /* Pop out further and scale */
+  background: var(--fc-gold);
+  border-color: var(--fc-gold);
+  color: #000;
+  box-shadow: 0 10px 25px var(--fc-gold-glow);
+}
+
+.fc-add-to-cart svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .fc-heading { font-size: 1.6rem; }
+  .fc-card { flex: 0 0 250px; }
+  .fc-nav-controls { display: none; }
+  /* Tone down 3D effects on mobile for performance/usability */
+  .fc-card:hover { transform: translateY(-5px); }
+  .fc-card:hover .fc-top-elements, 
+  .fc-card:hover .fc-content, 
+  .fc-card:hover .fc-add-to-cart { transform: translateZ(10px); }
+  .fc-quick-view { opacity: 1; transform: none; background: rgba(0,0,0,0.4); }
+}

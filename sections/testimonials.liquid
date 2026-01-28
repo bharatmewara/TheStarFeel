@@ -1,0 +1,187 @@
+{{ 'section-testimonials.css' | asset_url | stylesheet_tag }}
+
+<div class="starfeel-testimonials-section">
+  <div class="starfeel-testi-container">
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="starfeel-testi-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="starfeel-carousel-stage">
+      <button class="starfeel-nav-btn starfeel-prev" aria-label="Previous">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+
+      {% for block in section.blocks %}
+        <div class="starfeel-testi-image-card {% if forloop.index0 == 0 %}active{% endif %}" 
+             data-index="{{ forloop.index0 }}"
+             {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy' }}
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      <button class="starfeel-nav-btn starfeel-next" aria-label="Next">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+
+    <div class="starfeel-content-stage">
+      {% for block in section.blocks %}
+        <div class="starfeel-text-block {% if forloop.index0 == 0 %}active{% endif %}" data-index="{{ forloop.index0 }}">
+          <div class="starfeel-stars">★★★★★</div>
+          <div class="starfeel-quote">{{ block.settings.quote }}</div>
+          <div class="starfeel-author">
+            - {{ block.settings.author }}
+            {% if block.settings.role != blank %}
+              <span class="starfeel-author-role">{{ block.settings.role }}</span>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('.starfeel-testimonials-section');
+    if(!section) return;
+
+    const cards = Array.from(section.querySelectorAll('.starfeel-testi-image-card'));
+    const texts = Array.from(section.querySelectorAll('.starfeel-text-block'));
+    const prevBtn = section.querySelector('.starfeel-prev');
+    const nextBtn = section.querySelector('.starfeel-next');
+    
+    let currentIndex = 0;
+    const total = cards.length;
+
+    // Function to update classes based on distance from current index
+    function updateCarousel() {
+      cards.forEach((card, index) => {
+        // Reset classes
+        card.className = 'starfeel-testi-image-card';
+        
+        // Calculate distance (handling loop around)
+        let diff = (index - currentIndex) % total;
+        if (diff < 0) diff += total;
+        
+        // Assign classes for 3D effect
+        if (diff === 0) {
+          card.classList.add('active');
+        } else if (diff === 1 || diff === - (total - 1)) {
+           // Should handle basic next/prev logic purely on array position for visual simplicity
+        }
+      });
+      
+      // Simpler Logic for 3D visuals based on Array order
+      // We will loop through and manually assign Active, Prev, Next, etc based on relative position
+      
+      cards.forEach((card) => {
+         card.classList.remove('active', 'prev', 'next', 'prev-2', 'next-2');
+         card.style.opacity = '0'; // Hide by default
+         card.style.pointerEvents = 'none';
+      });
+
+      // Active
+      const activeCard = cards[currentIndex];
+      activeCard.classList.add('active');
+      activeCard.style.opacity = '1';
+      activeCard.style.pointerEvents = 'auto';
+
+      // Next (Right)
+      const nextIndex = (currentIndex + 1) % total;
+      cards[nextIndex].classList.add('next');
+      cards[nextIndex].style.opacity = '1';
+
+      // Prev (Left)
+      const prevIndex = (currentIndex - 1 + total) % total;
+      cards[prevIndex].classList.add('prev');
+      cards[prevIndex].style.opacity = '1';
+      
+      // Next-2 (Far Right)
+      const next2Index = (currentIndex + 2) % total;
+      if (next2Index !== prevIndex && next2Index !== currentIndex) {
+         cards[next2Index].classList.add('next-2');
+         cards[next2Index].style.opacity = '0.4';
+      }
+
+      // Prev-2 (Far Left)
+      const prev2Index = (currentIndex - 2 + total) % total;
+      if (prev2Index !== nextIndex && prev2Index !== currentIndex) {
+         cards[prev2Index].classList.add('prev-2');
+         cards[prev2Index].style.opacity = '0.4';
+      }
+
+      // Update Text
+      texts.forEach(text => text.classList.remove('active'));
+      texts[currentIndex].classList.add('active');
+    }
+
+    // Controls
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % total;
+      updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + total) % total;
+      updateCarousel();
+    });
+
+    // Allow clicking on side cards to navigate
+    cards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+
+    // Init
+    updateCarousel();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "StarFeel 3D Testimonials",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Testimonials"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "User Image" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "This artwork transformed my space completely!" },
+        { "type": "text", "id": "author", "label": "Author Name", "default": "Sarah J." },
+        { "type": "text", "id": "role", "label": "Role/Location", "default": "New York, NY" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "StarFeel 3D Testimonials",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}

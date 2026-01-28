@@ -1,0 +1,180 @@
+{{ 'section-product-list.css' | asset_url | stylesheet_tag }}
+
+{%- assign collection = section.settings.collection -%}
+{%- assign product_limit = section.settings.products_to_show -%}
+
+<div class="featured-cards-section">
+  <div class="fc-container">
+    
+    {% comment %} --- HEADER WITH ARROWS --- {% endcomment %}
+    <div class="fc-header">
+      <h2 class="fc-heading">Featured Artworks</h2>
+      
+      <div class="fc-nav-controls">
+        <button class="fc-nav-arrow fc-prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="fc-nav-arrow fc-next" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </div>
+
+    {% comment %} --- PRODUCT CAROUSEL --- {% endcomment %}
+    <div class="fc-grid" id="fc-carousel-{{ section.id }}">
+      {% if collection != blank %}
+        {% for product in collection.products limit: product_limit %}
+          <div class="fc-card">
+            
+            {% comment %} Top: Eye & Badge {% endcomment %}
+            <div class="fc-top-elements">
+              <button class="fc-quick-view" aria-label="Quick view">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+              {% if product.compare_at_price > product.price %}
+                {% assign savings = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round %}
+                <span class="fc-badge">-{{ savings }}%</span>
+              {% endif %}
+            </div>
+
+            {% comment %} Image {% endcomment %}
+            <a href="{{ product.url }}" class="fc-media">
+              {% if product.featured_image != blank %}
+                {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'fc-img' }}
+              {% else %}
+                {{ 'product-1' | placeholder_svg_tag: 'fc-img' }}
+              {% endif %}
+            </a>
+
+            {% comment %} Info & Cart {% endcomment %}
+            <div class="fc-content">
+              <div class="fc-info">
+                <a href="{{ product.url }}" class="fc-title">{{ product.title | truncate: 25 }}</a>
+                <div class="fc-price-box">
+                  <span class="fc-price">{{ product.price | money }}</span>
+                  {% if product.compare_at_price > product.price %}
+                    <span class="fc-compare-price">{{ product.compare_at_price | money }}</span>
+                  {% endif %}
+                </div>
+              </div>
+              
+              <form method="post" action="/cart/add">
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                <button type="submit" class="fc-add-to-cart" aria-label="Add to cart">
+                  <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.87 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z"></path></svg>
+                </button>
+              </form>
+            </div>
+
+          </div>
+        {% endfor %}
+      {% else %}
+        {% comment %} PLACEHOLDERS {% endcomment %}
+        {% for i in (1..6) %}
+          <div class="fc-card">
+            <div class="fc-top-elements">
+               <button class="fc-quick-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+               <span class="fc-badge">NEW</span>
+            </div>
+            <div class="fc-media">
+               {% capture current %}{% cycle 1, 2, 3 %}{% endcapture %}
+               {{ 'product-' | append: current | placeholder_svg_tag: 'fc-img' }}
+            </div>
+            <div class="fc-content">
+              <div class="fc-info">
+                <span class="fc-title">Luxury Product {{ i }}</span>
+                <div class="fc-price-box">
+                  <span class="fc-price">$450.00</span>
+                </div>
+              </div>
+              <button class="fc-add-to-cart">
+                 <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.87 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z"></path></svg>
+              </button>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('#fc-carousel-{{ section.id }}');
+    const prevBtn = section.parentElement.querySelector('.fc-prev');
+    const nextBtn = section.parentElement.querySelector('.fc-next');
+    
+    // Scroll Amount: Width of one card (280) + gap (20) = 300px
+    const scrollAmount = 300; 
+
+    if(prevBtn && nextBtn && section) {
+      nextBtn.addEventListener('click', () => {
+        section.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+      
+      prevBtn.addEventListener('click', () => {
+        section.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Featured Cards (Black)",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "product-list-content",
+      "name": "Product List Content",
+      "settings": [
+        { "type": "select", "id": "content_direction", "label": "Content Direction", "options": [ { "value": "column", "label": "Column" }, { "value": "row", "label": "Row" } ], "default": "column" },
+        { "type": "checkbox", "id": "vertical_on_mobile", "label": "Vertical on Mobile", "default": false },
+        { "type": "select", "id": "horizontal_alignment", "label": "Horizontal Alignment", "options": [ { "value": "center", "label": "Center" }, { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ], "default": "center" },
+        { "type": "select", "id": "vertical_alignment", "label": "Vertical Alignment", "options": [ { "value": "center", "label": "Center" }, { "value": "top", "label": "Top" }, { "value": "bottom", "label": "Bottom" } ], "default": "center" },
+        { "type": "range", "id": "gap", "label": "Gap", "min": 0, "max": 64, "step": 1, "default": 16 },
+        { "type": "select", "id": "width", "label": "Width", "options": [ { "value": "fill", "label": "Fill" }, { "value": "auto", "label": "Auto" } ], "default": "fill" },
+        { "type": "select", "id": "background_media", "label": "Background Media", "options": [ { "value": "none", "label": "None" }, { "value": "image", "label": "Image" }, { "value": "video", "label": "Video" } ], "default": "none" }
+      ]
+    },
+    {
+      "type": "product-card",
+      "name": "Product Card",
+      "settings": [
+        { "type": "range", "id": "product_card_gap", "label": "Product Card Gap", "min": 0, "max": 32, "step": 1, "default": 0 },
+        { "type": "checkbox", "id": "inherit_color_scheme", "label": "Inherit Color Scheme", "default": false },
+        { "type": "color_scheme", "id": "color_scheme", "label": "Color Scheme", "default": "scheme-1" },
+        { "type": "select", "id": "border", "label": "Border Style", "options": [ { "value": "none", "label": "None" }, { "value": "solid", "label": "Solid" } ], "default": "none" }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured Artworks"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 8,
+      "label": "Products to show"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Cards (Black)"
+    }
+  ]
+}
+{% endschema %}

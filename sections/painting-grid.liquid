@@ -1,0 +1,94 @@
+{% schema %}
+{
+  "name": "Painting Showcase Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Curated Masterpieces"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "painting",
+      "name": "Painting",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Painting Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Abstract Harmony"
+        },
+        {
+          "type": "text",
+          "id": "artist",
+          "label": "Artist",
+          "default": "Unknown Artist"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Painting Showcase Grid",
+      "blocks": [
+        {
+          "type": "painting"
+        },
+        {
+          "type": "painting"
+        },
+        {
+          "type": "painting"
+        },
+        {
+          "type": "painting"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="page-width">
+  {% if section.settings.heading != blank %}
+    <h2
+      class="title center"
+      style="text-align: center; margin: 4rem 0 2rem; font-family: var(--font-heading-family); font-size: 3rem;"
+    >
+      {{ section.settings.heading }}
+    </h2>
+  {% endif %}
+
+  <div class="painting-grid">
+    {% for block in section.blocks %}
+      <a
+        href="{{ block.settings.link | default: '#' }}"
+        class="painting-item premium-card"
+        {{ block.shopify_attributes }}
+      >
+        {% if block.settings.image != blank %}
+          {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy' }}
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag }}
+        {% endif %}
+
+        <div class="painting-overlay">
+          <h3 class="painting-title">{{ block.settings.title }}</h3>
+          <p style="color: white; opacity: 0.8;">{{ block.settings.artist }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>

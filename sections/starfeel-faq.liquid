@@ -1,0 +1,135 @@
+{{ 'section-faq.css' | asset_url | stylesheet_tag }}
+
+<div class="starfeel-faq-section">
+  <div class="starfeel-faq-container">
+    
+    {% if section.settings.title != blank %}
+      <div class="starfeel-faq-header">
+        {% if section.settings.subheading != blank %}
+          <span class="starfeel-faq-subheading">{{ section.settings.subheading }}</span>
+        {% endif %}
+        <h2 class="starfeel-faq-title">{{ section.settings.title }}</h2>
+      </div>
+    {% endif %}
+
+    <div class="starfeel-faq-grid">
+      {% for block in section.blocks %}
+        <div class="starfeel-faq-item" {{ block.shopify_attributes }}>
+          <button class="starfeel-faq-question" aria-expanded="false">
+            {{ block.settings.question }}
+            <span class="starfeel-faq-icon"></span>
+          </button>
+          <div class="starfeel-faq-answer">
+            <div class="starfeel-faq-answer-inner">
+              {{ block.settings.answer }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.starfeel-faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.starfeel-faq-question');
+      const answer = item.querySelector('.starfeel-faq-answer');
+
+      question.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+
+        // 1. Close all other items (Accordion behavior)
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('active')) {
+            otherItem.classList.remove('active');
+            otherItem.querySelector('.starfeel-faq-answer').style.maxHeight = null;
+          }
+        });
+
+        // 2. Toggle the clicked item
+        item.classList.toggle('active');
+        
+        // 3. Set the height for the animation
+        if (!isOpen) {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        } else {
+          answer.style.maxHeight = null;
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "StarFeel FAQ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Support Center"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How is the artwork shipped?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>We use premium, museum-grade crate packaging to ensure your artwork arrives in pristine condition. All shipments are fully insured and tracked.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "StarFeel FAQ",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you offer international shipping?",
+            "answer": "<p>Yes, we ship our celestial masterpieces worldwide. Shipping times vary by location but typically take 7-14 business days.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 30-day satisfaction guarantee. If the artwork doesn't resonate with your space, you can return it in its original condition for a full refund.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are the artworks framed?",
+            "answer": "<p>Most of our pieces come with a luxury floating frame options in Gold, Black, or Natural Wood. Please check specific product details.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

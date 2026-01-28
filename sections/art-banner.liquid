@@ -1,0 +1,71 @@
+{{ 'section-art-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="art-banner-section">
+  <div class="art-banner-bg">
+    {% if section.settings.image != blank %}
+      {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy', class: 'art-banner-img' }}
+    {% else %}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'art-banner-img' }}
+    {% endif %}
+  </div>
+
+  <div class="art-banner-content">
+    <h2 class="art-banner-heading">{{ section.settings.heading }}</h2>
+    <div class="art-banner-text">
+      {{ section.settings.text }}
+    </div>
+    
+    {% if section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}" class="art-banner-btn">
+        {{ section.settings.button_label }}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Art Banner (Split)",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Art That Speaks"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Bring your walls to life with stunning paintings that inspire every day."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Art Banner (Split)"
+    }
+  ]
+}
+{% endschema %}

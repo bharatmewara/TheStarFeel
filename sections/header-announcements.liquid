@@ -1,0 +1,273 @@
+{% comment %}
+  StarFeel Dynamic Announcement Bar
+  Supports: Standard Text & Countdown Offers
+{% endcomment %}
+
+{%- style -%}
+  .announcement-bar {
+    border-bottom: {{ section.settings.divider_width }}px solid rgba(0,0,0,0.08);
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .announcement-slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 24px;
+    overflow: hidden;
+  }
+
+  .announcement-slide {
+    display: none;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .announcement-slide.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .announcement-text {
+    margin: 0;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  /* Countdown Styles */
+  .offer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.85rem;
+  }
+  
+  .header-countdown {
+    display: inline-flex;
+    background: rgba(255,255,255,0.2);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .header-countdown span { margin: 0 1px; }
+
+  @media(max-width: 750px) {
+    .offer-container { flex-direction: column; gap: 4px; }
+  }
+{%- endstyle -%}
+
+<div class="announcement-bar color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="announcement-slider" data-autoplay="{{ section.settings.speed | times: 1000 }}">
+      {%- for block in section.blocks -%}
+        <div class="announcement-slide {% if forloop.first %}active{% endif %}" {{ block.shopify_attributes }}>
+          
+          {%- case block.type -%}
+            {%- when 'announcement' -%}
+              <p class="announcement-text" style="font-size: {{ block.settings.font_size }}rem;">
+                {%- if block.settings.link != blank -%}
+                  <a href="{{ block.settings.link }}" class="link link--text">{{ block.settings.text }}</a>
+                {%- else -%}
+                  {{ block.settings.text }}
+                {%- endif -%}
+              </p>
+
+            {%- when 'countdown_offer' -%}
+              <div class="offer-container" style="font-size: {{ block.settings.font_size }}rem;">
+                <span class="offer-text">{{ block.settings.text }}</span>
+                {%- if block.settings.end_date != blank -%}
+                  <div class="header-countdown" data-date="{{ block.settings.end_date }}">
+                    <span class="d">00</span>d : <span class="h">00</span>h : <span class="m">00</span>m : <span class="s">00</span>s
+                  </div>
+                {%- endif -%}
+              </div>
+
+          {%- endcase -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. Slider Logic
+  const slider = document.querySelector('.announcement-slider');
+  if (slider) {
+    const slides = slider.querySelectorAll('.announcement-slide');
+    const speed = parseInt(slider.dataset.autoplay) || 5000;
+    
+    if (slides.length > 1) {
+      let current = 0;
+      setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, speed);
+    }
+  }
+
+  // 2. Countdown Logic
+  const timers = document.querySelectorAll('.header-countdown');
+  timers.forEach(timer => {
+    const destDate = new Date(timer.dataset.date).getTime();
+    
+    const tick = setInterval(() => {
+      const now = new Date().getTime();
+      const diff = destDate - now;
+
+      if (diff < 0) {
+        clearInterval(tick);
+        timer.innerHTML = "EXPIRED";
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      timer.querySelector('.d').innerText = d < 10 ? '0'+d : d;
+      timer.querySelector('.h').innerText = h < 10 ? '0'+h : h;
+      timer.querySelector('.m').innerText = m < 10 ? '0'+m : m;
+      timer.querySelector('.s').innerText = s < 10 ? '0'+s : s;
+    }, 1000);
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Rotation Speed",
+      "default": 5
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "divider_width",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Border Width",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Text Announcement",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Welcome to our store",
+          "label": "Message"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "font_size",
+          "label": "Font Size",
+          "options": [
+            { "value": "0.75", "label": "Small" },
+            { "value": "0.85", "label": "Medium" },
+            { "value": "1.0", "label": "Large" }
+          ],
+          "default": "0.75"
+        }
+      ]
+    },
+    {
+      "type": "countdown_offer",
+      "name": "Offer with Timer",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Limited Time Offer! Ends in:",
+          "label": "Offer Text"
+        },
+        {
+          "type": "text",
+          "id": "end_date",
+          "label": "End Date",
+          "info": "Format: YYYY-MM-DDTHH:mm (e.g. 2024-12-31T23:59)",
+          "placeholder": "2024-12-31T23:59"
+        },
+        {
+          "type": "select",
+          "id": "font_size",
+          "label": "Font Size",
+          "options": [
+            { "value": "0.75", "label": "Small" },
+            { "value": "0.85", "label": "Medium" },
+            { "value": "1.0", "label": "Large" }
+          ],
+          "default": "0.85"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header Announcements",
+      "blocks": [
+        { "type": "announcement" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -101,25 +101,6 @@ export class ProductCard extends Component {
   /**
    * Handles the quick add event.
    */
-
-  document.addEventListener("change", (e) => {
-  if (!e.target.matches(".lux-variant-wrapper input[type='radio']")) return;
-
-  const label = e.target.nextElementSibling;
-  if (!label) return;
-
-  label.animate(
-    [
-      { transform: "scale(0.95)" },
-      { transform: "scale(1)" }
-    ],
-    {
-      duration: 180,
-      easing: "cubic-bezier(0.4, 0, 0.2, 1)"
-    }
-  );
-});
-
   #handleQuickAdd = () => {
     this.removeEventListener('pointerenter', this.#fetchProductPageHandler);
     this.removeEventListener('focusin', this.#fetchProductPageHandler);

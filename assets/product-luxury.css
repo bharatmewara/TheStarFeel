@@ -1,0 +1,85 @@
+/* ==============================
+   LUXURY VARIANT SELECTOR
+   ============================== */
+
+/* Variant group title (MATERIAL, SIZE, FRAME) */
+.product-form__input legend,
+.variant-picker__label {
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+/* Wrapper */
+.product-form__input {
+  margin-bottom: 28px;
+}
+
+/* Hide default radio */
+.product-form__input input[type="radio"] {
+  display: none;
+}
+
+/* Variant buttons */
+.product-form__input label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  padding: 14px 18px;
+  margin: 0 10px 10px 0;
+
+  background: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 0;
+
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+.product-form__input label:hover {
+  background: #111;
+}
+
+/* Active / selected */
+.product-form__input input[type="radio"]:checked + label {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+/* Disabled variants */
+.product-form__input input[type="radio"]:disabled + label {
+  opacity: 0.3;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* Size buttons slightly wider */
+.product-form__input[data-option-name="Size"] label {
+  min-width: 80px;
+}
+
+/* Frame buttons wider */
+.product-form__input[data-option-name="Frame"] label {
+  min-width: 160px;
+}
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 768px) {
+  .product-form__input label {
+    min-width: auto;
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+}

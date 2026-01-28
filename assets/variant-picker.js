@@ -41,17 +41,6 @@ export default class VariantPicker extends Component {
       if (initialCheckedIndex !== -1) {
         this.#checkedIndices.push([initialCheckedIndex]);
       }
-
-      // Apply premium styling to variant picker options
-      radios.forEach((radio, index) => {
-        const label = radio.closest('label') || radio.nextElementSibling;
-        if (label) {
-          label.classList.add('variant-picker__option');
-          if (radio.checked) {
-            label.classList.add('variant-picker__option--selected');
-          }
-        }
-      });
     });
 
     this.addEventListener('change', this.variantChanged.bind(this));
@@ -74,20 +63,6 @@ export default class VariantPicker extends Component {
       event.target instanceof HTMLSelectElement ? event.target.options[event.target.selectedIndex] : event.target;
 
     if (!selectedOption) return;
-
-    // Update premium styling for variant picker
-    if (event.target instanceof HTMLInputElement) {
-      const fieldset = event.target.closest('fieldset');
-      if (fieldset) {
-        fieldset.querySelectorAll('.variant-picker__option').forEach((option) => {
-          option.classList.remove('variant-picker__option--selected');
-        });
-        const label = event.target.closest('label') || event.target.nextElementSibling;
-        if (label) {
-          label.classList.add('variant-picker__option--selected');
-        }
-      }
-    }
 
     this.updateSelectedOption(event.target);
     this.dispatchEvent(new VariantSelectedEvent({ id: selectedOption.dataset.optionValueId ?? '' }));

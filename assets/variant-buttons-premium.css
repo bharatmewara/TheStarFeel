@@ -1,4 +1,4 @@
-/* Premium Variant Buttons Styling */
+/* Premium Variant Buttons Styling with Multiple Customization Options */
 
 .variant-picker {
   display: flex;
@@ -7,7 +7,8 @@
   align-items: center;
 }
 
-/* Main variant button styles */
+/* ============ BASE BUTTON STYLES ============ */
+
 .variant-picker__option {
   position: relative;
   padding: 11px 18px;
@@ -18,14 +19,74 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 0.3px;
-  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   overflow: hidden;
   white-space: nowrap;
   user-select: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-/* Ripple effect on hover */
+/* ============ BUTTON SHAPE VARIATIONS ============ */
+
+/* Rounded (default) */
+[data-button-shape="rounded"] .variant-picker__option {
+  border-radius: 8px;
+}
+
+/* Square */
+[data-button-shape="square"] .variant-picker__option {
+  border-radius: 4px;
+}
+
+/* Pill */
+[data-button-shape="pill"] .variant-picker__option {
+  border-radius: 24px;
+}
+
+/* Sharp */
+[data-button-shape="sharp"] .variant-picker__option {
+  border-radius: 0;
+}
+
+/* ============ BUTTON SIZE VARIATIONS ============ */
+
+/* Small */
+[data-button-size="small"] .variant-picker__option {
+  padding: 8px 14px;
+  font-size: 12px;
+}
+
+/* Medium (default) */
+[data-button-size="medium"] .variant-picker__option {
+  padding: 11px 18px;
+  font-size: 14px;
+}
+
+/* Large */
+[data-button-size="large"] .variant-picker__option {
+  padding: 14px 22px;
+  font-size: 15px;
+}
+
+/* ============ BORDER STYLE VARIATIONS ============ */
+
+/* Solid Border (default) */
+[data-button-border="solid"] .variant-picker__option {
+  border: 1.5px solid #d4d4d4;
+}
+
+/* Subtle Border */
+[data-button-border="subtle"] .variant-picker__option {
+  border: 1px solid #e8e8e8;
+}
+
+/* No Border */
+[data-button-border="none"] .variant-picker__option {
+  border: none;
+}
+
+/* ============ RIPPLE EFFECT ============ */
+
 .variant-picker__option::before {
   content: '';
   position: absolute;
@@ -38,22 +99,70 @@
   transform: translate(-50%, -50%);
   transition: width 0.6s ease-out, height 0.6s ease-out;
   pointer-events: none;
+  opacity: 0;
 }
 
-/* Hover state */
-.variant-picker__option:hover {
+/* ============ HOVER ANIMATIONS ============ */
+
+/* Lift Up Animation (default) */
+[data-hover-animation="lift"] .variant-picker__option:hover {
   border-color: #888;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
   transform: translateY(-3px);
   background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
 }
 
-.variant-picker__option:hover::before {
-  width: 280px;
-  height: 280px;
+/* Scale Animation */
+[data-hover-animation="scale"] .variant-picker__option:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: #888;
 }
 
-/* Selected/Active state */
+/* Glow Animation */
+[data-hover-animation="glow"] .variant-picker__option:hover {
+  box-shadow: 
+    0 0 10px rgba(0, 0, 0, 0.15),
+    0 0 20px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.04);
+  border-color: #666;
+}
+
+/* Underline Animation */
+[data-hover-animation="underline"] .variant-picker__option:hover {
+  border-bottom-width: 3px;
+  border-bottom-color: #1a1a1a;
+}
+
+/* Gradient Shift Animation */
+[data-hover-animation="gradient-shift"] .variant-picker__option:hover {
+  background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Ripple Animation */
+[data-hover-animation="ripple"] .variant-picker__option:hover::before {
+  width: 280px;
+  height: 280px;
+  opacity: 1;
+}
+
+/* ============ TRANSITION SPEED VARIATIONS ============ */
+
+[data-transition-speed="slow"] .variant-picker__option {
+  transition-duration: 0.5s;
+}
+
+[data-transition-speed="medium"] .variant-picker__option {
+  transition-duration: 0.3s;
+}
+
+[data-transition-speed="fast"] .variant-picker__option {
+  transition-duration: 0.15s;
+}
+
+/* ============ SELECTED/ACTIVE STATE ============ */
+
 .variant-picker__option--selected {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   color: #ffffff;
@@ -89,7 +198,8 @@
   }
 }
 
-/* Disabled state */
+/* ============ DISABLED STATE ============ */
+
 .variant-picker__option--disabled,
 .variant-picker__option:disabled {
   opacity: 0.5;
@@ -106,7 +216,8 @@
   transform: none;
 }
 
-/* Focus state for accessibility */
+/* ============ FOCUS STATE (Accessibility) ============ */
+
 .variant-picker__option:focus-visible {
   outline: 2px solid #1a1a1a;
   outline-offset: 2px;
@@ -116,7 +227,8 @@
   outline-color: #ffffff;
 }
 
-/* Color variant options (swatches) */
+/* ============ COLOR SWATCH VARIANTS ============ */
+
 .variant-picker__option[data-variant-type="color"] {
   padding: 8px;
   min-width: 42px;
@@ -147,13 +259,15 @@
   transition: all 0.3s ease;
 }
 
-/* Size variant styles */
+/* ============ SIZE VARIANT STYLES ============ */
+
 .variant-picker__option[data-variant-type="size"] {
   min-width: 50px;
   text-align: center;
 }
 
-/* Active ripple effect */
+/* ============ ACTIVE PRESS STATE ============ */
+
 .variant-picker__option:active {
   transform: translateY(-1px);
 }
@@ -163,15 +277,26 @@
   height: 140px;
 }
 
-/* Mobile adjustments */
+/* ============ MOBILE RESPONSIVE ============ */
+
 @media (max-width: 640px) {
   .variant-picker {
     gap: 10px;
   }
 
-  .variant-picker__option {
-    padding: 10px 16px;
+  [data-button-size="small"] .variant-picker__option {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  [data-button-size="medium"] .variant-picker__option {
+    padding: 9px 15px;
     font-size: 13px;
+  }
+
+  [data-button-size="large"] .variant-picker__option {
+    padding: 12px 18px;
+    font-size: 14px;
   }
 
   .variant-picker__option[data-variant-type="color"] {
@@ -180,7 +305,8 @@
   }
 }
 
-/* Smooth transitions preference */
+/* ============ PREFERS REDUCED MOTION ============ */
+
 @media (prefers-reduced-motion: reduce) {
   .variant-picker__option {
     transition: none;
@@ -195,3 +321,4 @@
     transform: translateY(-50%) scale(1) rotate(0deg);
   }
 }
+

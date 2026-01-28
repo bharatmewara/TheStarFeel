@@ -23,6 +23,11 @@
     data-product-id="{{ product_resource.id }}"
     data-block-id="{{ block.id }}"
     data-product-url="{{ product_resource.url }}"
+    data-button-shape="{{ section.settings.button_shape | default: 'rounded' }}"
+    data-button-size="{{ section.settings.button_size | default: 'medium' }}"
+    data-button-border="{{ section.settings.button_border_style | default: 'solid' }}"
+    data-hover-animation="{{ section.settings.hover_animation | default: 'lift' }}"
+    data-transition-speed="{{ section.settings.transition_speed | default: 'medium' }}"
     ref="mainVariantPicker"
     {% if product.id == product_resource.id %}
       data-template-product-match="true"

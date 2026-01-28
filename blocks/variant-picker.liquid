@@ -8,7 +8,7 @@
 -%}
 
 {% unless product_resource == blank %}
-  {% render 'variant-main-picker', product_resource: product_resource %}
+  {% render 'variant-main-picker', product_resource: product_resource, section: section %}
 {% endunless %}
 
 {% schema %}
@@ -51,6 +51,151 @@
       "id": "alignment",
       "label": "t:settings.alignment",
       "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Button Styling"
+    },
+    {
+      "type": "select",
+      "id": "button_shape",
+      "label": "Button Shape",
+      "options": [
+        {
+          "value": "rounded",
+          "label": "Rounded"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "pill",
+          "label": "Pill (Fully Rounded)"
+        },
+        {
+          "value": "sharp",
+          "label": "Sharp Edges"
+        }
+      ],
+      "default": "rounded"
+    },
+    {
+      "type": "select",
+      "id": "button_size",
+      "label": "Button Size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "button_border_style",
+      "label": "Border Style",
+      "options": [
+        {
+          "value": "solid",
+          "label": "Solid Border"
+        },
+        {
+          "value": "subtle",
+          "label": "Subtle Border"
+        },
+        {
+          "value": "none",
+          "label": "No Border"
+        }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "select",
+      "id": "hover_animation",
+      "label": "Hover Animation",
+      "options": [
+        {
+          "value": "lift",
+          "label": "Lift Up"
+        },
+        {
+          "value": "scale",
+          "label": "Scale"
+        },
+        {
+          "value": "glow",
+          "label": "Glow"
+        },
+        {
+          "value": "underline",
+          "label": "Underline"
+        },
+        {
+          "value": "gradient-shift",
+          "label": "Gradient Shift"
+        },
+        {
+          "value": "ripple",
+          "label": "Ripple Effect"
+        }
+      ],
+      "default": "lift"
+    },
+    {
+      "type": "select",
+      "id": "transition_speed",
+      "label": "Animation Speed",
+      "options": [
+        {
+          "value": "slow",
+          "label": "Slow (0.5s)"
+        },
+        {
+          "value": "medium",
+          "label": "Medium (0.3s)"
+        },
+        {
+          "value": "fast",
+          "label": "Fast (0.15s)"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text Color"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Border Color"
+    },
+    {
+      "type": "color",
+      "id": "button_selected_bg",
+      "label": "Selected Background"
+    },
+    {
+      "type": "color",
+      "id": "button_selected_text",
+      "label": "Selected Text Color"
     },
     {
       "type": "header",

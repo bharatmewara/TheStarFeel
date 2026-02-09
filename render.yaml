@@ -13,7 +13,7 @@ services:
 
     envVars:
       - key: OPENAI_API_KEY
-        value: ""
+        value: "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"
 
       - key: TEXT_MODEL
         value: gpt-4.1-mini

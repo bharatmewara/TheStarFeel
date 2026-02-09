@@ -1,0 +1,54 @@
+<!-- Mini Cart Start -->
+<div class="baskettop">
+  <div class="wrapper-top-cart">
+    <a href="javascript:void(0)" id="ToggleDown" class="icon-cart-arrow">
+     
+      <i class="zmdi zmdi-shopping-cart" aria-hidden="true"></i>
+      <div class="detail">
+     <span>{{ 'layout.cart.title' | t }}  </span> 
+        <div id="cartCount"> : {{ cart.item_count }}
+        </div>
+        
+      </div>
+     
+    
+    </a> 
+    <div id="slidedown-cart" style="display:none"> 
+      <!--  <h3>{{ 'cart.general.mini_cart_title' | t }}</h3>-->
+      <div class="no-items">
+        <p>{{ 'cart.general.empty' | t }}</p>
+        <p class="text-continue"><a class="btn" href="javascript:void(0)">{{ 'cart.general.continue_shopping' | t }}</a></p>
+      </div>
+      <div class="has-items">
+        <ul class="mini-products-list">  
+          {% for item in cart.items %}
+          <li class="item" id="cart-item-{{item.id}}">
+            <a href="{{item.url}}" title="{{item.title}}" class="product-image">
+              <img src="{{ item.image | product_img_url: 'small' }}" alt="{{item.title}}"></a>
+            <div class="product-details">
+              <p class="product-name"><a href="{{item.url}}">{{ item.product.title }}
+                {% if item.product.variants.size != 0 %}
+                {% unless item.variant.title contains 'Default' %}
+                {{ item.variant.title }}
+                {% endunless %}
+                {% endif %}</a></p>
+              <div class="cart-collateral"><span class="price">{{item.price | money}}</span> x {{item.quantity}}</div>
+            </div>
+            <a href="javascript:void(0)" title="Remove This Item" class="btn-remove"><span class="icon-close"></span></a>
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="summary">                
+          <p class="total">
+            <span class="label">{{ 'cart.general.cart_total' | t }}</span>
+            <span class="price">{{cart.total_price | money}}</span> 
+          </p>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="window.location='/checkout'"><i class="icon-check"></i>{{ 'cart.general.checkout' | t }}</button>
+          <button class="btn text-cart" onclick="window.location='/cart'"><i class="icon-basket"></i>{{ 'cart.general.view_cart' | t }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!-- End Top Header --> 

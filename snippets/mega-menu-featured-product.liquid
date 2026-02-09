@@ -1,0 +1,59 @@
+{% capture show_featured_product_menu %}show_featured_product_menu_{{ i }}{% endcapture %}  
+{% capture menu_featured_product_title %}menu_featured_product_title_{{ i }}{% endcapture %}
+{% capture menu_featured_product_list_collection %}menu_featured_product_list_collection_{{ i }}{% endcapture %}
+
+{% if section.settings[show_featured_product_menu] %}
+<div class="widget-featured-product">
+  {% if section.settings[menu_featured_product_title] != blank %}
+  <div class="widget-title">   
+    <h3>     
+      <span>{{ section.settings[menu_featured_product_title]  }}</span>      
+    </h3>
+  </div>
+  {% endif %}
+  
+  {% assign found = section.settings[menu_featured_product_list_collection] %}
+  
+  {% if found == blank %}
+  <p style="margin-bottom: 30px; {{found }}">Please select a collection in Theme Setting to display the products (Navigation -> Featured Product in Mega Menu)</p>
+  {% else %}
+  <div class="widget-product">
+	<div class="products-grid owl-carousel owl-theme">	  
+	  {% for product in collections[found].products %}
+      {% include 'mega-menu-product-grid' %}	  
+  	  {% endfor %}
+    </div> 
+     <div class="widget-featured-nav">   </div>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+
+
+
+ <script type="text/javascript">
+    $(document).ready(function(){
+      var productSidedeals = $(".widget-featured-product .products-grid");
+      productSidedeals.owlCarousel({
+        loop:false,
+        margin:10,
+        nav:true,
+        navContainer: ".widget-featured-nav",
+        navText: [' <a class="prev active"><i class="icon-arrow-left icons"></i></a>',' <a class="prev active"><i class="icon-arrow-right icons"></i></a>'],
+        dots: false,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
+            }
+        }
+      });      
+});
+  </script>
+

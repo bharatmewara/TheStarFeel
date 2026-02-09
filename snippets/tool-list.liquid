@@ -1,0 +1,92 @@
+<header class="section-header section-header--large">
+
+  <div class="toolbar">
+    {% if settings.collections_view_enable %}
+    <div class="view-mode grid__item wide--one-third post-large--one-third large--one-third">
+      {% if settings.collection_sidebar_use == "full_width" and settings.enable_filters %}
+      <div class="tags-filter">
+        <button id="showTagsFilter" class="btn">Filter <i class="fa fa-angle-up"></i></button>
+      </div>
+      {% endif %}
+      <a class="grid btn" href="grid" title="{{ 'collections.general.grid_view' | t }}"><span class="fa fa-th-large" aria-hidden="true"></span></a>  
+      <a class="list btn active" href="list" title="{{ 'collections.general.list_view' | t }}" ><span class="fa fa-th-list" aria-hidden="true"></span></a>  
+    </div>    
+    {% endif %}
+    <div class="grid__item wide--two-thirds post-large--two-thirds large--two-thirds">
+      {% if settings.collections_sort_enable %}
+      <div class="filter-sortby grid__item {% unless settings.collection_infinite_scrolling %} wide--six-tenths post-large--six-tenths large--six-tenths  {% endunless %}">
+        <label for="sort-by">{{ 'collections.sorting.title' | t }}</label> 
+        <input type="text" id="sort-by">
+        <div class="sorting-section">
+          <button class="btn dropdown-toggle" data-toggle="dropdown">
+            <i class="icon-exchange"></i>
+            <span>{{ 'collections.sorting.featured' | t }}</span>
+            <i class="icon-chevron-down"></i>
+          </button>
+
+          <ul class="dropdown-menu" role="menu">
+            <li class="active"><a href="manual">{{ 'collections.sorting.featured' | t }}</a></li>
+            <li><a href="price-ascending">{{ 'collections.sorting.price_ascending' | t }}</a></li>
+            <li><a href="price-descending">{{ 'collections.sorting.price_descending' | t }}</a></li>
+            <li><a href="title-ascending">{{ 'collections.sorting.az' | t }}</a></li>
+            <li><a href="title-descending">{{ 'collections.sorting.za' | t }}</a></li>
+            <li><a href="created-ascending">{{ 'collections.sorting.date_ascending' | t }}</a></li>
+            <li><a href="created-descending">{{ 'collections.sorting.date_descending' | t }}</a></li>
+            <li><a href="best-selling">{{ 'collections.sorting.best_selling' | t }}</a></li>
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+      {% unless settings.collection_infinite_scrolling %} 
+      {% if settings.collections_items_enable %} 
+      <div class="filter-show grid__item wide--four-tenths post-large--four-tenths large--four-tenths">
+        <label>{{ 'collections.toolbar.show' | t }}</label>
+        <div class="pages_list">
+          <button class="btn dropdown-toggle" data-toggle="dropdown">
+            <i class="icon-exchange"></i>
+            {% if paginate.page_size != 100 %}
+            <span>{{paginate.page_size}}</span>
+            {% else %}
+            <span>{{ 'collections.toolbar.all' | t }}</span>
+            {% endif %}
+            <i class="icon-chevron-down"></i>
+          </button>
+
+          <ul class="dropdown-menu" role="menu">
+            {% if settings.collection_results_per_page != blank %}
+            {% assign product_per_page = settings.collection_results_per_page %}
+            {% else %}
+            {% assign product_per_page = 12 %}
+            {% endif %}
+
+            {% assign current_page_size = paginate.page_size %}
+            <li {% if current_page_size == 8 %} class="active" {% endif %}><a href="8">8</a></li> 
+            <li {% if current_page_size == 12 %} class="active" {% endif %}><a href="12">12</a></li>
+            <li {% if current_page_size == 24 %} class="active" {% endif %} ><a href="24">24</a></li>       	     
+            <li {% if current_page_size == 36 %} class="active" {% endif %} ><a href="36">36</a></li>
+            <li {% if current_page_size == 100 %} class="active" {% endif %} ><a href="all">{{ 'collections.sorting.all_tags' | t }}</a></li>    
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+      {% endunless %}
+    </div>
+
+  </div>
+</header>
+{% if settings.collection_sidebar_use == "full_width" %}
+{% include 'collection-sidebar' %}
+{% endif %}
+{% if settings.show_collection_image %}
+{% if collection.handle and collection.handle != 'all' and collection.image %}
+<div class="grid__item">
+  <img src="{{ collection.image.src | collection_img_url: '1920x' }}" alt="{{ collection.image.alt }}"  class="collection-featured-image"/>
+</div>
+{% endif %}
+{% endif %}
+{% if collection.description != blank %}
+<div class="rte rte--header">
+  {{ collection.description }}
+</div>
+<hr class="hr--clear hr--small">
+{% endif %}

@@ -1,0 +1,84 @@
+
+
+{% paginate blog.articles by 6 %}
+<div class="blog-design-4 ">
+    <div class="wrapper">
+  <div class="blog-section">
+       
+    <div class="grid__item">    
+      {% for article in blog.articles %}
+      <div class="grid__item wide--one-third post-large--one-third large--one-third">
+        <div class="article">
+          
+          <div class="blog-description">
+           
+            <div class="home-blog-content blog-detail">
+              
+               
+              
+              
+               <div class="blogs-sub-title">
+             {% if settings.show_blog_4_date %}
+              <p class="blog-date">
+                  <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}"><span class="date"><i style="">{{ article.published_at | date: '%d' }} </i>  {{ article.published_at | date: '%b' }} , {{ article.published_at | date: '%Y' }} </span></time>    		 
+              </p>
+              {% endif %}
+
+             <h4><a href="{{ article.url }}">{{ article.title }}</a></h4>
+                  {% if article.comments_enabled? %}
+              {% assign number_of_comments = article.comments_count %}
+              <p class="comments-count">({{  number_of_comments }}) {{ 'blogs.comments.comments' | t }}</p>
+              {% endif %}
+              <p class="author">
+                {% if settings.show_blog_4_author %}            
+                <i class="zmdi zmdi-account"></i>
+                <span> {{ article.author }}</span>
+                {% endif %}
+              </p>  
+                 
+            </div>
+              {% if settings.show_blog_4_content %}
+              <p>{{ article.content | strip_html | truncate: 200 }}</p>
+              {% endif %}
+
+              {% if article.tags.size > 0 and settings.show_blog_4_tag %}
+              <div class="blog-tag">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+                {% for tag in article.tags %}
+                <a class="blog-tags" href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %} <span class="meta-sep">&#44;</span> {% endunless %}
+                {% endfor %}
+              </div>
+              {% endif %}
+             
+              {% if settings.show_blog_4_btn %}
+              <div class="blog-btn">
+                <a class="btn" href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a>
+              </div>
+              {% endif %}
+            </div>
+ 
+          </div>
+          {% if settings.show_blog_4_img %}
+          {% if article.image %}
+          {% assign image_alt = article.title | escape %}
+          <div class="article-img">
+            {{ article | img_url: 'master' | img_tag: image_alt, 'article__image' | link_to: article.url }}
+          </div>
+          {% endif %}
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}    
+      {% if paginate.pages > 1 %}
+      <div class="text-center">
+        {% include 'pagination-default' %}
+      </div>
+      {% endif %}
+    </div>        
+  </div>
+  </div>
+</div>
+{% endpaginate %}
+
+
+

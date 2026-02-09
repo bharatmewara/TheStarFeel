@@ -1,0 +1,10 @@
+{% if settings.ai_consultation_enable %}
+  <button
+    type="button"
+    class="ai-consultation-btn"
+    data-ai-consultation-open
+    aria-haspopup="dialog"
+    aria-controls="ai-consultation-modal">
+    {{ settings.ai_consultation_cta_text | default: 'AI Space Consultation' }}
+  </button>
+{% endif %}

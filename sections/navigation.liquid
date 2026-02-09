@@ -1,0 +1,341 @@
+<div class="desktop-megamenu">  
+  <div class="nav-bar-mobile">
+    <nav class="nav-bar" role="navigation">
+          <div class="site-nav-dropdown_inner grid__item menubar-section">
+                      <div class="container">
+
+        <div class="menu-tool"> 
+  <ul class="site-nav">
+    {% for link in linklists.main-menu.links %}
+    {% assign i = forloop.index | downcase %}
+    {% assign cat = link.title | handleize %}
+
+    {% if section.settings.display_megamenu %}
+
+    {% assign is_megamenu = false %}
+    {% for block in section.blocks %}
+    {% for i in (1..5) %}  
+    {% capture cap_megamenu_item %}megamenu_items_{{ i }}{% endcapture %}  
+    {% capture cap_banner_first_style %}banner_first_style_{{ i }}{% endcapture %}
+    {% capture cap_banner_second_style %}banner_second_style_{{ i }}{% endcapture %}
+    {% capture cap_banner_third_style %}banner_third_style_{{ i }}{% endcapture %}
+
+
+    {% capture cap_link_banner_first_style %}link_banner_first_style_{{ i }}{% endcapture %}
+    {% capture cap_link_banner_second_style %}link_banner_second_style_{{ i }}{% endcapture %}
+    {% capture cap_link_banner_third_style %}link_banner_third_style_{{ i }}{% endcapture %}
+
+
+    {% capture cap_featured_product %}featured_product_{{ i }}{% endcapture %}
+    {% capture cap_title_featured_product %}title_featured_product_{{ i }}{% endcapture %}
+    {% capture cap_main_linklist %}main_linklist_{{ i }}{% endcapture %}
+
+    {% comment %}
+    For style 4
+    {% endcomment %}
+    {% capture cap_banner_four_style %}banner_four_style_{{ i }}{% endcapture %}
+
+
+
+    {% if block.settings[cap_megamenu_item] != blank %}
+    {% assign megamenu_item = block.settings[cap_megamenu_item] | handleize %}
+    {% if megamenu_item == cat %}
+    {% assign is_megamenu = true %}
+    {% assign block_style = block.type %}
+
+    {% assign banner_first_style = block.settings[cap_banner_first_style] %}
+    {% assign banner_second_style = block.settings[cap_banner_second_style] %}
+    {% assign banner_third_style = block.settings[cap_banner_third_style] %}
+
+
+    {% assign link_banner_first_style = block.settings[cap_link_banner_first_style] %}
+    {% assign link_banner_second_style = block.settings[cap_link_banner_second_style] %}
+    {% assign link_banner_third_style = block.settings[cap_link_banner_third_style] %}
+
+
+    {% assign featured_product = block.settings[cap_featured_product] %}
+    {% assign title_featured_product = block.settings[cap_title_featured_product] %}  			  
+    {%- assign product = all_products[featured_product] -%}
+
+    {% comment %}
+    For style 4
+    {% endcomment %}
+    {% assign banner_four_style = block.settings[cap_banner_four_style] %}	     			    
+    {% assign main_linklist = block.settings[cap_main_linklist] %}
+
+
+    {% endif %}
+    {% endif %}
+
+    
+    {% endfor %}
+    {% endfor %}
+
+    {% endif %}  
+    
+    
+    <li class=" {% if is_megamenu %}dropdown  mega-menu{% else %}{% if linklists[link.handle] != empty %} dropdown{% endif %}{% endif %}">
+      <a {%if linklists[link.handle] != empty %}class="menu__moblie" {% endif %} href="{{ link.url }}" class="{% if link.active %}current{% endif %}">
+        <span>         
+          {{ link.title }}          
+        </span>       
+      </a> 	
+
+      {% comment %}
+      Check if menu item is Mega menu 
+      {% endcomment %}
+ 		{% assign link_child = link.handle %}     
+      {% if section.settings.display_megamenu %}  
+
+      {% if is_megamenu %}          
+      {% include 'mega-menu' with link_child %}                     
+      {% else %}
+      {% if linklists[link.handle] != empty %}
+      {% include 'dropdown-menu' with link_child %}
+      {% endif %}
+      {% endif %}
+
+      {% else %}
+      {% if linklists[link.handle] != empty %}
+      {% include 'dropdown-menu' with link_child %}
+      {% endif %}
+      {% endif %}
+
+    </li>
+    {% endfor %}
+    {% if settings.ai_consultation_enable and settings.ai_consultation_show_in_nav %}
+    <li class="ai-consultation-nav">
+      {% include 'ai-consultation-cta' %}
+    </li>
+    {% endif %}
+  </ul>  
+          </div>
+</div>
+      </div>
+    </nav>      
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Navigation",
+	"max_blocks": 10,
+    "settings": [
+    {
+    "type": "checkbox",
+    "id": "display_megamenu",
+    "label": "Display Mega Menu?",
+    "default": true
+    }
+],
+"blocks": [
+	  {
+	  	"type": "style_1",
+      	"name": "Style 1",
+      	"settings": [
+		  {
+            "type": "text",
+            "id": "title",
+            "label": "Menu - Style 1",
+            "default": "Menu - Style 1"
+          },
+		  {
+            "type": "text",
+            "id": "megamenu_items_1",
+            "label": "Mega Menu Items for Style 1",
+            "default": "Catalog"
+            
+          },
+		  {
+            "type": "link_list",
+            "id": "main_linklist_1",
+            "label": "Collection"
+          },
+		  {
+            "type": "image_picker",
+            "id": "banner_first_style_1",
+            "label": "Upload a new image",
+            "info": "224px x 337px recommended"
+          },
+		  {
+			"type": "url",
+			"id": "link_banner_first_style_1",
+			"label": "Banner link"
+		  }
+		  
+		]
+      },
+	  {
+	  	"type": "style_2",
+      	"name": "Style 2",
+      	"settings": [
+		  {
+            "type": "text",
+            "id": "title",
+            "label": "Menu - Style 2",
+            "default": "Menu - Style 2"
+          },
+		  {
+            "type": "text",
+            "id": "megamenu_items_2",
+            "label": "Mega Menu Items for Style 2",
+            "default": "Catalog"
+          },
+		  {
+            "type": "link_list",
+            "id": "main_linklist_2",
+            "label": "Collection"
+          },
+		  
+		  {
+            "type": "image_picker",
+            "id": "banner_second_style_2",
+            "label": "Upload a new image",
+            "info": "224px x 165px recommended"
+          },
+		  {
+			"type": "url",
+			"id": "link_banner_second_style_2",
+			"label": "Link image 1"
+		  },
+		  {
+            "type": "image_picker",
+            "id": "banner_third_style_2",
+            "label": "Upload a new image",
+            "info": "224px x 165px recommended"
+          },
+		  {
+			"type": "url",
+			"id": "link_banner_third_style_2",
+			"label": "Link image 2"
+		  },
+		 {
+            "type": "image_picker",
+            "id": "banner_first_style_2",
+            "label": "Upload a new image",
+            "info": "224px x 337px recommended"
+          },
+		  {
+			"type": "url",
+			"id": "link_banner_first_style_2",
+			"label": "Link image 3"
+		  }
+		]
+      },
+	  {
+	  	"type": "style_3",
+      	"name": "Style 3",
+      	"settings": [
+		  {
+            "type": "text",
+            "id": "title",
+            "label": "Menu - Style 3",
+            "default": "Menu - Style 3"
+          },
+		  {
+            "type": "text",
+            "id": "megamenu_items_3",
+            "label": "Mega Menu Items for Style 3",
+            "default": "Catalog"
+          },
+		  {
+            "type": "link_list",
+            "id": "main_linklist_3",
+            "label": "Collection"
+          },
+		  
+		  {
+            "type": "text",
+            "id": "title_featured_product_3",
+            "label": "Title Product"
+          },
+		  {
+            "type": "product",
+            "id": "featured_product_3",
+            "label": "Product"
+          },
+          
+		  {
+            "type": "image_picker",
+            "id": "banner_first_style_3",
+            "label": "Upload a new image",
+            "info": "224px x 337px recommended"
+          },
+		  {
+			"type": "url",
+			"id": "link_banner_first_style_3",
+			"label": "Link image"
+		  }
+		]
+      },
+	  {
+	  	"type": "style_4",
+      	"name": "Style 4",
+      	"settings": [
+		  {
+            "type": "text",
+            "id": "title",
+            "label": "Menu - Style 4",
+            "default": "Menu - Style 4"
+          },
+		  {
+            "type": "text",
+            "id": "megamenu_items_4",
+            "label": "Mega Menu Items for Style 4",
+            "default": "Catalog"
+          },
+		  {
+            "type": "link_list",
+            "id": "main_linklist_4",
+            "label": "Collection"
+          }
+		]
+      },
+	{
+	  	"type": "style_5",
+      	"name": "Style 5",
+      	"settings": [
+		  {
+            "type": "text",
+            "id": "title",
+            "label": "Menu - Style 5",
+            "default": "Menu - Style 5"
+          },
+		  {
+            "type": "text",
+            "id": "megamenu_items_5",
+            "label": "Mega Menu Items for Style 5",
+            "default": "Catalog"
+          },
+		  {
+            "type": "link_list",
+            "id": "main_linklist_5",
+            "label": "Collection"
+          },
+		{
+            "type": "image_picker",
+            "id": "banner_first_style_5",
+            "label": "Upload a new image",
+            "info": "610px x 350px recommended"
+          },
+		  {
+			"type": "url",
+			"id": "link_banner_first_style_5",
+			"label": "Link image 1"
+		  },
+		 {
+            "type": "image_picker",
+            "id": "banner_second_style_5",
+            "label": "Upload a new image",
+            "info": "610px x 350px recommended"
+          },
+		  {
+			"type": "url",
+			"id": "link_banner_second_style_5",
+			"label": "Link image 2"
+		  }
+		]
+      }
+	]
+  }
+{% endschema %}

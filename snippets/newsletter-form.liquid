@@ -1,0 +1,22 @@
+
+{% if settings.newsletter_form_action != blank %}
+<form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+  <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}">
+  <button type="submit" class="btn" name="subscribe" id="subscribe">{{ 'general.newsletter_form.submit' | t }}</button>
+</form>
+
+
+{% else %}
+{% form 'customer' %}
+{% if form.posted_successfully? %}
+<p class="note form-success">{{ 'general.newsletter_form.mailing_list_success_message' | t }}</p>
+{% else %}
+
+  <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="contact[email]" class="mail" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" >
+  <input type="hidden" name="contact[tags]" value="newsletter">
+  <button type="submit" class="btn" name="subscribe" value=""  id="subscribe" >{{ 'general.newsletter_form.submit' | t }}</button>          
+
+{% endif %}
+{{ form.errors | default_errors }}
+{% endform %}  
+{% endif %}

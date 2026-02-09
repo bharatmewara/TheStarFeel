@@ -1,0 +1,18 @@
+{% if template == 'index' %}
+<h1 class="grid__item wide--one-sixth post-large--one-sixth large--one-sixth site-header__logo" itemscope itemtype="http://schema.org/Organization">
+  {% else %}
+  <div class="h1 grid__item wide--one-sixth post-large--one-sixth large--one-sixth site-header__logo" itemscope itemtype="http://schema.org/Organization">
+    {% endif %}
+    {% if settings.logo_use_image %}
+    <a href="/" style="max-width: {{ settings.logo_max_width }}px;">
+      <img class="normal-logo" src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+    </a>
+    {% else %}
+    <a href="/" class="logo_name">{{ shop.name }}</a>
+    {% endif %}
+    {% if template == 'index' %}
+    </h1>
+  {% else %}
+  </div>
+
+{% endif %}   

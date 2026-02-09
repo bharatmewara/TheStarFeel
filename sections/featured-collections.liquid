@@ -1,0 +1,204 @@
+<div data-section-id="{{ section.id }}"  data-section-type="list-collection-product-items" class="list-collection-product-items">
+  <div class="container">
+
+
+    {% if section.settings.title != blank or section.settings.small_title != blank %}
+    <div class="section-header section-header--small">
+    <div class="border-title">
+      {% if section.settings.title != blank %}
+      <h2 class="section-header__title" style="color:{{ section.settings.title_color }};">    
+        {{ section.settings.title }}
+      </h2>
+      {% endif %}      
+      {% if section.settings.small_title != blank %}<div class="short-desc">  <p style="color:{{ section.settings.small_title_color }};">{{ section.settings.small_title }}</p></div>{% endif %}   
+    </div>
+    </div>
+    {% endif %} 
+    
+    
+    
+   
+<div class="list-collection-products-item">
+
+    <div class="grid-uniform list-collection-products {{ section.id }} owl-carousel owl-theme wow fadeInUp ">  
+      {%- assign linklists = linklists[section.settings.list-collections] -%}      
+      {% for link in linklists.links  %}
+      {% assign collection = link.object %}
+      {% unless collection.handle == 'frontpage' %}
+      {% assign featured = collection.handle %}    
+      {% include 'collection-grid-item', collection_item_width: " " %}  
+      {% endunless %}
+      {% else %}
+      {% for i in (1..6) %}
+      <div class="grid__item {{grid_item_width}} text-center pickgradient-products">
+        <a href="#" class="pickgradient grid-link"> 
+          <img src="//via.placeholder.com/768x500">                   
+        </a>
+
+        <div class="collection-detail">
+          <a href="#" class="grid-link">
+            <span class="grid-link__title">Collection Title {{i}}</span></a>
+          <p class="collection-count">1{{ i }} <span>{{ 'cart.general.items' | t }}</span></p>
+          <p class="collection-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+          <a href="#" class="btn">View All</a>
+
+        </div>
+      </div>
+      {% endfor %}
+      {% endfor %}  
+    </div> 
+    <div class="nav_list_type2_items {{section.id}}"></div>
+  </div>
+  </div>
+
+
+  <div class="dt-sc-hr-invisible-large"></div>
+
+
+</div>
+
+<style>
+  
+{% if section.settings.heading_image_need %} .list-collection-product-items .border-title h2 {  content:"";display:inline-block;background-repeat:no-repeat; -webkit-text-fill-color: transparent;  background: -o-linear-gradient(transparent, transparent);   -webkit-background-clip: text;  background-image: -webkit-linear-gradient(transparent, transparent), url({{ section.settings.heading_image | img_url: 'master' }});  background-position: left; background-size: 125%; } {% endif %}        
+  .list-collection-product-items .dt-sc-event-overlay-inner {background:{{section.settings.title_bg_clr}};}
+
+  .list-collection-product-items .dt-sc-event-overlay-inner p ,.list-collection-product-items .dt-sc-event-overlay-inner a {color:{{section.settings.title_txt_clr}};}
+
+  .list-collection-product-items .list-collection-products .grid__item:hover .dt-sc-event-overlay-inner{background:{{section.settings.title_hoverbg_clr}};}
+
+  .list-collection-product-items .list-collection-products .grid__item:hover .dt-sc-event-overlay-inner p,.list-collection-product-items .list-collection-products .grid__item:hover .dt-sc-event-overlay-inner a{color:{{section.settings.title_hovertxt_clr}};}
+
+
+  .list-collection-product-items .dt-sc-event-overlay-inner {box-shadow:0 5px 5px {{ section.settings.boxshadow_clr | color_modify: 'alpha', 0.05 }}; }
+
+  .list-collection-product-items .list-collection-products .grid__item:hover .dt-sc-event-overlay-inner {box-shadow:0 7px 7px {{ section.settings.boxshadow_clr | color_modify: 'alpha', 0.05 }}; }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+"name": "Featured Collections",
+"settings": [
+{
+"type": "color",
+"id": "boxshadow_clr",
+"label": "Boxshadow Color",
+"default": "#e4e4e4"
+},
+{
+      "type": "checkbox",
+      "id": "heading_image_need",
+      "label": "Show Heading Image ?"
+      
+    },	
+{
+      "type": "image_picker",
+      "id": "heading_image",
+      "label": "Image",
+	  "info": "Size: 105x17"
+      
+    },
+	{
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "New arrivals"
+    },	
+	{
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading Color",
+      "default": "#000"
+    },	
+	{
+      "type": "text",
+      "id": "small_title",
+      "label": "Small Heading"
+    },
+	{
+      "type": "color",
+      "id": "small_title_color",
+      "label": "Small Heading Color",
+      "default": "#000"
+    },	
+{
+"type": "link_list",
+"id": "list-collections",
+"label": "Pick custom  linkedlist"
+},
+{
+"type": "color",
+"id": "title_bg_clr",
+"label": "Title bg color",
+"default": "#e4e4e4"
+},
+{
+"type": "color",
+"id": "title_txt_clr",
+"label": "Title Text color",
+"default": "#e4e4e4"
+},
+{
+"type": "color",
+"id": "title_hoverbg_clr",
+"label": "Title Hover bg color",
+"default": "#e4e4e4"
+},
+{
+"type": "color",
+"id": "title_hovertxt_clr",
+"label": "Title Hover Text color",
+"default": "#e4e4e4"
+}
+],
+"presets": [
+{
+"name": "Featured Collections",
+"category": "Collection"
+}
+]
+}
+{% endschema %}
+<script type="text/javascript">        
+    $(document).ready(function(){
+      ListType2 = $(".list-collection-products.{{section.id}}");
+      ListType2.owlCarousel({
+      loop:false,
+      autoPlay: false,
+      nav:true,
+      navContainer: ".list-collection-product-items .nav_list_type2_items.{{section.id}}",
+      navText: ['<a class="prev"></a>',' <a class="next"></a>'],
+                dots: false,
+                responsive:{
+                0:{
+                items:1
+                },
+                600:{
+                items:1
+                },
+                720:{
+                items:3
+                },
+                1024:{
+                items:3
+                }
+                }
+                });   
+                }); 
+
+</script>
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

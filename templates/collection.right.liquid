@@ -1,0 +1,74 @@
+</div>
+</div>
+<div class="grid__item">
+  <div class="collection-products">
+
+<div class="grid__item wide--three-quarters post-large--three-quarters large--three-quarters"> 
+<div class="collection-list">
+<div class="grid-uniform grid-link__container col-main">  
+ {% paginate collection.products by settings.collection_results_per_page %}   
+ 
+   {% if shop.products_count == 0 %}
+  <div class="grid__item">
+        <p><em>{{ 'home_page.onboarding.no_products_html' | t }}</em></p>
+      </div>
+  {% else %}
+  {% include 'tool-grid' %}
+  {% endif %}
+<ul class="products-grid-view">
+  {% case settings.collection_grid %}
+      {% when '2' %}
+      {%- assign grid_item_width = 'wide--one-half post-large--one-half large--one-half medium--one-half small-grid__item' -%}
+      {%- assign image_size = '540x600' -%}
+      {% when '3' %}
+      {%- assign grid_item_width = 'wide--one-third post-large--one-third large--one-third medium--one-half small-grid__item' -%}
+      {%- assign image_size = '345x550' -%}
+      {% when '4' %}
+      {%- assign grid_item_width = 'wide--one-quarter post-large--one-third large--one-third medium--one-half small-grid__item' -%}
+      {%- assign image_size = '250x' -%}
+      {% when '5' %}
+      {%- assign grid_item_width = 'wide--one-fifth post-large--one-quarter large--one-third medium--one-half small-grid__item' -%}
+      {%- assign image_size = '195x' -%}
+      {% endcase %}
+  {% for product in collection.products %}
+    {% include 'product-grid-item' %}
+  {% else %}
+    {% if shop.products_count == 0 %}
+      {% unless emptyState %}
+        {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
+        {% assign emptyState = true %}
+      {% endunless %}
+
+      <div class="grid__item">
+        <div class="helper-section">
+          <div class="helper-note">
+            <span class="helper-icon"></span>
+            <h3>{{ 'home_page.onboarding.modal_title' | t }}</h3>
+            <p>{{ 'home_page.onboarding.no_products_collection' | t }}</p>
+            <p><a class="admin-btn-primary" href="/admin/products/new">{{ 'home_page.onboarding.add_product' | t }}</a></p>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="grid__item">
+        <p><em>{{ 'collections.general.no_matches' | t }}</em></p>
+      </div>
+    {% endif %}
+  
+  {% endfor %}
+  </ul>
+ 
+  {% if paginate.pages > 1 %}
+   <div class="text-center padding">
+    {% include 'pagination-custom' %}
+  </div>
+{% endif %}
+   {% endpaginate %}  
+</div>
+</div>
+</div>
+
+<div class="grid__item wide--one-quarter post-large--one-quarter large--one-quarter right-sidebar">
+  {% include 'collection-sidebar' %}
+</div>
+

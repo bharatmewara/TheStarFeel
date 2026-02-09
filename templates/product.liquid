@@ -1,0 +1,281 @@
+
+
+<div class="grid__item">
+  <div class="container">
+<div itemscope itemtype="http://schema.org/Product" class="single-product-layout-type-1"> 
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | img_url: '850x' }}">
+  <div class="product-single">
+
+    <div class="grid__item wide--one-half post-large--one-half large--one-half product-img-box">
+       {% if product.images.size == 0 %}
+          <div class="product-photo-container">
+            <img src="{{ '' | product_img_url: '850x' }}" alt="">
+          </div>
+          {% else %}
+          <div class="product-photo-container">
+            {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+            <a href="{{ featured_image | img_url: 'master' }}" >
+              <img id="product-featured-image" src="{{ featured_image | img_url: '850x' }}" alt="{{ featured_image.alt | escape }}" data-zoom-image="{{ featured_image.src | img_url: 'master' }}"/>
+            </a>            
+          </div>
+      
+          {% if product.images.size > 0 %}
+          <div class="more-view-wrapper {% if product.images.size == 1 %} hidden {% endif %}  more-view-wrapper-owlslider ">
+            <ul id="ProductThumbs" class="product-photo-thumbs  owl-carousel owl-theme">
+              {% for image in product.images %}
+              <li class="grid-item">
+                <a href="javascript:void(0)" data-image="{{ image.src | product_img_url: '850x' }}" data-zoom-image="{{ image.src | product_img_url: 'master' }}">
+                  <img src="{{ image.src | product_img_url: 'medium' }}" alt="{{ image.alt | escape }}">
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+             <div class="single-page-owl-carousel"></div>
+          </div>
+          {% endif %}
+      {%- if product.metafields.product.video -%}
+            <div class="p-video">
+              <a href="{{ product.metafields.product.video }}" class="jas-popup-url" data-effect="mfp-move-from-top"><i class="fa fa-video-camera" aria-hidden="true"></i> {{ 'products.product.video' | t }} </a>     
+            </div>
+            {%- endif -%}
+          {% endif %}
+    </div>
+
+    <div class="product_single_detail_section grid__item wide--one-half post-large--one-half large--one-half">
+      <h2 itemprop="name" class="product-single__title">{{ product.title }}</h2>
+      {% if collection %}
+      {% if collection.previous_product or collection.next_product %}
+      <p class="product-arrows">
+        {% if collection.previous_product %}
+        {% capture prev_url %}{{ collection.previous_product}}#content{% endcapture %}
+        <span class="left">
+          <a href="{{ prev_url }}"> <i class="zmdi zmdi-chevron-left"></i></a>
+        </span>
+        {% endif %}
+
+        {% if collection.next_product %}
+        {% capture next_url %}{{ collection.next_product}}#content{% endcapture %}
+        <span class="right">
+          <a href="{{ next_url }}"> <i class="zmdi zmdi-chevron-right"></i></a>
+        </span>
+        {% endif %}
+      </p>
+      {% endif %}
+      {% endif %}
+      <div class="product_single_price">
+        <div class="product_price">          
+          <div class="grid-link__org_price" id="ProductPrice">
+            <span>{{ product.price | money }}</span>
+          </div>
+        </div>
+        {% if product.compare_at_price > product.price %}
+        <del class="grid-link__sale_price" id="ComparePrice">
+          <span>{{ product.compare_at_price | money }}</span></del>
+        {% endif %}
+      </div>
+     <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+     {% if settings.short_desc %}
+        <div class="product-description rte" itemprop="description">
+          {{ product.description | strip_html | truncatewords: 50 }} 
+        </div>
+        {% endif %}
+      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        {% assign variant = product.selected_or_first_available_variant %}
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+        <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+        
+        {% if settings.count_down_enable and settings.count_down_collections %}
+      {% assign dealTime = settings.home_productdeal_time | split: ' ' | join: ' ' | split: ' ' %}
+      {% include 'deal-snippet' %}
+      {% endif %}        
+                
+         {% form 'product', product, id: "AddToCartForm", class: "product-form" %}
+           {% assign hide_default_title = false %}
+            {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+            {% assign hide_default_title = true %}
+            {% endif %}           
+          
+          <div class="selector-wrapper-secton"  {% if hide_default_title %} style="display:none;"{% endif %}>           
+            {% if settings.enable_color_swatch %}                       
+            {% for option in product.options %}
+            {% include 'swatch' with option %}
+            {% endfor %}
+            {% endif %}              
+            <select name="id" id="productSelect" class="{% if hide_default_title %} product-single__variants {% endif %}" >
+              {% for variant in product.variants %}
+              <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }}</option>
+              {% endfor %}
+            </select>
+            </div>          
+          <div class="product-single__quantity {% unless settings.product_quantity_enable %} hide {% endunless %}">
+            <div class="quantity-box-section">
+              <label>{{ 'products.product.quantity' | t }}</label>
+              {% include 'qty' %}
+            </div>
+          </div>
+          <div class="product-infor">
+          {% if settings.display_availability or settings.display_product_type %}
+        
+          {% if settings.display_vendor_type == 'name' %}  
+          <p class="product-vendor">
+            <label>{{ 'products.product.product_vendor' | t }}</label>
+            <span>{{ product.vendor }}</span>
+          </p>
+          {% endif %}
+          {% if settings.display_product_type %}
+          <p class="product-type">
+            <label>{{ 'products.product.product_type' | t }} </label>  
+            <span>{{ product.type }}</span>
+          </p>
+          {% endif %}
+          {% if settings.display_availability %}
+          <p class="product-inventory" id="product-inventory">
+            <label>{{ 'products.product.availability' | t  }}  </label>              
+            <span>
+              {% if product.selected_or_first_available_variant.inventory_management %}
+              {% assign first_inventory = product.selected_or_first_available_variant.inventory_quantity %}
+              {% if first_inventory > 0 %}
+              {{first_inventory}} {{ 'products.product.in_stock' | t }}
+              {% else %}
+              {{ 'products.product.out_of_stock' | t }}
+              {% endif %}
+              {% else %}
+              {{ 'products.product.many_in_stock' | t }}
+              {% endif %}
+            </span>
+          </p>
+          {% endif %}        
+        {% endif %}
+          </div>
+            <button type="submit" name="add" id="AddToCart" class="btn">
+             <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+            </button>
+         {% if settings.payment_button %}
+        {{ form | payment_button }}
+        {% endif %}
+        {% endform %}
+        {% if settings.ai_consultation_enable and settings.ai_consultation_show_on_product %}
+        <div class="ai-consultation-product-cta">
+          {% include 'ai-consultation-cta' %}
+        </div>
+        {% endif %}
+      </div>
+      {% if settings.enable_wishlist %}
+      {% include 'wishlist-product' %}
+      {% endif %}
+      
+   
+    {% if settings.social_sharing_products %}     
+      <div class="share_this_btn">
+   {% include 'addthis' %}
+      {% endif %}
+      </div>
+       </div>
+  </div>
+<div class="dt-sc-hr-invisible-large"></div>
+  <div class="dt-sc-tabs-container">
+    <ul class="dt-sc-tabs">
+      {% if settings.product_tab1 %}<li><a class="btn" href="#"> {{ settings.product_tab1_heading }} </a></li>{% endif %} 
+      {% if settings.product_tab2 %}<li><a class="btn" href="#"> {{ settings.product_tab2_heading }}  </a></li>{% endif %}
+      {% if settings.product_tab3 %}<li><a class="btn" href="#"> {{ settings.product_tab3_heading }}  </a></li>{% endif %}
+    </ul>
+    {% if settings.product_tab1 %}
+    <div class="dt-sc-tabs-content" id="desc_pro">
+      <p>{{ product.description }}</p>
+    </div>
+    {% endif %}
+    {% if settings.product_tab2 %}
+    <div class="dt-sc-tabs-content">
+      <div class="commentlist">
+        <div class="comment-text">
+          <div class="rating-review">
+           <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if settings.product_tab3 %}
+    <div class="dt-sc-tabs-content">
+       <p>{{ pages[settings.product_tab3_page].content }}</p>
+    </div>
+    {% endif %}               
+  </div>
+
+  {% if settings.product_related_enable %}        
+  {% include 'related-products' %}
+  {% endif %}
+  <div class="dt-sc-hr-invisible-large"></div>
+  {% if settings.display_recently_viewed_products %} 
+  {% include 'recently-viewed-products' %}
+  {% endif %}
+</div>
+  </div>
+</div>
+ {% if settings.product_page_sidebar == "right_sidebar" %}
+   <div class="grid__item wide--one-fifth post-large--one-quarter large--one-quarter">
+      {% include 'product-sidebar' %}
+</div>
+{% endif %}
+ {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+ {{ 'jquery.fancybox.js' | asset_url | script_tag }}
+
+<script>
+  var selectCallback = function(variant, selector) {
+    timber.productPage({
+      money_format: "{{ shop.money_format }}",
+      variant: variant,
+      selector: selector,
+      translations: {
+      add_to_cart : "{{ 'products.product.add_to_cart' | t }}",
+      sold_out : "{{ 'products.product.sold_out' | t }}",
+      unavailable : "{{ 'products.product.unavailable' | t }}"
+    }
+  });
+  };
+
+  jQuery(function($) {
+    new Shopify.OptionSelectors('productSelect', {
+      product: {{ product | json }},
+      onVariantSelected: selectCallback,
+      enableHistoryState: true
+    });
+
+
+    {% if settings.enable_linked_option %}
+    {% if product.available and product.options.size > 1 %}
+    Shopify.linkOptionSelectors({{ product | json }});
+    {% endif %}
+    {% endif %}
+
+    // Add label if only one product option and it isn't 'Title'. Could be 'Size'.
+    {% if product.options.size == 1 and product.options.first != 'Title' %}
+    $('.selector-wrapper:eq(0)').prepend('<label for="productSelect-option-0">{{ product.options.first | escape }}</label>');
+	{% endif %}
+     // Hide selectors if we only have 1 variant and its title contains 'Default'.
+     {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+     $('.selector-wrapper').hide();
+     $('.selector-wrapper-secton').hide();
+    {% endif %}
+    
+    // Auto-select first available variant on page load. Otherwise the product looks sold out.
+    {% assign found_one_in_stock = false %}
+    {% for variant in product.variants %}
+    {% if variant.available and found_one_in_stock == false %}
+    {% assign found_one_in_stock = true %}
+    {% for option in product.options %}
+    $('.single-option-selector:eq({{ forloop.index0 }})').val({{ variant.options[forloop.index0] | json }}).trigger('change');
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+    
+    
+    $('.product-single .single-option-selector').wrap('<div class="selector-arrow">');
+    
+    
+                         
+  });  
+    
+    
+</script>

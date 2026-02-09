@@ -1,0 +1,203 @@
+{% if settings.ai_consultation_enable %}
+  {% assign ai_product = all_products[settings.ai_consultation_product] %}
+  {% assign ai_variant_id = '' %}
+  {% if ai_product and ai_product.variants.size > 0 %}
+    {% assign ai_variant_id = ai_product.variants.first.id %}
+  {% endif %}
+  <div
+    id="ai-consultation-modal"
+    class="ai-consultation-modal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="ai-consultation-title"
+    data-ai-endpoint="{{ settings.ai_consultation_endpoint | escape }}"
+    data-ai-product-handle="{{ settings.ai_consultation_product | escape }}"
+    data-ai-variant-id="{{ ai_variant_id }}"
+  >
+    <div class="ai-consultation-overlay" data-ai-consultation-close></div>
+    <div class="ai-consultation-panel" role="document">
+      <button type="button" class="ai-consultation-close" aria-label="Close" data-ai-consultation-close>&times;</button>
+      <div class="ai-consultation-header">
+        <p class="ai-consultation-kicker">The Star Feel</p>
+        <h2 id="ai-consultation-title">AI Space Consultation & Artwork Generator</h2>
+        <p class="ai-consultation-subtitle">Answer a few questions to receive personalized space guidance and artwork designed for your intention.</p>
+      </div>
+
+      <div class="ai-consultation-steps" aria-live="polite">
+        <div class="ai-step ai-step-active" data-step="1">
+          <h3>Intention</h3>
+          <div class="ai-field">
+            <p class="ai-field-label">Purpose of artwork</p>
+            <div class="ai-options">
+              <label><input type="radio" name="q1" value="Calm & peace" required> Calm & peace</label>
+              <label><input type="radio" name="q1" value="Abundance & growth" required> Abundance & growth</label>
+              <label><input type="radio" name="q1" value="Focus & clarity" required> Focus & clarity</label>
+              <label><input type="radio" name="q1" value="Emotional warmth" required> Emotional warmth</label>
+              <label><input type="radio" name="q1" value="Balance & grounding" required> Balance & grounding</label>
+            </div>
+          </div>
+          <div class="ai-field">
+            <p class="ai-field-label">Who is the space for?</p>
+            <div class="ai-options">
+              <label><input type="radio" name="q2" value="Self" required> Self</label>
+              <label><input type="radio" name="q2" value="Family" required> Family</label>
+              <label><input type="radio" name="q2" value="Work / clients" required> Work / clients</label>
+              <label><input type="radio" name="q2" value="Guests" required> Guests</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-step" data-step="2">
+          <h3>Space</h3>
+          <div class="ai-field">
+            <p class="ai-field-label">Space type</p>
+            <div class="ai-options">
+              <label><input type="radio" name="q3" value="Living room" required> Living room</label>
+              <label><input type="radio" name="q3" value="Bedroom" required> Bedroom</label>
+              <label><input type="radio" name="q3" value="Office" required> Office</label>
+              <label><input type="radio" name="q3" value="Entrance" required> Entrance</label>
+              <label><input type="radio" name="q3" value="Quiet / meditation area" required> Quiet / meditation area</label>
+            </div>
+          </div>
+          <div class="ai-field">
+            <p class="ai-field-label">Wall size</p>
+            <div class="ai-options">
+              <label><input type="radio" name="q4" value="Small (<4 ft)" required> Small (&lt;4 ft)</label>
+              <label><input type="radio" name="q4" value="Medium (4–7 ft)" required> Medium (4–7 ft)</label>
+              <label><input type="radio" name="q4" value="Large (statement wall)" required> Large (statement wall)</label>
+            </div>
+          </div>
+          <div class="ai-field">
+            <p class="ai-field-label">Wall direction (optional)</p>
+            <div class="ai-options">
+              <label><input type="radio" name="q5" value="North"> North</label>
+              <label><input type="radio" name="q5" value="East"> East</label>
+              <label><input type="radio" name="q5" value="South"> South</label>
+              <label><input type="radio" name="q5" value="West"> West</label>
+              <label><input type="radio" name="q5" value="Not sure"> Not sure</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-step" data-step="3">
+          <h3>Emotional State</h3>
+          <div class="ai-field">
+            <p class="ai-field-label">Current feeling</p>
+            <div class="ai-options">
+              <label><input type="radio" name="q6" value="Restless" required> Restless</label>
+              <label><input type="radio" name="q6" value="Neutral" required> Neutral</label>
+              <label><input type="radio" name="q6" value="Calm but dull" required> Calm but dull</label>
+              <label><input type="radio" name="q6" value="Heavy / cluttered" required> Heavy / cluttered</label>
+              <label><input type="radio" name="q6" value="Comfortable" required> Comfortable</label>
+            </div>
+          </div>
+          <div class="ai-field">
+            <p class="ai-field-label">Desired feeling</p>
+            <div class="ai-options">
+              <label><input type="radio" name="q7" value="Light & open" required> Light & open</label>
+              <label><input type="radio" name="q7" value="Warm & comforting" required> Warm & comforting</label>
+              <label><input type="radio" name="q7" value="Powerful & confident" required> Powerful & confident</label>
+              <label><input type="radio" name="q7" value="Quiet & centered" required> Quiet & centered</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-step" data-step="4">
+          <h3>Visual Preferences</h3>
+          <div class="ai-field">
+            <p class="ai-field-label">Style</p>
+            <div class="ai-options">
+              <label><input type="radio" name="q8" value="Minimal" required> Minimal</label>
+              <label><input type="radio" name="q8" value="Abstract & flowing" required> Abstract & flowing</label>
+              <label><input type="radio" name="q8" value="Soft & organic" required> Soft & organic</label>
+              <label><input type="radio" name="q8" value="Cosmic / atmospheric" required> Cosmic / atmospheric</label>
+            </div>
+          </div>
+          <div class="ai-field">
+            <p class="ai-field-label">Color tone</p>
+            <div class="ai-options">
+              <label><input type="radio" name="q9" value="Light" required> Light</label>
+              <label><input type="radio" name="q9" value="Deep" required> Deep</label>
+              <label><input type="radio" name="q9" value="Balanced / neutral" required> Balanced / neutral</label>
+            </div>
+          </div>
+          <div class="ai-field">
+            <label class="ai-field-label" for="ai-color-preference">Color preference (optional)</label>
+            <input id="ai-color-preference" type="text" name="q10" placeholder="Example: sand, sage, charcoal">
+          </div>
+        </div>
+
+        <div class="ai-step" data-step="5">
+          <h3>Optional Symbolism</h3>
+          <div class="ai-field">
+            <p class="ai-field-label">Would you like subtle symbolic or spiritual elements?</p>
+            <div class="ai-options">
+              <label><input type="radio" name="q11" value="Yes, subtle only" required> Yes, subtle only</label>
+              <label><input type="radio" name="q11" value="No, purely aesthetic" required> No, purely aesthetic</label>
+              <label><input type="radio" name="q11" value="Not sure" required> Not sure</label>
+            </div>
+          </div>
+          <div class="ai-field ai-disclaimer">
+            <p>{{ settings.ai_consultation_disclaimer | default: 'This experience is designed to support emotional and spatial harmony. Individual experiences may vary.' }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-consultation-actions">
+        <button type="button" class="ai-btn ai-btn-secondary" data-ai-prev disabled>Back</button>
+        <div class="ai-step-indicator" aria-live="polite"><span data-ai-step-count>Step 1 of 5</span></div>
+        <button type="button" class="ai-btn ai-btn-primary" data-ai-next>Next</button>
+        <button type="button" class="ai-btn ai-btn-primary ai-hidden" data-ai-submit>Generate Artwork</button>
+      </div>
+
+      <div class="ai-consultation-status ai-hidden" data-ai-status>
+        <div class="ai-loading">
+          <span class="ai-loader"></span>
+          <p>Creating your personalized guidance and artwork…</p>
+        </div>
+      </div>
+
+      <div class="ai-consultation-results ai-hidden" data-ai-results>
+        <div class="ai-results-guidance">
+          <h3>Your Space Guidance</h3>
+          <p class="ai-guidance-text" data-ai-guidance-text></p>
+        </div>
+        <div class="ai-results-placement">
+          <h4>Placement Guidance</h4>
+          <ul class="ai-placement-list">
+            <li><strong>Suggested wall:</strong> <span data-ai-wall></span></li>
+            <li><strong>Height:</strong> <span data-ai-height></span></li>
+            <li><strong>Lighting:</strong> <span data-ai-lighting></span></li>
+          </ul>
+        </div>
+        <div class="ai-results-artwork">
+          <h4>Select your artwork</h4>
+          <div class="ai-artwork-grid" data-ai-artwork-grid></div>
+        </div>
+        <div class="ai-results-purchase">
+          <div class="ai-field">
+            <label class="ai-field-label" for="ai-size">Canvas size</label>
+            <select id="ai-size" name="ai-size">
+              <option value="12x18 in">12x18 in</option>
+              <option value="18x24 in">18x24 in</option>
+              <option value="24x36 in">24x36 in</option>
+              <option value="30x40 in">30x40 in</option>
+            </select>
+          </div>
+          <div class="ai-field">
+            <label class="ai-field-label" for="ai-frame">Frame type</label>
+            <select id="ai-frame" name="ai-frame">
+              <option value="No frame">No frame</option>
+              <option value="Natural wood">Natural wood</option>
+              <option value="Matte black">Matte black</option>
+              <option value="Brushed gold">Brushed gold</option>
+            </select>
+          </div>
+          <button type="button" class="ai-btn ai-btn-primary" data-ai-add-to-cart>Add to cart & checkout</button>
+          <p class="ai-purchase-note">Your consultation details will be saved with this order.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

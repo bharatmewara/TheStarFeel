@@ -1,0 +1,55 @@
+<!-- /snippets/collection-sidebar.liquid -->
+{% if settings.collection_sidebar_use == "full_width" and settings.enable_filters %}
+<script type="text/javascript">
+  $(window).ready(function($) {
+     var tagsbutton = document.getElementById( 'showTagsFilter' ),				
+        tagscontent = document.getElementById( 'tags-filter-content' );
+if(window.innerWidth >= 768 ){       
+    if(tagsbutton != null ){
+      tagsbutton.onclick = function() {
+        classie.toggle( this, 'closed' );
+        classie.toggle( tagscontent, 'tags-closed' );
+        if(classie.has( this, 'closed' ))
+          $('#showTagsFilter').html("Filter <i class='fa fa-angle-down'></i>");
+        else $('#showTagsFilter').html("Filter <i class='fa fa-angle-up'></i>");
+      };
+    }
+  }
+     classie.toggle( tagscontent, 'tags-closed' );
+  });
+</script>
+  {% endif %}
+ {% if settings.collection_sidebar_use == "full_width" and settings.enable_filters %}
+<div id="tags-filter-content">
+  {% endif %}
+  
+<div class="collection_sidebar">
+   {% unless settings.collection_sidebar_use == "full_width" %}
+   {% section 'sidebar-category' %}
+   {% endunless %}
+  {% if settings.enable_filters %}
+  {% if current_tags == blank %}
+  {% assign has_refined = false %} 
+  {% else %}
+  {% assign has_refined = true %} 
+  {% endif %}
+    <div class="refined-widgets">
+      <a href="javascript:void(0)" class="clear-all" {% if has_refined == false %}style="display:none"{% endif %}>
+        Clear All
+      </a>
+    </div>
+    <div class="sidebar-block">
+     {% section 'sidebar-colors' %}
+     {% section 'sidebar-tag-filters' %}
+  </div>
+  {% endif %}
+  {% unless settings.collection_sidebar_use == "full_width" %}
+  {% section 'sidebar-bestsellers' %}  
+  {% section 'sidebar-banner' %}
+  {% endunless %}
+</div>
+  {% if settings.collection_sidebar_use == "full_width" and settings.enable_filters %}
+</div>
+{% endif %}
+
+ 

@@ -1,0 +1,98 @@
+ {% if section.settings.show_best_products %}
+    <div class="widget widget_top_rated_products">
+      {% if section.settings.title != blank %}
+      <h4>{{ section.settings.title }}</h4>  
+      {% endif %}
+
+      <ul class="no-bullets top-products {{ section.id }} owl-carousel owl-theme">
+        {% for product in collections[section.settings.bestseller].products limit: section.settings.limit %}
+        <li> 
+          {% if product.images.size > 0 %}  
+          <a class="thumb" href="{{ product.url | within: collection }}">                                          
+            <img alt="featured product" src="{{ product.featured_image | product_img_url: 'master' }}">                                              
+          </a>
+          {% endif %} 
+          <div class="top-products-detail">
+            <a href="{{ product.url | within: collection }}"> {{ product.title }} </a>
+            {% for tag in product.tags %}
+
+            {% endfor %}
+            <div class="top-product-prices">
+              <span class="price">{{ product.price_min | money }}</span>
+              {% if product.compare_at_price_max > product.price %}
+              <del>{{ product.compare_at_price_max | money }}</del>
+              {% endif %}	
+            </div>
+            {% if product.compare_at_price > product.price %}
+            <span class="sale">{{ 'products.product.sale' | t }}</span>    
+            {% endif %}
+
+          </div>
+        </li>
+        {% endfor %}
+      </ul> 
+      <div class="top_products_nav {{ section.id }}"></div>
+    </div>
+ {% endif %} 
+
+ {% schema %}
+  {
+    "name": "Products",    
+    "settings": [	
+      {
+        "type": "checkbox",
+        "id": "show_best_products",
+        "label": "Enable best sellers",
+		"default":false
+      },
+	 {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "collection",
+        "id": "bestseller",
+        "label": "Collection"
+      },
+      {
+        "type": "text",
+        "id": "limi",
+        "label": "Product Limit",
+        "default": "4"
+      }
+	
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+     $(".top-products.{{ section.id }}").owlCarousel({ 
+        loop:false,      
+        nav:true,       
+        dots: false,
+        navContainer: ".top_products_nav.{{ section.id }}",
+        navText: ['<a class="prev  active"></a>','<a class="next"></a>'],
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
+            }
+        }
+ 
+  });
+});
+      
+</script>
+
+

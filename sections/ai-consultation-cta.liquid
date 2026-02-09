@@ -1,0 +1,62 @@
+<section class="ai-consultation-cta">
+  <div class="container">
+    <div class="ai-consultation-cta-inner">
+      <div>
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.subheading }}</p>
+      </div>
+      {% include 'ai-consultation-cta' %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ai-consultation-cta {
+    padding: 40px 0;
+    background: #f6f3ef;
+  }
+  .ai-consultation-cta-inner {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .ai-consultation-cta h2 {
+    margin: 0 0 6px;
+  }
+  .ai-consultation-cta p {
+    margin: 0;
+    color: #6b625a;
+  }
+  @media (max-width: 720px) {
+    .ai-consultation-cta-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "AI Consultation CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "AI Space Consultation"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Get personalized space guidance and artwork designed for your intention."
+    }
+  ],
+  "presets": [
+    {
+      "name": "AI Consultation CTA"
+    }
+  ]
+}
+{% endschema %}

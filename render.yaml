@@ -1,20 +1,17 @@
-version: 1
 services:
   - type: web
     name: thestarfeel-ai-consultation
-    runtime: node
+    env: node
     plan: starter
     rootDir: server
-
     buildCommand: npm install
     startCommand: npm start
-
     autoDeploy: true
     healthCheckPath: /health
 
     envVars:
-      - key: OPENAI_API_KEY
-        sync: false
+      - key: PORT
+        value: "8787"
 
       - key: TEXT_MODEL
         value: gpt-4.1-mini
@@ -36,3 +33,6 @@ services:
 
       - key: ALLOWED_ORIGINS
         value: https://thestarfeel-3.myshopify.com
+
+      - key: OPENAI_API_KEY
+        sync: false

@@ -1,1 +1,1134 @@
-{"presets":{},"current":{"logo_use_image":true,"logo_max_height":"100","favicon_enable":true,"preloader_enable":false,"base_font":"Google+Rajdhani","type_base_size":"16px","body_weight_size":"normal","text_spacing":"0","header_font":"Google+Oxygen","type_weight_size":"bold","type_uppercase":true,"heading_spacing":"0","type_header_base_size":"50px","type_header_base_size_2":"36px","type_header_base_size_3":"30px","type_header_base_size_4":"20px","type_header_base_size_5":"18px","type_header_base_size_6":"16px","other_font":"Google+Oxygen","use_sticky_header":true,"color_body_bg":"#000000","overlay_bg":"#000","color_borders":"#e5e5e5","black_borders":"#e5e5e5","color_primary":"#ffc300","color_primary_bg_clr":"rgba(0,0,0,0)","color_button_primary_text":"#ffffff","primary_hover_btn":"#ffc300","primary_hover_btn_text":"#000000","btn_border_radius":"30","color_sold":"#dcdcdc","color_sold_text":"#ffffff","sale_bg":"#11b00d","sale_button_text":"#ffffff","new_bg":"#11b00d","new_button_text":"#ffffff","offer_bg":"#11b00d","offer_button_text":"#ffffff","color_body_text":"#ffffff","link_color":"#ffffff","color_primary_color":"#ffc300","title_border":"rgba(0,0,0,0)","color_heading_type1_color":"#000000","color_heading_color":"#000000","overlay_use":false,"product_overlay":"#000000","products_icon_bg":"#000000","products_icon_clr":"#ffffff","products_icon_hover_bg":"#ffc300","products_icon_hover_clr":"#ffffff","products_gutter":"10","products_border_radius":"0","products_border_full":false,"products_full_border_width":"2","products_full_border":"#17313e","products_full_hover_border":"#ffc300","products_border_use":false,"products_border_width":"2","products_border":"#fff","products_border_2":"#fff","products_det_bg":"rgba(0,0,0,0)","product_title_color":"#ffffff","product_title_hover_color":"#ffc300","product_price":"#ffffff","product_cmp_price":"#bcbcbc","product_vendor":"#bcbcbc","product_label_color":"#deb32b","sidebar_bg":"#ffc300","sidebar_text":"#ffffff","use_breadcrumb":true,"breadcrumb_bg_image":false,"breadcrumb_bg_color":"#080808","breadcrumb_text_color":"#ffffff","breadcrumb_text_hover_color":"#ffc300","top_to_btm":false,"show_collection_image":true,"collections_show_sale_circle":false,"collections_show_sold_out_circle":false,"offer_price_enable":false,"collections_sort_enable":true,"collections_items_enable":true,"collections_show_new_circle":false,"new_products_period":"","collections_view_enable":true,"enable_quick_view":true,"display_vendor":true,"display_quickview_subtotal":true,"enable_product_detail_link_icon":true,"enable_add_cart":true,"enable_compare":true,"enable_wishlist":true,"display_color_variant":false,"product_review":true,"display_flavour":true,"flavour_txt":"Flavour","flavour_bg":"#000","flavour_color":"#ffffff","collection_grid":"4","collection_results_per_page":"12","collection_infinite_scrolling":true,"collection_sidebar_use":"left_sidebar","enable_filters":true,"filter_height":"200","display_availability":true,"display_product_type":true,"display_subtotal":true,"display_vendor_type":"name","enable_color_swatch":true,"color_tooltip":true,"enable_linked_option":true,"product_quantity_enable":false,"payment_button":true,"short_desc":true,"product_tab1":true,"product_tab1_heading":"Product Description","product_tab2":true,"product_tab2_heading":"Reviews","product_tab3":true,"product_tab3_heading":"Shipping Details","product_tab3_page":"shipping-details","product_related_enable":false,"related_prds_heading":"","heading_image_need":false,"related_prds_title":"","display_recently_viewed_products":true,"recently_viewed_products_title":"Recently Viewed Products","number_of_recently_viewed_products":"8","use_custom_list_collection":false,"list-collections":"","collection_btn_text":"Read More","cart_notes_enable":false,"use_ajax_cart":true,"cart_title_bg":"#000","cart_title_clr":"#ffffff","show_blog_4_content":true,"show_blog_4_img":true,"show_blog_4_author":true,"show_blog_4_btn":false,"show_blog_4_date":true,"show_blog_4_tag":false,"blog_design_4_title":"#000","blog_design_4_titlehover":"#ffc300","blog_design_4_datecolor":"#000","blog_design_4_authorcolor":"#000","blog_design_commentcolor":"#000","blog_design_4_tag":"#000000","blog_design_4_taghover":"#ffc300","enable_gmap":true,"contact_iframe_code":"<iframe width=\"960\" height=\"578\" style=\"border:0;overflow:hidden;\" src=\"https:\/\/maps.google.co.in\/?ie=UTF8&t=m&ll=-37.823006,144.977388&spn=0.02034,0.042915&z=14&output=embed\"><\/iframe>","enable_contact_section":true,"contact_bg_img":true,"contact_bg_color":"#ffffff","contact_module_contact_phonetitle":"Talk to us","contact_phone1":"<b>Toll-Free: <\/b> 0803 - 080 - 3081","contact_phone2":"<b>Fax: <\/b> 0803 - 080 - 3082","contact_module_contact_title":"Contact Us","contact_module_email":true,"contact_module_email_1":"buddhathemes@somemail.com","contact_module_email2":"support@somemail.com","contact_phone":true,"enable_contact_address":true,"contact_module_address":true,"contact_module_address_title":"Location","contact_module_address1":"No: 58 A, East Madison Street,","contact_module_address2":"Baltimore, MD, USA\r\n4508","display_popup_newsletter":false,"pop_up_newsletter_img_show":false,"popup_newsletter_bg":"#fff","popup_newsletter_title":"The Latest Offers","popup_newsletter_message":"Subscribe and get notified <br>\nat first on the latest update and offers!","popup_newsletter_text":"#4a4a4a","popup_newsletter_form":"#fff","popup_newsletter_form_txt":"#000","form_note":"","newsletter_form_action":"","count_down_enable":false,"count_down_home":false,"count_down_collections":false,"count_down_prodetails":false,"prodetail_deal_label":false,"prodetail_deal_heading":"Off Ends on","home_productdeal_time":"","dealbtn":"#000","dealbtn_text":"#fff","social_twitter_link":"#","social_facebook_link":"#","social_pinterest_link":"#","social_google_plus_link":"#","social_instagram_link":"","social_tumblr_link":"","social_youtube_link":"","social_vimeo_link":"","social_fancy_link":"","social_rss_link":"","social_sharing_products":true,"social_sharing_blog":true,"social_sharing_count":true,"share_facebook":true,"share_twitter":true,"share_pinterest":true,"share_google":true,"social_sharing_style":"normal","collection_suggest":"","display_index":true,"display_product":true,"display_collection":false,"display_article":false,"display_blog":false,"display_cart":false,"interval_time":"15000","show_close_suggest":false,"display_currency":true,"currency_1_unit":"USD","currency_2_unit":"EUR","currency_3_unit":"GBP","currency_4_unit":"AUD","currency_5_unit":"INR","currency_6_unit":"JPY","currency_7_unit":"CAD","currency_8_unit":"CNY","currency_9_unit":"AED","currency_10_unit":"RUB","password_bg_img":false,"password_logo":false,"pwd_logo_max_width":"100","pwd_header":"Opening Soon","pwd_show_share_buttons":true,"pwd_social_message":"Spread the word","pwd_newsletter_enable":true,"pwd_newsletter_form_heading":"Be the first to know when we launch.","pwd_newsletter_placeholder":"Email address","pwd_newsletter_button_text":"Notify me","checkout_header_image":"","checkout_use_storefront_logo":false,"checkout_logo_image":"","checkout_logo_position":"left","checkout_logo_size":"medium","checkout_body_background_image":"","checkout_body_background_color":"#fff","checkout_input_background_color_mode":"white","checkout_sidebar_background_image":"","checkout_sidebar_background_color":"#fafafa","checkout_heading_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_body_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_accent_color":"#58c5c7","checkout_button_color":"#58c5c7","checkout_error_color":"#e32c2b","show_blog_sidebar":true,"show_recent_articles":true,"show_recent_articles_img":true,"blog_article_limit":"","show_blog_tags":true,"show_blog_instagram":true,"show_featured_products":true,"show_footer_tweets":false,"tweet_heading":"","tweet_embcode":"","product_page_sidebar":"left_sidebar","links_style_1":"style_1","product_style_1":"style_1","images_style_1":"style_1","single_product_layout_type":"layout_style_1","button_style_1":"style_1","blog_page_sidebar":"left_sidebar","blog_btn_sec_bg":"#000000","sections":{"header":{"type":"header","settings":{"display_search":true,"logo_bar_bg":"#000000","logo_text":"#ffffff","logo_hover_text":"#ffc300","search_bg":"#ffc300","search_btn_bg":"#000000","search_btn_text":"#ffffff","search_btn_text_hvr":"#ffffff","search_bg_hover":"#ffc300","search_text":"#ffffff","ship_1_title":"free delivery order over Rs.100","ship_1_subtitle":"","ship_2_title":"","ship_2_subtitle":"","shipping_title_clr":"#ffffff","shipping_subtitle_clr":"#848484","menubar_bg":"#000000","menubar_links":"#fafafa","menubar_links_hover":"#ffc300","menu_active":"#ffc300","menubar_dropdown_bg":"#000000","menubar_dropdown_caption":"#ffffff","menubar_dropdown_caption_hover":"#ffc300","menubar_dropdown_links":"#ffffff","menubar_dropdown_links_hover":"#ffc300"}},"navigation":{"type":"navigation","blocks":{"1527828499407":{"type":"style_1","settings":{"title":"Menu - Style 1","megamenu_items_1":"Pottery","main_linklist_1":"","link_banner_first_style_1":""}},"1527857486005":{"type":"style_4","settings":{"title":"Menu - Style 4","megamenu_items_4":"Painting","main_linklist_4":""}},"1527857491188":{"type":"style_2","settings":{"title":"Menu - Style 2","megamenu_items_2":"Home Decor","main_linklist_2":"","link_banner_second_style_2":"","link_banner_third_style_2":"","link_banner_first_style_2":""}},"1527857494578":{"type":"style_3","settings":{"title":"Menu - Style 3","megamenu_items_3":"Sculpture","main_linklist_3":"","title_featured_product_3":"","featured_product_3":"ancient-shoot-gun","link_banner_first_style_3":""}},"1527857496480":{"type":"style_5","settings":{"title":"Menu - Style 5","megamenu_items_5":"Shop","main_linklist_5":"","link_banner_first_style_5":"","link_banner_second_style_5":""}}},"block_order":["1527828499407","1527857486005","1527857491188","1527857494578","1527857496480"],"custom_css":[],"settings":{"display_megamenu":true}},"footer":{"type":"footer","settings":{"bg_color":"#333333","footer_logo_enable":true,"footer_logo":"shopify:\/\/shop_images\/i_have_a_artwork_brand_which_create_canvas_posters_and_i_have_to_create_a_logo_for_it_make_a_logo_for_brand_name__TheStarFeel.jpg","footer_text":"#ffffff","use_footer_bottom":true,"footer_bottom_text":"#ffffff","footer_bottom_text_hover":"#ffc300","footer_menu_4":"main-menu","footer_social_enable":true,"footer_social_link":"#4a4a4a","footer_social_link_hover":"#ffffff","footer_social_link_border":"#ffffff","footer_social_link_hover_border":"#ffc300","footer_social_link_bg":"#ffffff","footer_social_link_hover_bg":"#ffc300","footer_show_methods_of_payment":true,"payment_icon_1":"shopify:\/\/shop_images\/fe4edf34-a01d-40bd-8c1a-3010efa87f44_e0e6b780-592e-44bf-9d22-9eaae368d2c4.png","payment_icon_2":"shopify:\/\/shop_images\/1a8f2484-db60-44de-a6ad-3dc6d7373468.png","payment_icon_3":"shopify:\/\/shop_images\/paypal_icon_size_57x35_b8b7d30c-08a3-4141-9ccb-927a8f846020.jpg","show_powered_by":true,"copyright":"Copyright © 2018, Handi Mart","copyright_bg":"#000000","copyright_text":"#ffffff","copyright_link":"#ffffff","copyright_link_hover":"#ffc300"}},"1526549521259":{"type":"blog-post-type-4","settings":{"heading_image_need":true,"title":"Journal","title_color":"#000000","small_title":"Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.","small_title_color":"#ffffff","title_clr":"#ffffff","title_hover_clr":"#ffc300","pick_featured_blog":"news","show_featured_date":true,"date_color":"#ffffff","blog_date_clr":"#ffc300","blog_author_enable":true,"blog_author_text":"#ffffff","blog_comment":true,"blog_comment_text":"#000000","blog_description":false,"blog_desc_clr":"#4a4a4a","btn":""}},"sidebar-category":{"type":"sidebar-category","settings":{"enable_sidecategory":true,"linkedlist":"footer","linkedlist_title":"Category"}},"sidebar-colors":{"type":"sidebar-colors","blocks":{"image_tdqKy8":{"type":"image","settings":{"title":""}},"1532690944635":{"type":"image","settings":{"title":"Pink"}},"image_cMe6UQ":{"type":"image","settings":{"title":""}},"1532690960932":{"type":"image","settings":{"title":"Black"}},"1532690971286":{"type":"image","settings":{"title":"Brown"}},"1532690981566":{"type":"image","settings":{"title":"Green"}},"1532690997525":{"type":"image","settings":{"title":"Grey"}},"1532691012143":{"type":"image","settings":{"title":"Silver"}},"1532691027818":{"type":"image","settings":{"title":"Gold"}},"1532691041412":{"type":"image","settings":{"title":"Golden"}},"1532691103078":{"type":"image","settings":{"title":"Blue"}},"1532691121727":{"type":"image","settings":{"title":"Sandal"}}},"block_order":["image_tdqKy8","1532690944635","image_cMe6UQ","1532690960932","1532690971286","1532690981566","1532690997525","1532691012143","1532691027818","1532691041412","1532691103078","1532691121727"],"settings":{"enable_sidebar_multiple_choice":true,"enable_shop_by_tags_1":true,"shop_by_tags_1_title":"Shop By Color"}},"sidebar-tag-filters":{"type":"sidebar-tag-filters","blocks":{"1532691143949":{"type":"text","settings":{"enable_shop_by_tags":true,"shop_by_tags_title":"Shop By Size","shop_by_tags_list":"18x24,24x36,36x48"}},"1532691155557":{"type":"text","settings":{"enable_shop_by_tags":true,"shop_by_tags_title":"Shop By Price","shop_by_tags_list":"$100 - $200, $200 - $300, $300 - $500, $500 - $700, $700 - $1000"}},"1532691199456":{"type":"text","settings":{"enable_shop_by_tags":true,"shop_by_tags_title":"Shop By Brand","shop_by_tags_list":"City Chic, Fendi,Givenchy,Quick Shop, Colovos"}}},"block_order":["1532691143949","1532691155557","1532691199456"],"settings":{"enable_sidebar_multiple_choice":true}},"sidebar-bestsellers":{"type":"sidebar-bestsellers","settings":{"show_best_products":true,"title":"Best Sellers","bestseller":"frontpage","limi":"4"}},"sidebar-banner":{"type":"sidebar-banner","blocks":{"1526968609733":{"type":"content","settings":{"promo_link":"","promo_title":""}},"1526968636116":{"type":"content","settings":{"promo_link":"","promo_title":""}}},"block_order":["1526968609733","1526968636116"],"settings":{}},"top-bar":{"type":"top-bar","settings":{"display_top_bar":true,"display_minicart":true,"header_phone_value":"+91 099099090","header_mail_value":"info@thestarfeel.com","top_bar_bg":"#000000","top_bar_text":"#ffffff","top_bar_links":"#ffffff","top_bar_link_hover":"#ffc300","top_border_between_bars":"#e4e4e4","border_between_bars":"#e4e4e4","currency_icon":"#ffffff","currency_icon_hover":"#58c5c7","currency_bg":"#000000","currency_link":"#ffffff","count_bg":"#ffc300","minicart_icon":"#ffffff","count_hover_bg":"#f5f5f5","minicart_icon_hover":"#ffffff","minicart_bg":"#000000","minicart_text":"#000000","minicart_link":"#000000","minicart_link_hover":"#ffc300","minicart_btn_bg":"#f4f4f4","minicart_btn_hover_bg":"#ffc300","minicart_btn_text":"#ffffff","minicart_btn_hover_text":"#ffffff","minicart_total":"#ffc300"}},"1528447673329":{"type":"grid-banner-type-2","blocks":{"1528447673329-0":{"type":"Image","settings":{"image_1":"shopify:\/\/shop_images\/dragon_ball.jpg","title_1":"Animated","title_1_clr":"#ffffff","text_1":"Custom Design Posters","text_1_clr":"#ffffff","button_1":"Shop Now","button_1_txt_clr":"#ffffff","button_1_bg_clr":"#000000","button_1_bg_hover_clr":"#ffc300","button_1_text_hover_clr":"#000000","overlay_1":true,"overlay_bgcolor_1":"#ffc300","link_1":""}},"1528447673329-1":{"type":"Image","settings":{"image_1":"shopify:\/\/shop_images\/create_animated_and_superheros_posters_1.jpg","title_1":"Super Hero","title_1_clr":"#ffffff","text_1":"Lorem ipsum dolor sit amet conse","text_1_clr":"#ffffff","button_1":"Shop Now","button_1_txt_clr":"#ffffff","button_1_bg_clr":"#000000","button_1_bg_hover_clr":"#ffc300","button_1_text_hover_clr":"#000000","overlay_1":true,"overlay_bgcolor_1":"#ffc300","link_1":""}},"1528447673329-2":{"type":"Image","settings":{"image_1":"shopify:\/\/shop_images\/create_animated_and_superheros_posters_2.jpg","title_1":"Explore more","title_1_clr":"#ffffff","text_1":"Lorem ipsum dolor sit amet conse","text_1_clr":"#ffffff","button_1":"Shop Now","button_1_txt_clr":"#ffffff","button_1_bg_clr":"#000000","button_1_bg_hover_clr":"#ffc300","button_1_text_hover_clr":"#000000","overlay_1":true,"overlay_bgcolor_1":"#ffc300","link_1":"shopify:\/\/collections\/all"}},"1528447673329-3":{"type":"Image","settings":{"image_1":"shopify:\/\/shop_images\/create_animated_and_superheros_posters.jpg","title_1":"Premium design","title_1_clr":"#ffffff","text_1":"Lorem ipsum dolor sit amet conse","text_1_clr":"#ffffff","button_1":"Shop Now","button_1_txt_clr":"#ffffff","button_1_bg_clr":"#000000","button_1_bg_hover_clr":"#ffc300","button_1_text_hover_clr":"#000000","overlay_1":true,"overlay_bgcolor_1":"#ffc300","link_1":""}},"1528447673329-4":{"type":"Image","settings":{"image_1":"shopify:\/\/shop_images\/make_vegita_and_goku_fight.jpg","title_1":"Canvas artwork","title_1_clr":"#ffffff","text_1":"Lorem ipsum dolor sit amet conse","text_1_clr":"#ffffff","button_1":"Shop Now","button_1_txt_clr":"#ffffff","button_1_bg_clr":"#000000","button_1_bg_hover_clr":"#ffc300","button_1_text_hover_clr":"#000000","overlay_1":true,"overlay_bgcolor_1":"#ffc300","link_1":""}}},"block_order":["1528447673329-0","1528447673329-1","1528447673329-2","1528447673329-3","1528447673329-4"],"settings":{}},"1528450241129":{"type":"product-tab-type-2","blocks":{"1528450241129-0":{"type":"text_block","settings":{"title":"Featured","collection":"marvel-edition"}},"1528450315125":{"type":"text_block","settings":{"title":"Latest","collection":"newly-listed"}},"1528450326864":{"type":"text_block","settings":{"title":"Best sellers","collection":"best-seller"}}},"block_order":["1528450241129-0","1528450315125","1528450326864"],"settings":{"heading_image_need":true,"title":"New arrivals","title_color":"#ffffff","small_title":"Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim","small_title_color":"#ffffff","tag_clr":"#ffffff","tag_hover_clr":"#ffc300","tag_border_clr":"#ffc300"}},"1528452370518":{"type":"home-product-grid-type-12-b","settings":{"heading_image_need":true,"title":"Special products","title_color":"#000000","small_title":"Pellentesque posuere orci lobortis scelerisque","small_title_color":"#ffffff","arrow_text_clr":"#ffffff","arrow_text_hover_clr":"#ffc300","collection":"best-seller","items":"4"}},"1528693112499":{"type":"progress-bar","blocks":{"1528693112499-0":{"type":"text","settings":{"heading":"Already Sold","value":"499"}},"1528693112499-1":{"type":"text","settings":{"heading":"Pre Orders","value":"125"}},"1528693112499-2":{"type":"text","settings":{"heading":"Only for Orders over($)","value":"100"}}},"block_order":["1528693112499-0","1528693112499-1","1528693112499-2"],"custom_css":["a {border: 2px solid black; transition: ease-in-out 0.5s;}","a:hover {background-color: white;}"],"settings":{"bg_color":"#ffc300","title":"New Collections","title_color":"#4a4a4a","title_1":"Crafts Work By Handi Mart","title_1_clr":"#4a4a4a","text_1":"Sed mauris Pellentesque elit Aliquam at lacus interdum nascetur elit ipsum. Enim ipsum hendrerit at eleifend ps mi elit Aenean porta ac sed faucibus. Nunc urna Morbi fringilla vitae orci...","text_1_clr":"#4a4a4a","button_1":"Shop Now","link_1":"shopify:\/\/blogs\/news","image_bg":"shopify:\/\/shop_images\/44.jpg"}},"about":{"type":"about","blocks":{"1497855891641":{"type":"text","settings":{"team_6_image":"shopify:\/\/shop_images\/img-13_dd9b1037-e7c5-40e6-96eb-281414fab016.jpg","team_title":"Elizabeth Boris","team_titlecolor":"#000","team_subtitle":"Store Manager","team_subtitlecolor":"#000","social_1_icon":"fa fa-twitter","social_2_icon":"fa fa-facebook","social_3_icon":"fa fa-google-plus","social_4_icon":"fa fa-linkedin"}},"1498538085057":{"type":"text","settings":{"team_6_image":"shopify:\/\/shop_images\/img-14.jpg","team_title":"Emi Abinaya","team_titlecolor":"#000","team_subtitle":"Customer Care","team_subtitlecolor":"#000","social_1_icon":"fa fa-twitter","social_2_icon":"fa fa-facebook","social_3_icon":"fa fa-google-plus","social_4_icon":"fa fa-linkedin"}},"1498538074954":{"type":"text","settings":{"team_6_image":"shopify:\/\/shop_images\/img-15.jpg","team_title":"Tasha Elliott","team_titlecolor":"#000","team_subtitle":"Online Billing","team_subtitlecolor":"#000","social_1_icon":"fa fa-twitter","social_2_icon":"fa fa-facebook","social_3_icon":"fa fa-google-plus","social_4_icon":"fa fa-linkedin"}},"1532950154704":{"type":"text","settings":{"team_6_image":"shopify:\/\/shop_images\/enqpmdg2_88955533-e27c-4ac0-bafd-bbfa35ed2282.jpg","team_title":"Gabrielle David","team_titlecolor":"#000","team_subtitle":"Supporter","team_subtitlecolor":"#000","social_1_icon":"fa fa-twitter","social_2_icon":"fa fa-facebook","social_3_icon":"fa fa-pinterest","social_4_icon":"fa fa-instagram"}}},"block_order":["1497855891641","1498538085057","1498538074954","1532950154704"],"settings":{"title_border_color":"#58c5c7","btn_bg_color":"#58c5c7","btn_txt_color":"#ffffff","show_1_section":true,"show_1_leftsection":true,"block_5_heading":"THE BRANDS THAT RULE...","block_5_heading_color":"#000","block_5_headingborder_color":"#000","block_5_description":"Your Passion is Handi Mart Product","block_5_description_color":"#000","block_5_maindesc":"Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus.Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus. Curabitur ullamcorper ultricies nisi.\n\nultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus. eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus.","block_5_maindesc_color":"#000","block_5_subdesc":"ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus. eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus.","block_5_subdesc_color":"#000","block_5_icon_1_desc":"Latest Designs","block_5_icon_2_desc":"Brands that Matter","block_5_icon_3_desc":"Quality that Inspires","block_5_icon_description_color":"#000","right_img":"shopify:\/\/shop_images\/img-1_873cb5dd-abdf-4dc4-9f4f-e59c590e172b.jpg","show_block_two":true,"block_1_heading":"what we","block_1_heading_color":"#000","block_1_halfheading":"are doing","block_1_seheading_color":"#58c5c7","block_1_description":"Includes Business as well as Professionals","block_1_description_color":"#000000","show_1_icon":true,"icon_1_class":"fa fa-users","icon_1_class_color":"#ffffff","icon_1_title":"Experts in ecommerce","icon_1_title_color":"#000","icon_1_desc":"Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.","icon_1_desc_color":"#000","show_2_icon":true,"icon_2_class":"fa fa-gift","icon_2_class_color":"#ffffff","icon_2_title":"Product Customization","icon_2_title_color":"#000","icon_2_desc":"Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.","icon_2_desc_color":"#000","show_3_icon":true,"icon_3_class":"fa fa-money","icon_3_class_color":"#ffffff","icon_3_title":"Branded Product","icon_3_title_color":"#000","icon_3_desc":"Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.","icon_3_desc_color":"#000","show_4_icon":true,"icon_4_class":"fa fa-pagelines","icon_4_class_color":"#ffffff","icon_4_title":"Support for Clients","icon_4_title_color":"#000","icon_4_desc":"Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.","icon_4_desc_color":"#000","show_5_icon":true,"icon_5_class":"fa fa-globe","icon_5_class_color":"#ffffff","icon_5_title":"Online Marketing","icon_5_title_color":"#000","icon_5_desc":"Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.","icon_5_desc_color":"#000","show_6_icon":true,"icon_6_class":"fa fa-cog","icon_6_class_color":"#ffffff","icon_6_title":"End to end solution","icon_6_title_color":"#000","icon_6_desc":"Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.","icon_6_desc_color":"#000","icon_1_link":"market reasearching","block_1_iconborder":"#58c5c7","block_1_iconbg":"#e8e8e8","block_1_icontitleborder":"#e8e8e8","block_1_iconhover":"#58c5c7","block_1_icontxthover":"#ffffff","show_block_three":true,"block_3_bg":"#333333","block_3_title":"Try our product","block_3_title_color":"#ffffff","block_3_halftitle":"And make your life different","block_3_setitle_color":"#58c5c7","txt_block":"Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.","txt_block_color":"#ffffff","txt_button":"View help videos","txt_link":"#","txt_buttonbg":"#ffffff","txt_buttonbg_color":"#000000","show_block_four":true,"block_4_lefttitle":"frequently asked","block_4_lefttitlecolor":"#000000","block_4_halflefttitle":"questions","block_4_selefttitlecolor":"#58c5c7","toggle_iconbg":"#000000","toggle_iconcolor":"#ffffff","toggle_descbg":"#f9f9f9","toggle_titlebgcolor":"#58c5c7","toggle_titlecolor":"#ffffff","toggle_1_title":"What is a payment gateway?","toggle_1_desc":"Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales Includes Business as well as Professionals bibendum sodales, augue velit cursus","toggle_2_title":"Can I accept foreign currency?","toggle_2_desc":"Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales Includes Business as well as Professionals bibendum sodales, augue velit cursus","toggle_3_title":"What if the credit card is hotlisted?","toggle_3_desc":"Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales Includes Business as well as Professionals bibendum sodales, augue velit cursus","toggle_4_title":"How the repayment is done?","toggle_4_desc":"Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales Includes Business as well as Professionals bibendum sodales, augue velit cursus","block_4_righttitle":"Machine Packing","block_4_righttitlecolor":"#000000","block_4_halfrighttitle":"Automated","block_4_serighttitlecolor":"#58c5c7","video_btnbg":"#000000","video_btncolor":"#ffffff","video_link":"<iframe width=\"560\" height=\"455\" src=\"https:\/\/www.youtube.com\/embed\/cBALtpRrGhU\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen=\"\"><\/iframe>","show_block_five":true,"team_maintitle":"meet our","team_maintitlecolor":"#000","halfteam_maintitle":"professionals","team_semaintitlecolor":"#58c5c7","team_desc":"Experts in eCommerce business","team_desccolor":"#000","team_socialiconcolor":"#ffffff","team_socialiconbgcolor":"#000000","socialiconhovercolor":"#ffffff","socialiconhovebgrcolor":"#58c5c7","team_overlaybgcolor":"#ffffff"}},"1534164674241":{"type":"slideshow","blocks":{"1534241073047":{"type":"style_1","settings":{"image":"shopify:\/\/shop_images\/make_banners_like_this.jpg","mobile_image":"shopify:\/\/shop_images\/make_superhero_posters.jpg","mobile_bg_clr_use":true,"mobile_bg_clr":"#ffffff","subheading":"Handi Mark","subheading_color":"#fdfdfd","subheading_size":"50","title":"Art products","heading_color":"#000000","heading_size":"500","offer_text":"Flat <span>70%  <\/span>Off","offer_text_color":"#000000","offer_color":"#ffc300","offer_text_size":"36","button":"Shop Now","link":""}},"1534240615827":{"type":"style_1","settings":{"image":"shopify:\/\/shop_images\/make_banners_like_this_2.jpg","mobile_image":"shopify:\/\/shop_images\/make_goku_and_dragon_ball_posters.jpg","mobile_bg_clr_use":true,"mobile_bg_clr":"#ffffff","subheading":"creative","subheading_color":"#ffffff","subheading_size":"34","title":"statue products","heading_color":"#000000","heading_size":"42","offer_text":"Flat<span> 20%<\/span> off","offer_text_color":"#000000","offer_color":"#ffc300","offer_text_size":"36","button":"Shop Now","link":""}},"1534164684438":{"type":"style_1","settings":{"image":"shopify:\/\/shop_images\/make_banners_like_this_3.jpg","mobile_image":"shopify:\/\/shop_images\/make_vegita_and_goku_fight.jpg","mobile_bg_clr_use":false,"mobile_bg_clr":"#ffffff","subheading":"creative","subheading_color":"#ffffff","subheading_size":"34","title":"handi crafts","heading_color":"#000000","heading_size":"42","offer_text":"Flat <span>30%<\/span> Off","offer_text_color":"#000000","offer_color":"#ffc300","offer_text_size":"36","button":"Shop Now","link":""}}},"block_order":["1534241073047","1534240615827","1534164684438"],"custom_css":["a {color: black;}","a:hover {border: 2px solid white;}"],"settings":{"slideshow_speed":"5000","slideshow_transition":"false","navigation_color":"#ffc300"}}},"content_for_index":["1534164674241","1528447673329","1528450241129","1528452370518","1528693112499","1526549521259"]},"platform_customizations":{"custom_css":[]}}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "presets": {},
+  "current": {
+    "logo_use_image": true,
+    "logo_max_height": "100",
+    "favicon_enable": true,
+    "preloader_enable": false,
+    "base_font": "Google+Rajdhani",
+    "type_base_size": "16px",
+    "body_weight_size": "normal",
+    "text_spacing": "0",
+    "header_font": "Google+Oxygen",
+    "type_weight_size": "bold",
+    "type_uppercase": true,
+    "heading_spacing": "0",
+    "type_header_base_size": "50px",
+    "type_header_base_size_2": "36px",
+    "type_header_base_size_3": "30px",
+    "type_header_base_size_4": "20px",
+    "type_header_base_size_5": "18px",
+    "type_header_base_size_6": "16px",
+    "other_font": "Google+Oxygen",
+    "use_sticky_header": true,
+    "color_body_bg": "#000000",
+    "overlay_bg": "#000",
+    "color_borders": "#e5e5e5",
+    "black_borders": "#e5e5e5",
+    "color_primary": "#ffc300",
+    "color_primary_bg_clr": "rgba(0,0,0,0)",
+    "color_button_primary_text": "#ffffff",
+    "primary_hover_btn": "#ffc300",
+    "primary_hover_btn_text": "#000000",
+    "btn_border_radius": "30",
+    "color_sold": "#dcdcdc",
+    "color_sold_text": "#ffffff",
+    "sale_bg": "#11b00d",
+    "sale_button_text": "#ffffff",
+    "new_bg": "#11b00d",
+    "new_button_text": "#ffffff",
+    "offer_bg": "#11b00d",
+    "offer_button_text": "#ffffff",
+    "color_body_text": "#ffffff",
+    "link_color": "#ffffff",
+    "color_primary_color": "#ffc300",
+    "title_border": "rgba(0,0,0,0)",
+    "color_heading_type1_color": "#000000",
+    "color_heading_color": "#000000",
+    "overlay_use": false,
+    "product_overlay": "#000000",
+    "products_icon_bg": "#000000",
+    "products_icon_clr": "#ffffff",
+    "products_icon_hover_bg": "#ffc300",
+    "products_icon_hover_clr": "#ffffff",
+    "products_gutter": "10",
+    "products_border_radius": "0",
+    "products_border_full": false,
+    "products_full_border_width": "2",
+    "products_full_border": "#17313e",
+    "products_full_hover_border": "#ffc300",
+    "products_border_use": false,
+    "products_border_width": "2",
+    "products_border": "#fff",
+    "products_border_2": "#fff",
+    "products_det_bg": "rgba(0,0,0,0)",
+    "product_title_color": "#ffffff",
+    "product_title_hover_color": "#ffc300",
+    "product_price": "#ffffff",
+    "product_cmp_price": "#bcbcbc",
+    "product_vendor": "#bcbcbc",
+    "product_label_color": "#deb32b",
+    "sidebar_bg": "#ffc300",
+    "sidebar_text": "#ffffff",
+    "use_breadcrumb": true,
+    "breadcrumb_bg_image": false,
+    "breadcrumb_bg_color": "#080808",
+    "breadcrumb_text_color": "#ffffff",
+    "breadcrumb_text_hover_color": "#ffc300",
+    "top_to_btm": false,
+    "show_collection_image": true,
+    "collections_show_sale_circle": false,
+    "collections_show_sold_out_circle": false,
+    "offer_price_enable": false,
+    "collections_sort_enable": true,
+    "collections_items_enable": true,
+    "collections_show_new_circle": false,
+    "new_products_period": "",
+    "collections_view_enable": true,
+    "enable_quick_view": true,
+    "display_vendor": true,
+    "display_quickview_subtotal": true,
+    "enable_product_detail_link_icon": true,
+    "enable_add_cart": true,
+    "enable_compare": true,
+    "enable_wishlist": true,
+    "display_color_variant": false,
+    "product_review": true,
+    "display_flavour": true,
+    "flavour_txt": "Flavour",
+    "flavour_bg": "#000",
+    "flavour_color": "#ffffff",
+    "collection_grid": "4",
+    "collection_results_per_page": "12",
+    "collection_infinite_scrolling": true,
+    "collection_sidebar_use": "left_sidebar",
+    "enable_filters": true,
+    "filter_height": "200",
+    "display_availability": true,
+    "display_product_type": true,
+    "display_subtotal": true,
+    "display_vendor_type": "name",
+    "enable_color_swatch": true,
+    "color_tooltip": true,
+    "enable_linked_option": true,
+    "product_quantity_enable": false,
+    "payment_button": true,
+    "short_desc": true,
+    "product_tab1": true,
+    "product_tab1_heading": "Product Description",
+    "product_tab2": true,
+    "product_tab2_heading": "Reviews",
+    "product_tab3": true,
+    "product_tab3_heading": "Shipping Details",
+    "product_tab3_page": "shipping-details",
+    "product_related_enable": false,
+    "related_prds_heading": "",
+    "heading_image_need": false,
+    "related_prds_title": "",
+    "display_recently_viewed_products": true,
+    "recently_viewed_products_title": "Recently Viewed Products",
+    "number_of_recently_viewed_products": "8",
+    "use_custom_list_collection": false,
+    "list-collections": "",
+    "collection_btn_text": "Read More",
+    "cart_notes_enable": false,
+    "use_ajax_cart": true,
+    "cart_title_bg": "#000",
+    "cart_title_clr": "#ffffff",
+    "show_blog_4_content": true,
+    "show_blog_4_img": true,
+    "show_blog_4_author": true,
+    "show_blog_4_btn": false,
+    "show_blog_4_date": true,
+    "show_blog_4_tag": false,
+    "blog_design_4_title": "#000",
+    "blog_design_4_titlehover": "#ffc300",
+    "blog_design_4_datecolor": "#000",
+    "blog_design_4_authorcolor": "#000",
+    "blog_design_commentcolor": "#000",
+    "blog_design_4_tag": "#000000",
+    "blog_design_4_taghover": "#ffc300",
+    "enable_gmap": true,
+    "contact_iframe_code": "<iframe width=\"960\" height=\"578\" style=\"border:0;overflow:hidden;\" src=\"https://maps.google.co.in/?ie=UTF8&t=m&ll=-37.823006,144.977388&spn=0.02034,0.042915&z=14&output=embed\"></iframe>",
+    "enable_contact_section": true,
+    "contact_bg_img": true,
+    "contact_bg_color": "#ffffff",
+    "contact_module_contact_phonetitle": "Talk to us",
+    "contact_phone1": "<b>Toll-Free: </b> 0803 - 080 - 3081",
+    "contact_phone2": "<b>Fax: </b> 0803 - 080 - 3082",
+    "contact_module_contact_title": "Contact Us",
+    "contact_module_email": true,
+    "contact_module_email_1": "buddhathemes@somemail.com",
+    "contact_module_email2": "support@somemail.com",
+    "contact_phone": true,
+    "enable_contact_address": true,
+    "contact_module_address": true,
+    "contact_module_address_title": "Location",
+    "contact_module_address1": "No: 58 A, East Madison Street,",
+    "contact_module_address2": "Baltimore, MD, USA\r\n4508",
+    "display_popup_newsletter": false,
+    "pop_up_newsletter_img_show": false,
+    "popup_newsletter_bg": "#fff",
+    "popup_newsletter_title": "The Latest Offers",
+    "popup_newsletter_message": "Subscribe and get notified <br>\nat first on the latest update and offers!",
+    "popup_newsletter_text": "#4a4a4a",
+    "popup_newsletter_form": "#fff",
+    "popup_newsletter_form_txt": "#000",
+    "form_note": "",
+    "newsletter_form_action": "",
+    "count_down_enable": false,
+    "count_down_home": false,
+    "count_down_collections": false,
+    "count_down_prodetails": false,
+    "prodetail_deal_label": false,
+    "prodetail_deal_heading": "Off Ends on",
+    "home_productdeal_time": "",
+    "dealbtn": "#000",
+    "dealbtn_text": "#fff",
+    "social_twitter_link": "#",
+    "social_facebook_link": "#",
+    "social_pinterest_link": "#",
+    "social_google_plus_link": "#",
+    "social_instagram_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "social_fancy_link": "",
+    "social_rss_link": "",
+    "social_sharing_products": true,
+    "social_sharing_blog": true,
+    "social_sharing_count": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "share_google": true,
+    "social_sharing_style": "normal",
+    "collection_suggest": "",
+    "display_index": true,
+    "display_product": true,
+    "display_collection": false,
+    "display_article": false,
+    "display_blog": false,
+    "display_cart": false,
+    "interval_time": "15000",
+    "show_close_suggest": false,
+    "display_currency": true,
+    "currency_1_unit": "USD",
+    "currency_2_unit": "EUR",
+    "currency_3_unit": "GBP",
+    "currency_4_unit": "AUD",
+    "currency_5_unit": "INR",
+    "currency_6_unit": "JPY",
+    "currency_7_unit": "CAD",
+    "currency_8_unit": "CNY",
+    "currency_9_unit": "AED",
+    "currency_10_unit": "RUB",
+    "password_bg_img": false,
+    "password_logo": false,
+    "pwd_logo_max_width": "100",
+    "pwd_header": "Opening Soon",
+    "pwd_show_share_buttons": true,
+    "pwd_social_message": "Spread the word",
+    "pwd_newsletter_enable": true,
+    "pwd_newsletter_form_heading": "Be the first to know when we launch.",
+    "pwd_newsletter_placeholder": "Email address",
+    "pwd_newsletter_button_text": "Notify me",
+    "checkout_header_image": "",
+    "checkout_use_storefront_logo": false,
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#58c5c7",
+    "checkout_button_color": "#58c5c7",
+    "checkout_error_color": "#e32c2b",
+    "show_blog_sidebar": true,
+    "show_recent_articles": true,
+    "show_recent_articles_img": true,
+    "blog_article_limit": "",
+    "show_blog_tags": true,
+    "show_blog_instagram": true,
+    "show_featured_products": true,
+    "show_footer_tweets": false,
+    "tweet_heading": "",
+    "tweet_embcode": "",
+    "product_page_sidebar": "left_sidebar",
+    "links_style_1": "style_1",
+    "product_style_1": "style_1",
+    "images_style_1": "style_1",
+    "single_product_layout_type": "layout_style_1",
+    "button_style_1": "style_1",
+    "blog_page_sidebar": "left_sidebar",
+    "blog_btn_sec_bg": "#000000",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "display_search": true,
+          "logo_bar_bg": "#000000",
+          "logo_text": "#ffffff",
+          "logo_hover_text": "#ffc300",
+          "search_bg": "#ffc300",
+          "search_btn_bg": "#000000",
+          "search_btn_text": "#ffffff",
+          "search_btn_text_hvr": "#ffffff",
+          "search_bg_hover": "#ffc300",
+          "search_text": "#ffffff",
+          "ship_1_title": "free delivery order over Rs.100",
+          "ship_1_subtitle": "",
+          "ship_2_title": "",
+          "ship_2_subtitle": "",
+          "shipping_title_clr": "#ffffff",
+          "shipping_subtitle_clr": "#848484",
+          "menubar_bg": "#000000",
+          "menubar_links": "#fafafa",
+          "menubar_links_hover": "#ffc300",
+          "menu_active": "#ffc300",
+          "menubar_dropdown_bg": "#000000",
+          "menubar_dropdown_caption": "#ffffff",
+          "menubar_dropdown_caption_hover": "#ffc300",
+          "menubar_dropdown_links": "#ffffff",
+          "menubar_dropdown_links_hover": "#ffc300"
+        }
+      },
+      "navigation": {
+        "type": "navigation",
+        "blocks": {
+          "1527828499407": {
+            "type": "style_1",
+            "settings": {
+              "title": "Menu - Style 1",
+              "megamenu_items_1": "Pottery",
+              "main_linklist_1": "",
+              "link_banner_first_style_1": ""
+            }
+          },
+          "1527857486005": {
+            "type": "style_4",
+            "settings": {
+              "title": "Menu - Style 4",
+              "megamenu_items_4": "Painting",
+              "main_linklist_4": ""
+            }
+          },
+          "1527857491188": {
+            "type": "style_2",
+            "settings": {
+              "title": "Menu - Style 2",
+              "megamenu_items_2": "Home Decor",
+              "main_linklist_2": "",
+              "link_banner_second_style_2": "",
+              "link_banner_third_style_2": "",
+              "link_banner_first_style_2": ""
+            }
+          },
+          "1527857494578": {
+            "type": "style_3",
+            "settings": {
+              "title": "Menu - Style 3",
+              "megamenu_items_3": "Sculpture",
+              "main_linklist_3": "",
+              "title_featured_product_3": "",
+              "featured_product_3": "ancient-shoot-gun",
+              "link_banner_first_style_3": ""
+            }
+          },
+          "1527857496480": {
+            "type": "style_5",
+            "settings": {
+              "title": "Menu - Style 5",
+              "megamenu_items_5": "Shop",
+              "main_linklist_5": "",
+              "link_banner_first_style_5": "",
+              "link_banner_second_style_5": ""
+            }
+          }
+        },
+        "block_order": [
+          "1527828499407",
+          "1527857486005",
+          "1527857491188",
+          "1527857494578",
+          "1527857496480"
+        ],
+        "custom_css": [],
+        "settings": {
+          "display_megamenu": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "bg_color": "#333333",
+          "footer_logo_enable": true,
+          "footer_logo": "shopify://shop_images/i_have_a_artwork_brand_which_create_canvas_posters_and_i_have_to_create_a_logo_for_it_make_a_logo_for_brand_name__TheStarFeel.jpg",
+          "footer_text": "#ffffff",
+          "use_footer_bottom": true,
+          "footer_bottom_text": "#ffffff",
+          "footer_bottom_text_hover": "#ffc300",
+          "footer_menu_4": "main-menu",
+          "footer_social_enable": true,
+          "footer_social_link": "#4a4a4a",
+          "footer_social_link_hover": "#ffffff",
+          "footer_social_link_border": "#ffffff",
+          "footer_social_link_hover_border": "#ffc300",
+          "footer_social_link_bg": "#ffffff",
+          "footer_social_link_hover_bg": "#ffc300",
+          "footer_show_methods_of_payment": true,
+          "payment_icon_1": "shopify://shop_images/fe4edf34-a01d-40bd-8c1a-3010efa87f44_e0e6b780-592e-44bf-9d22-9eaae368d2c4.png",
+          "payment_icon_2": "shopify://shop_images/1a8f2484-db60-44de-a6ad-3dc6d7373468.png",
+          "payment_icon_3": "shopify://shop_images/paypal_icon_size_57x35_b8b7d30c-08a3-4141-9ccb-927a8f846020.jpg",
+          "show_powered_by": true,
+          "copyright": "Copyright © 2018, Handi Mart",
+          "copyright_bg": "#000000",
+          "copyright_text": "#ffffff",
+          "copyright_link": "#ffffff",
+          "copyright_link_hover": "#ffc300"
+        }
+      },
+      "1526549521259": {
+        "type": "blog-post-type-4",
+        "settings": {
+          "heading_image_need": true,
+          "title": "Journal",
+          "title_color": "#000000",
+          "small_title": "Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.",
+          "small_title_color": "#ffffff",
+          "title_clr": "#ffffff",
+          "title_hover_clr": "#ffc300",
+          "pick_featured_blog": "news",
+          "show_featured_date": true,
+          "date_color": "#ffffff",
+          "blog_date_clr": "#ffc300",
+          "blog_author_enable": true,
+          "blog_author_text": "#ffffff",
+          "blog_comment": true,
+          "blog_comment_text": "#000000",
+          "blog_description": false,
+          "blog_desc_clr": "#4a4a4a",
+          "btn": ""
+        }
+      },
+      "sidebar-category": {
+        "type": "sidebar-category",
+        "settings": {
+          "enable_sidecategory": true,
+          "linkedlist": "footer",
+          "linkedlist_title": "Category"
+        }
+      },
+      "sidebar-colors": {
+        "type": "sidebar-colors",
+        "blocks": {
+          "image_tdqKy8": {
+            "type": "image",
+            "settings": {
+              "title": ""
+            }
+          },
+          "1532690944635": {
+            "type": "image",
+            "settings": {
+              "title": "Pink"
+            }
+          },
+          "image_cMe6UQ": {
+            "type": "image",
+            "settings": {
+              "title": ""
+            }
+          },
+          "1532690960932": {
+            "type": "image",
+            "settings": {
+              "title": "Black"
+            }
+          },
+          "1532690971286": {
+            "type": "image",
+            "settings": {
+              "title": "Brown"
+            }
+          },
+          "1532690981566": {
+            "type": "image",
+            "settings": {
+              "title": "Green"
+            }
+          },
+          "1532690997525": {
+            "type": "image",
+            "settings": {
+              "title": "Grey"
+            }
+          },
+          "1532691012143": {
+            "type": "image",
+            "settings": {
+              "title": "Silver"
+            }
+          },
+          "1532691027818": {
+            "type": "image",
+            "settings": {
+              "title": "Gold"
+            }
+          },
+          "1532691041412": {
+            "type": "image",
+            "settings": {
+              "title": "Golden"
+            }
+          },
+          "1532691103078": {
+            "type": "image",
+            "settings": {
+              "title": "Blue"
+            }
+          },
+          "1532691121727": {
+            "type": "image",
+            "settings": {
+              "title": "Sandal"
+            }
+          }
+        },
+        "block_order": [
+          "image_tdqKy8",
+          "1532690944635",
+          "image_cMe6UQ",
+          "1532690960932",
+          "1532690971286",
+          "1532690981566",
+          "1532690997525",
+          "1532691012143",
+          "1532691027818",
+          "1532691041412",
+          "1532691103078",
+          "1532691121727"
+        ],
+        "settings": {
+          "enable_sidebar_multiple_choice": true,
+          "enable_shop_by_tags_1": true,
+          "shop_by_tags_1_title": "Shop By Color"
+        }
+      },
+      "sidebar-tag-filters": {
+        "type": "sidebar-tag-filters",
+        "blocks": {
+          "1532691143949": {
+            "type": "text",
+            "settings": {
+              "enable_shop_by_tags": true,
+              "shop_by_tags_title": "Shop By Size",
+              "shop_by_tags_list": "18x24,24x36,36x48"
+            }
+          },
+          "1532691155557": {
+            "type": "text",
+            "settings": {
+              "enable_shop_by_tags": true,
+              "shop_by_tags_title": "Shop By Price",
+              "shop_by_tags_list": "$100 - $200, $200 - $300, $300 - $500, $500 - $700, $700 - $1000"
+            }
+          },
+          "1532691199456": {
+            "type": "text",
+            "settings": {
+              "enable_shop_by_tags": true,
+              "shop_by_tags_title": "Shop By Brand",
+              "shop_by_tags_list": "City Chic, Fendi,Givenchy,Quick Shop, Colovos"
+            }
+          }
+        },
+        "block_order": [
+          "1532691143949",
+          "1532691155557",
+          "1532691199456"
+        ],
+        "settings": {
+          "enable_sidebar_multiple_choice": true
+        }
+      },
+      "sidebar-bestsellers": {
+        "type": "sidebar-bestsellers",
+        "settings": {
+          "show_best_products": true,
+          "title": "Best Sellers",
+          "bestseller": "frontpage",
+          "limi": "4"
+        }
+      },
+      "sidebar-banner": {
+        "type": "sidebar-banner",
+        "blocks": {
+          "1526968609733": {
+            "type": "content",
+            "settings": {
+              "promo_link": "",
+              "promo_title": ""
+            }
+          },
+          "1526968636116": {
+            "type": "content",
+            "settings": {
+              "promo_link": "",
+              "promo_title": ""
+            }
+          }
+        },
+        "block_order": [
+          "1526968609733",
+          "1526968636116"
+        ],
+        "settings": {}
+      },
+      "top-bar": {
+        "type": "top-bar",
+        "settings": {
+          "display_top_bar": true,
+          "display_minicart": true,
+          "header_phone_value": "+91 099099090",
+          "header_mail_value": "info@thestarfeel.com",
+          "top_bar_bg": "#000000",
+          "top_bar_text": "#ffffff",
+          "top_bar_links": "#ffffff",
+          "top_bar_link_hover": "#ffc300",
+          "top_border_between_bars": "#e4e4e4",
+          "border_between_bars": "#e4e4e4",
+          "currency_icon": "#ffffff",
+          "currency_icon_hover": "#58c5c7",
+          "currency_bg": "#000000",
+          "currency_link": "#ffffff",
+          "count_bg": "#ffc300",
+          "minicart_icon": "#ffffff",
+          "count_hover_bg": "#f5f5f5",
+          "minicart_icon_hover": "#ffffff",
+          "minicart_bg": "#000000",
+          "minicart_text": "#000000",
+          "minicart_link": "#000000",
+          "minicart_link_hover": "#ffc300",
+          "minicart_btn_bg": "#f4f4f4",
+          "minicart_btn_hover_bg": "#ffc300",
+          "minicart_btn_text": "#ffffff",
+          "minicart_btn_hover_text": "#ffffff",
+          "minicart_total": "#ffc300"
+        }
+      },
+      "1528447673329": {
+        "type": "grid-banner-type-2",
+        "blocks": {
+          "1528447673329-0": {
+            "type": "Image",
+            "settings": {
+              "image_1": "shopify://shop_images/dragon_ball.jpg",
+              "title_1": "Animated",
+              "title_1_clr": "#ffffff",
+              "text_1": "Custom Design Posters",
+              "text_1_clr": "#ffffff",
+              "button_1": "Shop Now",
+              "button_1_txt_clr": "#ffffff",
+              "button_1_bg_clr": "#000000",
+              "button_1_bg_hover_clr": "#ffc300",
+              "button_1_text_hover_clr": "#000000",
+              "overlay_1": true,
+              "overlay_bgcolor_1": "#ffc300",
+              "link_1": ""
+            }
+          },
+          "1528447673329-1": {
+            "type": "Image",
+            "settings": {
+              "image_1": "shopify://shop_images/create_animated_and_superheros_posters_1.jpg",
+              "title_1": "Super Hero",
+              "title_1_clr": "#ffffff",
+              "text_1": "Lorem ipsum dolor sit amet conse",
+              "text_1_clr": "#ffffff",
+              "button_1": "Shop Now",
+              "button_1_txt_clr": "#ffffff",
+              "button_1_bg_clr": "#000000",
+              "button_1_bg_hover_clr": "#ffc300",
+              "button_1_text_hover_clr": "#000000",
+              "overlay_1": true,
+              "overlay_bgcolor_1": "#ffc300",
+              "link_1": ""
+            }
+          },
+          "1528447673329-2": {
+            "type": "Image",
+            "settings": {
+              "image_1": "shopify://shop_images/create_animated_and_superheros_posters_2.jpg",
+              "title_1": "Explore more",
+              "title_1_clr": "#ffffff",
+              "text_1": "Lorem ipsum dolor sit amet conse",
+              "text_1_clr": "#ffffff",
+              "button_1": "Shop Now",
+              "button_1_txt_clr": "#ffffff",
+              "button_1_bg_clr": "#000000",
+              "button_1_bg_hover_clr": "#ffc300",
+              "button_1_text_hover_clr": "#000000",
+              "overlay_1": true,
+              "overlay_bgcolor_1": "#ffc300",
+              "link_1": "shopify://collections/all"
+            }
+          },
+          "1528447673329-3": {
+            "type": "Image",
+            "settings": {
+              "image_1": "shopify://shop_images/create_animated_and_superheros_posters.jpg",
+              "title_1": "Premium design",
+              "title_1_clr": "#ffffff",
+              "text_1": "Lorem ipsum dolor sit amet conse",
+              "text_1_clr": "#ffffff",
+              "button_1": "Shop Now",
+              "button_1_txt_clr": "#ffffff",
+              "button_1_bg_clr": "#000000",
+              "button_1_bg_hover_clr": "#ffc300",
+              "button_1_text_hover_clr": "#000000",
+              "overlay_1": true,
+              "overlay_bgcolor_1": "#ffc300",
+              "link_1": ""
+            }
+          },
+          "1528447673329-4": {
+            "type": "Image",
+            "settings": {
+              "image_1": "shopify://shop_images/make_vegita_and_goku_fight.jpg",
+              "title_1": "Canvas artwork",
+              "title_1_clr": "#ffffff",
+              "text_1": "Lorem ipsum dolor sit amet conse",
+              "text_1_clr": "#ffffff",
+              "button_1": "Shop Now",
+              "button_1_txt_clr": "#ffffff",
+              "button_1_bg_clr": "#000000",
+              "button_1_bg_hover_clr": "#ffc300",
+              "button_1_text_hover_clr": "#000000",
+              "overlay_1": true,
+              "overlay_bgcolor_1": "#ffc300",
+              "link_1": ""
+            }
+          }
+        },
+        "block_order": [
+          "1528447673329-0",
+          "1528447673329-1",
+          "1528447673329-2",
+          "1528447673329-3",
+          "1528447673329-4"
+        ],
+        "settings": {}
+      },
+      "1528450241129": {
+        "type": "product-tab-type-2",
+        "blocks": {
+          "1528450241129-0": {
+            "type": "text_block",
+            "settings": {
+              "title": "Featured",
+              "collection": "marvel-edition"
+            }
+          },
+          "1528450315125": {
+            "type": "text_block",
+            "settings": {
+              "title": "Latest",
+              "collection": "newly-listed"
+            }
+          },
+          "1528450326864": {
+            "type": "text_block",
+            "settings": {
+              "title": "Best sellers",
+              "collection": "best-seller"
+            }
+          }
+        },
+        "block_order": [
+          "1528450241129-0",
+          "1528450315125",
+          "1528450326864"
+        ],
+        "settings": {
+          "heading_image_need": true,
+          "title": "New arrivals",
+          "title_color": "#ffffff",
+          "small_title": "Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim",
+          "small_title_color": "#ffffff",
+          "tag_clr": "#ffffff",
+          "tag_hover_clr": "#ffc300",
+          "tag_border_clr": "#ffc300"
+        }
+      },
+      "1528452370518": {
+        "type": "home-product-grid-type-12-b",
+        "settings": {
+          "heading_image_need": true,
+          "title": "Special products",
+          "title_color": "#000000",
+          "small_title": "Pellentesque posuere orci lobortis scelerisque",
+          "small_title_color": "#ffffff",
+          "arrow_text_clr": "#ffffff",
+          "arrow_text_hover_clr": "#ffc300",
+          "collection": "best-seller",
+          "items": "4"
+        }
+      },
+      "1528693112499": {
+        "type": "progress-bar",
+        "blocks": {
+          "1528693112499-0": {
+            "type": "text",
+            "settings": {
+              "heading": "Already Sold",
+              "value": "499"
+            }
+          },
+          "1528693112499-1": {
+            "type": "text",
+            "settings": {
+              "heading": "Pre Orders",
+              "value": "125"
+            }
+          },
+          "1528693112499-2": {
+            "type": "text",
+            "settings": {
+              "heading": "Only for Orders over($)",
+              "value": "100"
+            }
+          }
+        },
+        "block_order": [
+          "1528693112499-0",
+          "1528693112499-1",
+          "1528693112499-2"
+        ],
+        "custom_css": [
+          "a {border: 2px solid black; transition: ease-in-out 0.5s;}",
+          "a:hover {background-color: white;}"
+        ],
+        "settings": {
+          "bg_color": "#ffc300",
+          "title": "New Collections",
+          "title_color": "#4a4a4a",
+          "title_1": "Crafts Work By Handi Mart",
+          "title_1_clr": "#4a4a4a",
+          "text_1": "Sed mauris Pellentesque elit Aliquam at lacus interdum nascetur elit ipsum. Enim ipsum hendrerit at eleifend ps mi elit Aenean porta ac sed faucibus. Nunc urna Morbi fringilla vitae orci...",
+          "text_1_clr": "#4a4a4a",
+          "button_1": "Shop Now",
+          "link_1": "shopify://blogs/news",
+          "image_bg": "shopify://shop_images/44.jpg"
+        }
+      },
+      "about": {
+        "type": "about",
+        "blocks": {
+          "1497855891641": {
+            "type": "text",
+            "settings": {
+              "team_6_image": "shopify://shop_images/img-13_dd9b1037-e7c5-40e6-96eb-281414fab016.jpg",
+              "team_title": "Elizabeth Boris",
+              "team_titlecolor": "#000",
+              "team_subtitle": "Store Manager",
+              "team_subtitlecolor": "#000",
+              "social_1_icon": "fa fa-twitter",
+              "social_2_icon": "fa fa-facebook",
+              "social_3_icon": "fa fa-google-plus",
+              "social_4_icon": "fa fa-linkedin"
+            }
+          },
+          "1498538085057": {
+            "type": "text",
+            "settings": {
+              "team_6_image": "shopify://shop_images/img-14.jpg",
+              "team_title": "Emi Abinaya",
+              "team_titlecolor": "#000",
+              "team_subtitle": "Customer Care",
+              "team_subtitlecolor": "#000",
+              "social_1_icon": "fa fa-twitter",
+              "social_2_icon": "fa fa-facebook",
+              "social_3_icon": "fa fa-google-plus",
+              "social_4_icon": "fa fa-linkedin"
+            }
+          },
+          "1498538074954": {
+            "type": "text",
+            "settings": {
+              "team_6_image": "shopify://shop_images/img-15.jpg",
+              "team_title": "Tasha Elliott",
+              "team_titlecolor": "#000",
+              "team_subtitle": "Online Billing",
+              "team_subtitlecolor": "#000",
+              "social_1_icon": "fa fa-twitter",
+              "social_2_icon": "fa fa-facebook",
+              "social_3_icon": "fa fa-google-plus",
+              "social_4_icon": "fa fa-linkedin"
+            }
+          },
+          "1532950154704": {
+            "type": "text",
+            "settings": {
+              "team_6_image": "shopify://shop_images/enqpmdg2_88955533-e27c-4ac0-bafd-bbfa35ed2282.jpg",
+              "team_title": "Gabrielle David",
+              "team_titlecolor": "#000",
+              "team_subtitle": "Supporter",
+              "team_subtitlecolor": "#000",
+              "social_1_icon": "fa fa-twitter",
+              "social_2_icon": "fa fa-facebook",
+              "social_3_icon": "fa fa-pinterest",
+              "social_4_icon": "fa fa-instagram"
+            }
+          }
+        },
+        "block_order": [
+          "1497855891641",
+          "1498538085057",
+          "1498538074954",
+          "1532950154704"
+        ],
+        "settings": {
+          "title_border_color": "#58c5c7",
+          "btn_bg_color": "#58c5c7",
+          "btn_txt_color": "#ffffff",
+          "show_1_section": true,
+          "show_1_leftsection": true,
+          "block_5_heading": "THE BRANDS THAT RULE...",
+          "block_5_heading_color": "#000",
+          "block_5_headingborder_color": "#000",
+          "block_5_description": "Your Passion is Handi Mart Product",
+          "block_5_description_color": "#000",
+          "block_5_maindesc": "Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus.Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus. Curabitur ullamcorper ultricies nisi.\n\nultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus. eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus.",
+          "block_5_maindesc_color": "#000",
+          "block_5_subdesc": "ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus. eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus.",
+          "block_5_subdesc_color": "#000",
+          "block_5_icon_1_desc": "Latest Designs",
+          "block_5_icon_2_desc": "Brands that Matter",
+          "block_5_icon_3_desc": "Quality that Inspires",
+          "block_5_icon_description_color": "#000",
+          "right_img": "shopify://shop_images/img-1_873cb5dd-abdf-4dc4-9f4f-e59c590e172b.jpg",
+          "show_block_two": true,
+          "block_1_heading": "what we",
+          "block_1_heading_color": "#000",
+          "block_1_halfheading": "are doing",
+          "block_1_seheading_color": "#58c5c7",
+          "block_1_description": "Includes Business as well as Professionals",
+          "block_1_description_color": "#000000",
+          "show_1_icon": true,
+          "icon_1_class": "fa fa-users",
+          "icon_1_class_color": "#ffffff",
+          "icon_1_title": "Experts in ecommerce",
+          "icon_1_title_color": "#000",
+          "icon_1_desc": "Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.",
+          "icon_1_desc_color": "#000",
+          "show_2_icon": true,
+          "icon_2_class": "fa fa-gift",
+          "icon_2_class_color": "#ffffff",
+          "icon_2_title": "Product Customization",
+          "icon_2_title_color": "#000",
+          "icon_2_desc": "Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.",
+          "icon_2_desc_color": "#000",
+          "show_3_icon": true,
+          "icon_3_class": "fa fa-money",
+          "icon_3_class_color": "#ffffff",
+          "icon_3_title": "Branded Product",
+          "icon_3_title_color": "#000",
+          "icon_3_desc": "Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.",
+          "icon_3_desc_color": "#000",
+          "show_4_icon": true,
+          "icon_4_class": "fa fa-pagelines",
+          "icon_4_class_color": "#ffffff",
+          "icon_4_title": "Support for Clients",
+          "icon_4_title_color": "#000",
+          "icon_4_desc": "Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.",
+          "icon_4_desc_color": "#000",
+          "show_5_icon": true,
+          "icon_5_class": "fa fa-globe",
+          "icon_5_class_color": "#ffffff",
+          "icon_5_title": "Online Marketing",
+          "icon_5_title_color": "#000",
+          "icon_5_desc": "Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.",
+          "icon_5_desc_color": "#000",
+          "show_6_icon": true,
+          "icon_6_class": "fa fa-cog",
+          "icon_6_class_color": "#ffffff",
+          "icon_6_title": "End to end solution",
+          "icon_6_title_color": "#000",
+          "icon_6_desc": "Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.",
+          "icon_6_desc_color": "#000",
+          "icon_1_link": "market reasearching",
+          "block_1_iconborder": "#58c5c7",
+          "block_1_iconbg": "#e8e8e8",
+          "block_1_icontitleborder": "#e8e8e8",
+          "block_1_iconhover": "#58c5c7",
+          "block_1_icontxthover": "#ffffff",
+          "show_block_three": true,
+          "block_3_bg": "#333333",
+          "block_3_title": "Try our product",
+          "block_3_title_color": "#ffffff",
+          "block_3_halftitle": "And make your life different",
+          "block_3_setitle_color": "#58c5c7",
+          "txt_block": "Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.",
+          "txt_block_color": "#ffffff",
+          "txt_button": "View help videos",
+          "txt_link": "#",
+          "txt_buttonbg": "#ffffff",
+          "txt_buttonbg_color": "#000000",
+          "show_block_four": true,
+          "block_4_lefttitle": "frequently asked",
+          "block_4_lefttitlecolor": "#000000",
+          "block_4_halflefttitle": "questions",
+          "block_4_selefttitlecolor": "#58c5c7",
+          "toggle_iconbg": "#000000",
+          "toggle_iconcolor": "#ffffff",
+          "toggle_descbg": "#f9f9f9",
+          "toggle_titlebgcolor": "#58c5c7",
+          "toggle_titlecolor": "#ffffff",
+          "toggle_1_title": "What is a payment gateway?",
+          "toggle_1_desc": "Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales Includes Business as well as Professionals bibendum sodales, augue velit cursus",
+          "toggle_2_title": "Can I accept foreign currency?",
+          "toggle_2_desc": "Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales Includes Business as well as Professionals bibendum sodales, augue velit cursus",
+          "toggle_3_title": "What if the credit card is hotlisted?",
+          "toggle_3_desc": "Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales Includes Business as well as Professionals bibendum sodales, augue velit cursus",
+          "toggle_4_title": "How the repayment is done?",
+          "toggle_4_desc": "Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales Includes Business as well as Professionals bibendum sodales, augue velit cursus",
+          "block_4_righttitle": "Machine Packing",
+          "block_4_righttitlecolor": "#000000",
+          "block_4_halfrighttitle": "Automated",
+          "block_4_serighttitlecolor": "#58c5c7",
+          "video_btnbg": "#000000",
+          "video_btncolor": "#ffffff",
+          "video_link": "<iframe width=\"560\" height=\"455\" src=\"https://www.youtube.com/embed/cBALtpRrGhU\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen=\"\"></iframe>",
+          "show_block_five": true,
+          "team_maintitle": "meet our",
+          "team_maintitlecolor": "#000",
+          "halfteam_maintitle": "professionals",
+          "team_semaintitlecolor": "#58c5c7",
+          "team_desc": "Experts in eCommerce business",
+          "team_desccolor": "#000",
+          "team_socialiconcolor": "#ffffff",
+          "team_socialiconbgcolor": "#000000",
+          "socialiconhovercolor": "#ffffff",
+          "socialiconhovebgrcolor": "#58c5c7",
+          "team_overlaybgcolor": "#ffffff"
+        }
+      },
+      "1534164674241": {
+        "type": "slideshow",
+        "blocks": {
+          "1534241073047": {
+            "type": "style_1",
+            "settings": {
+              "image": "shopify://shop_images/make_banners_like_this.jpg",
+              "mobile_image": "shopify://shop_images/make_superhero_posters.jpg",
+              "mobile_bg_clr_use": true,
+              "mobile_bg_clr": "#ffffff",
+              "subheading": "Handi Mark",
+              "subheading_color": "#fdfdfd",
+              "subheading_size": "50",
+              "title": "Art products",
+              "heading_color": "#000000",
+              "heading_size": "500",
+              "offer_text": "Flat <span>70%  </span>Off",
+              "offer_text_color": "#000000",
+              "offer_color": "#ffc300",
+              "offer_text_size": "36",
+              "button": "Shop Now",
+              "link": ""
+            }
+          },
+          "1534240615827": {
+            "type": "style_1",
+            "settings": {
+              "image": "shopify://shop_images/make_banners_like_this_2.jpg",
+              "mobile_image": "shopify://shop_images/make_goku_and_dragon_ball_posters.jpg",
+              "mobile_bg_clr_use": true,
+              "mobile_bg_clr": "#ffffff",
+              "subheading": "creative",
+              "subheading_color": "#ffffff",
+              "subheading_size": "34",
+              "title": "statue products",
+              "heading_color": "#000000",
+              "heading_size": "42",
+              "offer_text": "Flat<span> 20%</span> off",
+              "offer_text_color": "#000000",
+              "offer_color": "#ffc300",
+              "offer_text_size": "36",
+              "button": "Shop Now",
+              "link": ""
+            }
+          },
+          "1534164684438": {
+            "type": "style_1",
+            "settings": {
+              "image": "shopify://shop_images/make_banners_like_this_3.jpg",
+              "mobile_image": "shopify://shop_images/make_vegita_and_goku_fight.jpg",
+              "mobile_bg_clr_use": false,
+              "mobile_bg_clr": "#ffffff",
+              "subheading": "creative",
+              "subheading_color": "#ffffff",
+              "subheading_size": "34",
+              "title": "handi crafts",
+              "heading_color": "#000000",
+              "heading_size": "42",
+              "offer_text": "Flat <span>30%</span> Off",
+              "offer_text_color": "#000000",
+              "offer_color": "#ffc300",
+              "offer_text_size": "36",
+              "button": "Shop Now",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1534241073047",
+          "1534240615827",
+          "1534164684438"
+        ],
+        "custom_css": [
+          "a {color: black;}",
+          "a:hover {border: 2px solid white;}"
+        ],
+        "settings": {
+          "slideshow_speed": "5000",
+          "slideshow_transition": "false",
+          "navigation_color": "#ffc300"
+        }
+      },
+      "ai_consultation_cta_XJAmYw": {
+        "type": "ai-consultation-cta",
+        "name": "AI Consultation CTA",
+        "settings": {
+          "heading": "AI Space Consultation",
+          "subheading": "Get personalized space guidance and artwork designed for your intention."
+        }
+      }
+    },
+    "content_for_index": [
+      "1534164674241",
+      "1528447673329",
+      "1528450241129",
+      "1528452370518",
+      "1528693112499",
+      "1526549521259",
+      "ai_consultation_cta_XJAmYw"
+    ]
+  },
+  "platform_customizations": {
+    "custom_css": []
+  }
+}
